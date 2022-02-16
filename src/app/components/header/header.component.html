@@ -1,0 +1,9 @@
+<header class="d-flex flex-row py-2 px-3 m-0 w-100 align-items-center justify-content-sm-between bg-dark ">
+    <div class="col ">
+        <span class="text-light font display-5">Nahuel Coronel</span>
+     </div>
+     <div id="nav-icon-container" class=" col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 row row-cols-4 justify-content-sm-end align-content-start  ">
+        <app-buttons-and-login (activarForm)="cambiaLogin()" *ngIf="!loginActivado" class="w-auto"></app-buttons-and-login>
+        <app-login-form *ngIf="loginActivado" class="w-auto"></app-login-form>
+    </div>
+</header>

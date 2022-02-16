@@ -1,0 +1,54 @@
+{
+    "profile":{
+        "nombre":"Nahuel Coronel",
+        "current":"Estudiante de Ingeniera en Sistemas. UTN FRRO",
+        "location":"Rosario(Argentina)",
+        "bannerUrl":"../../../assets/profile/fotoBanner.jpg",
+        "profileUrl":"../../../assets/profile/fotoPerfil.jpg"
+    },
+    "about":{
+        "content":"Estudiante de 2do de Ingeniera en Sistemas de la Informacion. Cursando el Argentina Programa"
+    },
+    "educacion":[
+        {
+            "id":1,
+            "lugar":"UTN-Frro",
+            "estudio":"Ingenieria en Sistemas de la Informacion",
+            "desde":2020,
+            "hasta":0,
+            "logoUrl":"../../../../assets/educaciones/utn-frro.jpg"
+        },
+        {
+            "id":2,
+            "lugar":"FreeCodeCamp",
+            "estudio":"Responsive Web Design Certification",
+            "desde":2020,
+            "hasta":"",
+            "logoUrl":"../../../../assets/educaciones/fcc.png"
+        },
+        {
+            "id":3,
+            "lugar":"Colegio los Arrayanes",
+            "estudio":"Bachiller en Economia y Administracion",
+            "desde":2020,
+            "hasta":null,
+            "logoUrl":"../../../../assets/educaciones/arrayanes.jpg"
+        }        
+    ],
+    "experiencia":[
+        {
+            "lugar":"",
+            "cargo":"",
+            "desde":null,
+            "hasta":null,
+            "logoUrl":"",
+            "ubicacion":""
+        }  
+    ],
+    "proyectos":[
+        {
+            "titulo":"",
+            "descripcion":""
+        }
+    ]
+}
