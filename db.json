@@ -1,54 +1,100 @@
 {
-    "profile":{
-        "nombre":"Nahuel Coronel",
-        "current":"Estudiante de Ingeniera en Sistemas. UTN FRRO",
-        "location":"Rosario(Argentina)",
-        "bannerUrl":"../../../assets/profile/fotoBanner.jpg",
-        "profileUrl":"../../../assets/profile/fotoPerfil.jpg"
+  "profile": {
+    "nombre": "Nahuel Coronel",
+    "current": "Estudiante de Ingeniera en Sistemas. UTN FRRO",
+    "location": "Rosario(Argentina)",
+    "bannerUrl": "../../../assets/profile/fotoBanner.jpg",
+    "profileUrl": "../../../assets/profile/fotoPerfil.jpg"
+  },
+  "about": {
+    "content": "Estudiante de 2do de Ingeniera en Sistemas de la Informacion. Cursando el Argentina Programa"
+  },
+  "educaciones": [
+    {
+      "id": 1,
+      "institucion": "UTN-Frro",
+      "estudio": "Ingenieria en Sistemas de la Informacion",
+      "desde": {
+        "mes": 3,
+        "anio": 2020
+      },
+      "hasta": {
+        "mes": 0,
+        "anio": 0
+      },
+      "logoUrl": "../../../../assets/educaciones/utn-frro.jpg"
     },
-    "about":{
-        "content":"Estudiante de 2do de Ingeniera en Sistemas de la Informacion. Cursando el Argentina Programa"
+    {
+      "id": 2,
+      "institucion": "FreeCodeCamp",
+      "estudio": "Responsive Web Design Certification",
+      "desde": {
+        "mes": 9,
+        "anio": 2021
+      },
+      "hasta": {
+        "mes": 10,
+        "anio": 2021
+      },
+      "logoUrl": "../../../../assets/educaciones/fcc.png"
     },
-    "educacion":[
-        {
-            "id":1,
-            "lugar":"UTN-Frro",
-            "estudio":"Ingenieria en Sistemas de la Informacion",
-            "desde":2020,
-            "hasta":0,
-            "logoUrl":"../../../../assets/educaciones/utn-frro.jpg"
-        },
-        {
-            "id":2,
-            "lugar":"FreeCodeCamp",
-            "estudio":"Responsive Web Design Certification",
-            "desde":2020,
-            "hasta":"",
-            "logoUrl":"../../../../assets/educaciones/fcc.png"
-        },
-        {
-            "id":3,
-            "lugar":"Colegio los Arrayanes",
-            "estudio":"Bachiller en Economia y Administracion",
-            "desde":2020,
-            "hasta":null,
-            "logoUrl":"../../../../assets/educaciones/arrayanes.jpg"
-        }        
-    ],
-    "experiencia":[
-        {
-            "lugar":"",
-            "cargo":"",
-            "desde":null,
-            "hasta":null,
-            "logoUrl":"",
-            "ubicacion":""
-        }  
-    ],
-    "proyectos":[
-        {
-            "titulo":"",
-            "descripcion":""
-        }
-    ]
+    {
+      "id": 3,
+      "institucion": "Colegio los Arrayanes",
+      "estudio": "Bachiller en Economia y Administracion",
+      "desde": {
+        "mes": 0,
+        "anio": 2019
+      },
+      "hasta": {
+        "mes": 0,
+        "anio": 0
+      },
+      "logoUrl": "../../../../assets/educaciones/arrayanes.jpg"
+    },
+    {
+      "id": 4,
+      "estudio": "Argentina Programa",
+      "institucion": "INTI",
+      "desde": {
+        "mes": 0,
+        "anio": 2021
+      },
+      "hasta": {
+        "mes": "",
+        "anio": 0
+      },
+      "logoUrl": "https://upload.wikimedia.org/wikipedia/commons/8/87/Logo_institucional_2017.jpg"
+    },
+    {
+      "id": 5,
+      "estudio": "",
+      "institucion": "",
+      "desde": {
+        "mes": 0,
+        "anio": ""
+      },
+      "hasta": {
+        "mes": 0,
+        "anio": 0
+      },
+      "logoUrl": "https://twitter.com/search?q=%22Estados%20Unidos%22&src=trend_click&vertical=trends"
+    }
+  ],
+  "experiencias": [
+    {
+      "lugar": "",
+      "cargo": "",
+      "desde": null,
+      "hasta": null,
+      "logoUrl": "",
+      "ubicacion": ""
+    }
+  ],
+  "proyectos": [
+    {
+      "titulo": "",
+      "descripcion": ""
+    }
+  ]
 }

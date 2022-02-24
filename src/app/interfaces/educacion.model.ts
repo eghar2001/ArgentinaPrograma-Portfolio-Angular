@@ -1,8 +1,14 @@
 export interface Educacion{
     id:number,
-    lugar:string,
+    institucion:string,
     estudio:string,
-    desde:number,
-    hasta:string,
-    logoUrl:string
+    desde:{
+        mes:number,
+        anio:number
+    },
+    hasta:{
+        mes:number,
+        anio:number
+    },
+    logoUrl:string;
 }

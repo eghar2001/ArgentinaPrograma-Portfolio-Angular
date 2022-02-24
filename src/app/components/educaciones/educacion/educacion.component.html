@@ -1,8 +1,10 @@
-<div class="row row-cols-auto p-2 border rounded my-1 ">
-    <img [src]="miEducacion.logoUrl" class="col-12 col-sm-3 p-3  m-auto imagen-educacion col-12" alt="">
-    <div class="col-12 col-sm d-flex flex-column justify-content-center">
-        <h5 class="text-center text-sm-start">{{miEducacion.lugar}}</h5>
-        <p class="text-center m-0 text-sm-start">{{miEducacion.estudio}}</p>
-        <p class="text-center m-0 text-sm-start">{{miEducacion.desde}}- {{miEducacion.hasta?miEducacion.hasta:"actualidad"}}</p>
+<div class="container-fluid p-2 border rounded my-1 ">
+    <div class="row">
+        <img [src]="miEducacion.logoUrl" class="col-12 col-sm-3 p-3  m-auto imagen-educacion col-12" alt="">
+        <div class="col-12 col-sm d-flex flex-column justify-content-center">
+            <h5 class="text-center text-sm-start">{{miEducacion.institucion}}</h5>
+            <p class="text-center m-0 text-sm-start">{{miEducacion.estudio}}</p>
+            <p class="text-center m-0 text-sm-start">{{fechaInicio.getFullDateString()}}- {{fechaFin.getFullDateString()}}</p>
+        </div>
     </div>
 </div>

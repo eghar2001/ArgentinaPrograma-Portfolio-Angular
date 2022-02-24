@@ -1,0 +1,12 @@
+.addAnim{
+    animation-name:gira;
+    animation-duration:500ms;
+    animation-fill-mode:backwards;
+    animation-timing-function: ease-out;
+}
+@keyframes gira{
+   
+    100%{
+        transform:rotate(720deg)
+    }
+}

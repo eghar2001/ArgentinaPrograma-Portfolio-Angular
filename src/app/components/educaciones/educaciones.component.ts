@@ -11,10 +11,33 @@ export class EducacionesComponent implements OnInit {
 
   constructor(private educacionServ:EducacionService) { }
   misEducaciones:Educacion[];
+  animacionBotonAdd:boolean;
+  formActivado:boolean;
+  lastAlvId:number ;
   ngOnInit(): void {
-    this.educacionServ.getEducaciones().subscribe((educ)=>{
-      this.misEducaciones = educ;
-    })
+    this.educacionServ.getEducaciones().subscribe((educ)=>
+      {this.misEducaciones = educ;
+      this.lastAlvId = educ[educ.length-1].id +1;
+      }     
+    )
+    
+    
+    this.animacionBotonAdd = false;
+    this.formActivado = false;
+    this.lastAlvId ;
   }
+  activoAnimacion(){
+    this.animacionBotonAdd=true;
+    this.formActivado = true;
+    setTimeout(()=>{this.animacionBotonAdd=false},500)
+  }
+  agregarEducacion(edu:Educacion){
+    this.educacionServ.agregaEducacion(edu).subscribe(
+      (educacion)=>{
+        this.misEducaciones.push(educacion);        
+      });
+      this.lastAlvId++;
+  }
+
 
 }

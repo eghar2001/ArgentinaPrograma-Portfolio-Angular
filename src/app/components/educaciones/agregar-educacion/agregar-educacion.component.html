@@ -1,0 +1,71 @@
+
+<!--
+    Nota: no uso validaciones de Angular ya que el formControlName genera problemas con la propiedad disabled
+    Por alguna razon el ngModel no anda correctamente, no comunica lo que tiene que comunicar
+-->
+<form lass="container-fluid border border-1 rounded p-2 mx-0 " [formGroup]="formulario">
+    <div class="row">
+        <div class="mb-3 col-12 col-md-6">
+          <label for="institucion" class="form-label">Institucion</label>
+          <input formControlName="institucion" type="text" class="form-control" id="institucion"  #institucion >
+        </div>
+        <div class="mb-3 col-12 col-md-6">
+          <label for="estudio" class="form-label">Estudio</label>
+          <input formControlName="estudio" type="text" class="form-control" id="estudio" #estudio>
+        </div>
+    </div>  
+    <div class="row ">        
+        <div class="col-12 col-md-6 ">
+            <label  class="form-label">Desde</label>
+            <div class="row">
+                <div class="mb-3 col-12 col-md-6">
+                  <input   formControlName="mesInicio" [attr.disabled]="mesInicioActivado? null:true" class="form-control" type="text" placeholder="mes"  >                 
+                  <div class="form-check mt-1">
+                    <input class="form-check-input" type="checkbox" value="" id="tieneMesInicio"   [attr.checked]="mesInicioActivado"  (click)="cambiaMesInicioActivado()">
+                    <label class="form-check-label" for="tieneMesInicio">
+                      Tiene mes inicio
+                    </label>
+                  </div>
+                </div>
+                <div class="mb-3 col-12 col-md-6">                  
+                  <input formControlName="anioInicio" type="number" class="form-control" id="anioInicio" placeholder="año" >
+                </div>
+            </div>            
+        </div>
+        <div class="col-12 col-md-6">
+            <label  class="form-label">Hasta</label> 
+            <div class="row">            
+                <div class="mb-3 col-12 col-md-6">                   
+                    <input formControlName="mesFin" class="form-control" type="text" placeholder="mes"  [attr.disabled]="mesFinActivado? null:true" >  
+                    <div class="form-check mt-1">
+                        <input class="form-check-input" type="checkbox" value="" id="tieneMesFin"   [checked]="mesFinActivado"  (click)="cambiaMesFinActivado()">
+                        <label class="form-check-label" for="tieneMesFin">
+                          Tiene mes fin
+                        </label>
+                      </div>
+                  </div>
+                  <div class="mb-3 col-12 col-md-6">                    
+                    <input  formControlName="anioFin"  [attr.disabled]="!anioFinActivado? true:null" class="form-control" type="text" placeholder="año"   #anioFin >   
+                    <div class="form-check mt-1">
+                        <input class="form-check-input" type="checkbox" value="" id="tieneMesInicio" #anioFin   (click)="activaHastaActualidad()">
+                        <label class="form-check-label" for="tieneMesInicio">
+                          Hasta la actualidad
+                        </label>
+                      </div>
+                  </div>
+            </div>
+        </div>
+    </div> 
+    <div class="row mb-3">
+      <div class="col-12">     
+        <label for="logoUrl" class="form-label">Link del Logo</label>
+        <input formControlName="logoUrl" type="text" class="form-control" id="logoUrl">
+        <div class="form-text">Tiene que ser la url de una imagen, no de otra cosa</div>      
+      </div> 
+  </div> 
+    
+    
+    <button type="submit" class="btn btn-primary" (click)="onEnviar($event)">Submit</button>
+  </form>
+
+  

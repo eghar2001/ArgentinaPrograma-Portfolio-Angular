@@ -10,7 +10,6 @@ export class ProfileService {
   private apiUrl:string = 'http://localhost:3000/profile'
   constructor(private http:HttpClient) {} 
   public getProfile():Observable<Profile>{
-    return this.http.get<Profile>(this.apiUrl);
-  
+    return this.http.get<Profile>(this.apiUrl);  
   }
 }

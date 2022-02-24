@@ -14,6 +14,11 @@ import{HttpClientModule} from '@angular/common/http'
 import { ProfileService } from './servicios/profile/profile.service';
 import { EducacionesComponent } from './components/educaciones/educaciones.component';
 import { EducacionComponent } from './components/educaciones/educacion/educacion.component';
+import { AgregarEducacionComponent } from './components/educaciones/agregar-educacion/agregar-educacion.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,12 +29,16 @@ import { EducacionComponent } from './components/educaciones/educacion/educacion
     ProjectsComponent,
     ButtonsAndLoginComponent,
     LoginFormComponent,
-    EducacionComponent
+    EducacionComponent,
+    AgregarEducacionComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,    
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [ProfileService],
   bootstrap: [AppComponent]
