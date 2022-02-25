@@ -26,34 +26,6 @@
     },
     {
       "id": 2,
-      "institucion": "FreeCodeCamp",
-      "estudio": "Responsive Web Design Certification",
-      "desde": {
-        "mes": 9,
-        "anio": 2021
-      },
-      "hasta": {
-        "mes": 10,
-        "anio": 2021
-      },
-      "logoUrl": "../../../../assets/educaciones/fcc.png"
-    },
-    {
-      "id": 3,
-      "institucion": "Colegio los Arrayanes",
-      "estudio": "Bachiller en Economia y Administracion",
-      "desde": {
-        "mes": 0,
-        "anio": 2019
-      },
-      "hasta": {
-        "mes": 0,
-        "anio": 0
-      },
-      "logoUrl": "../../../../assets/educaciones/arrayanes.jpg"
-    },
-    {
-      "id": 4,
       "estudio": "Argentina Programa",
       "institucion": "INTI",
       "desde": {
@@ -67,18 +39,130 @@
       "logoUrl": "https://upload.wikimedia.org/wikipedia/commons/8/87/Logo_institucional_2017.jpg"
     },
     {
+      "id": 3,
+      "estudio": "JavaScript Algorithms and Data Structures Certification",
+      "institucion": "FreeCodeCamp",
+      "desde": {
+        "mes": 10,
+        "anio": 2021
+      },
+      "hasta": {
+        "mes": 12,
+        "anio": 2022
+      },
+      "logoUrl": "../../../../assets/educaciones/fcc.png"
+    },
+    {
+      "id": 4,
+      "institucion": "FreeCodeCamp",
+      "estudio": "Responsive Web Design Certification",
+      "desde": {
+        "mes": 9,
+        "anio": 2021
+      },
+      "hasta": {
+        "mes": 10,
+        "anio": 2021
+      },
+      "logoUrl": "../../../../assets/educaciones/fcc.png"
+    },
+    {
       "id": 5,
-      "estudio": "",
-      "institucion": "",
+      "institucion": "Colegio los Arrayanes",
+      "estudio": "Bachiller en Economia y Administracion",
       "desde": {
         "mes": 0,
-        "anio": ""
+        "anio": 2015
+      },
+      "hasta": {
+        "mes": 0,
+        "anio": 2019
+      },
+      "logoUrl": "../../../../assets/educaciones/arrayanes.jpg"
+    },
+    {
+      "id": 6,
+      "estudio": "dsadasdsad",
+      "institucion": "dsadasdasdas",
+      "desde": {
+        "mes": null,
+        "anio": 12222
+      },
+      "hasta": {
+        "mes": null,
+        "anio": 1212312
+      },
+      "logoUrl": "https://upload.wikimedia.org/wikipedia/commons/8/87/Logo_institucional_2017.jpg"
+    },
+    {
+      "id": 7,
+      "estudio": "dsadasdsad",
+      "institucion": "booenas",
+      "desde": {
+        "mes": null,
+        "anio": 2021
+      },
+      "hasta": {
+        "mes": null,
+        "anio": 2022
+      },
+      "logoUrl": "https://pbs.twimg.com/profile_images/1455239043424440323/FTDrXsxj_400x400.jpg"
+    },
+    {
+      "id": 8,
+      "estudio": "Pene",
+      "institucion": "INTI",
+      "desde": {
+        "mes": 0,
+        "anio": 2021
+      },
+      "hasta": {
+        "mes": null,
+        "anio": 2022
+      },
+      "logoUrl": "https://pbs.twimg.com/profile_images/1455239043424440323/FTDrXsxj_400x400.jpg"
+    },
+    {
+      "id": 9,
+      "estudio": "Pene",
+      "institucion": "INTI",
+      "desde": {
+        "mes": 0,
+        "anio": 2021
+      },
+      "hasta": {
+        "mes": 0,
+        "anio": 2022
+      },
+      "logoUrl": "https://pbs.twimg.com/profile_images/1455239043424440323/FTDrXsxj_400x400.jpg"
+    },
+    {
+      "id": 10,
+      "estudio": "Argentina Programa",
+      "institucion": "sdasdasdsadasd",
+      "desde": {
+        "mes": 12,
+        "anio": 223123
       },
       "hasta": {
         "mes": 0,
         "anio": 0
       },
-      "logoUrl": "https://twitter.com/search?q=%22Estados%20Unidos%22&src=trend_click&vertical=trends"
+      "logoUrl": "https://upload.wikimedia.org/wikipedia/commons/8/87/Logo_institucional_2017.jpg"
+    },
+    {
+      "id": 11,
+      "estudio": "Argentina Programa",
+      "institucion": "sdasdasdsadasd",
+      "desde": {
+        "mes": 0,
+        "anio": 231212
+      },
+      "hasta": {
+        "mes": 2,
+        "anio": 2331231231
+      },
+      "logoUrl": "https://upload.wikimedia.org/wikipedia/commons/8/87/Logo_institucional_2017.jpg"
     }
   ],
   "experiencias": [

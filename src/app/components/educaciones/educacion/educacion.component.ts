@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Educacion } from 'src/app/interfaces/educacion.model';
-import { Fecha } from 'src/app/interfaces/fecha.model';
+import { Educacion } from 'src/app/interfacesYModelos/educacion.model';
+import { Fecha } from 'src/app/interfacesYModelos/fecha.model';
 
 @Component({
   selector: 'app-educacion',

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Profile } from 'src/app/interfaces/profile.model';
+import { Profile } from 'src/app/interfacesYModelos/profile.model';
 import { ProfileService } from 'src/app/servicios/profile/profile.service';
 
 @Component({

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Educacion } from 'src/app/interfaces/educacion.model';
+import { Educacion } from 'src/app/interfacesYModelos/educacion.model';
 import { EducacionService } from 'src/app/servicios/educacion/educacion.service';
 
 @Component({
@@ -28,7 +28,6 @@ export class EducacionesComponent implements OnInit {
   }
   activoAnimacion(){
     this.animacionBotonAdd=true;
-    this.formActivado = true;
     setTimeout(()=>{this.animacionBotonAdd=false},500)
   }
   agregarEducacion(edu:Educacion){
@@ -37,6 +36,14 @@ export class EducacionesComponent implements OnInit {
         this.misEducaciones.push(educacion);        
       });
       this.lastAlvId++;
+      this.formActivado = false;
+  }
+  abrirFormulario(){
+  this.formActivado= true;
+    
+  }
+  cerrarFormulario(){
+    this.formActivado=false;
   }
 
 

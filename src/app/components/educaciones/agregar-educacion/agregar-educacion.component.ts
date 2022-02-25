@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Educacion } from 'src/app/interfaces/educacion.model';
-import { FormBuilder,FormGroup } from '@angular/forms';
+import { Educacion } from 'src/app/interfacesYModelos/educacion.model';
+import { FormBuilder,FormGroup,Validators } from '@angular/forms';
+import { Fecha } from 'src/app/interfacesYModelos/fecha.model';
 
 @Component({
   selector: 'app-agregar-educacion',
@@ -14,24 +15,27 @@ export class AgregarEducacionComponent implements OnInit {
   mesInicioActivado:boolean|null;
   mesFinActivado:boolean;
   anioFinActivado:boolean;
-  
+  fechaActual:Fecha
   
   constructor(private formBuilder:FormBuilder) { 
     
     this.mesInicioActivado = true;
     this.mesFinActivado = true;
     this.anioFinActivado = true;
+    this.fechaActual = Fecha.FechaActual
     this.formulario = this.formBuilder.group({
-      institucion:['',[]],
-      estudio:['',[]],
-      mesInicio:[null,[]],
-      anioInicio:['',[]],
-      mesFin:[null,[]],
+      institucion:['',[Validators.required]],
+      estudio:['',[Validators.required]],
+      mesInicio:[null,[Validators.min(1),Validators.max(12)]],
+      anioInicio:[null,[Validators.required,Validators.min(1900),Validators.max(this.fechaActual.getAnio())]],
+      mesFin:[null,[Validators.min(1),Validators.max(12)]],
       anioFin:[null,[]],
-      logoUrl:["",[]]
+      logoUrl:[null,[Validators.required,Validators.pattern('.+(.jpg|.png|.jpeg)$')]]
     })
     
+    
   }
+  //getters de los campos del formulario
   get Institucion(){
     return this.formulario.get("institucion");
   }
@@ -53,11 +57,16 @@ export class AgregarEducacionComponent implements OnInit {
   get LogoUrl(){
     return this.formulario.get("logoUrl")
   }
+  
+  
   //Funcion que retorna el valir o 0 si el mes es nulo
-  private sacaNull(numero:number|null):number{
-    return numero===null?0:numero;
+  private sacaNull(numero:string):number{
+    
+    return !numero?0:parseInt(numero);
   }
 
+
+  //Funciones que sirven para resetear los valores
   resetMesInicio():void{
     this.formulario.reset({mesInicio:""})
   }
@@ -68,10 +77,46 @@ export class AgregarEducacionComponent implements OnInit {
     this.formulario.reset({anioFin:""})
   }
 
+
+  /*
+    Funciones para evitar que hayan incoherencias en las fechas
+  */
+ //Chequea que el año del fin sea mayor o igual que el año de inicio, caso contrario, habria una inconsistencia ya que se termina un estudio antes de arrancarlo
+  anioFinValido(){
+    if(this.anioFinActivado){
+      return this.sacaNull(this.AnioFin?.value) >= parseInt(this.AnioInicio?.value)
+    }
+    else{
+      return true;
+    }
+  };
+
+  anioInicioActual(){
+    return parseInt(this.AnioInicio?.value)===this.fechaActual.getAnio();
+  }
+  //Chequea que un mes ingresado como mesInicio sea menor o igual al mes actual
+  //En caso que el año ingresado como anioInicio sea igual al actual
+  mesInicioValido(){
+    if (this.anioInicioActual()){
+      return (this.sacaNull(this.MesInicio?.value)<= this.fechaActual.getMes() )
+    }
+    else{
+      return false;
+    }
+  }
+  
+  
+
+
+
+/*
+  Funciones referentes a la activacion/desactivacion 
+  de los campos de la fecha
+*/
   cambiaMesInicioActivado():void{
     this.mesInicioActivado = !this.mesInicioActivado;
-    if (!this.mesInicioActivado){
-      this.resetMesInicio()
+    if(!this.mesInicioActivado){
+    this.resetMesInicio();    
     }
   }
   cambiaMesFinActivado():void{
@@ -101,25 +146,29 @@ export class AgregarEducacionComponent implements OnInit {
 
   onEnviar(event: Event){
     // Detenemos la propagación o ejecución del compotamiento submit de un form
-    
+    if (this.formulario.valid && this.anioFinValido()){     
     const nuevaEdu:Educacion = {
       id:this.idDisp,
       estudio:this.Estudio?.value,
       institucion:this.Institucion?.value,
       desde:{
         mes:this.sacaNull(this.MesInicio?.value),
-        anio:this.AnioInicio?.value
+        anio:parseInt(this.AnioInicio?.value)
       },
       hasta:{
         mes:this.sacaNull(this.MesFin?.value),
         anio:this.sacaNull(this.AnioFin?.value)
       },  
-      logoUrl:this.LogoUrl?.value   
-    };
-    console.log(nuevaEdu);
-    console.log(this.idDisp)
+      logoUrl:this.LogoUrl?.value  
+    }; 
+  
     this.enviaEdu.emit(nuevaEdu);   
- 
+    }
+    else{
+      this.formulario.markAllAsTouched();
+    }
+    console.log(this.anioFinValido())
+   
   }
 
   ngOnInit(): void {

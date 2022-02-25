@@ -3,21 +3,47 @@
     Nota: no uso validaciones de Angular ya que el formControlName genera problemas con la propiedad disabled
     Por alguna razon el ngModel no anda correctamente, no comunica lo que tiene que comunicar
 -->
-<form lass="container-fluid border border-1 rounded p-2 mx-0 " [formGroup]="formulario">
-    <div class="row">
+
+<form class="container-fluid border  rounded p-2 mx-0 " [formGroup]="formulario">
+  <legend class="mb-2 fs-5  border-bottom ">Agregar Educacion</legend>  
+  <div class="row">
         <div class="mb-3 col-12 col-md-6">
           <label for="institucion" class="form-label">Institucion</label>
           <input formControlName="institucion" type="text" class="form-control" id="institucion"  #institucion >
+          <div *ngIf="Institucion?.errors && Institucion?.touched">
+              <p *ngIf="Institucion?.hasError('required')" class="text-danger"> 
+                Debe ingresar institucion
+              </p>
+          </div>
         </div>
         <div class="mb-3 col-12 col-md-6">
           <label for="estudio" class="form-label">Estudio</label>
           <input formControlName="estudio" type="text" class="form-control" id="estudio" #estudio>
+          <div *ngIf="Estudio?.errors && Estudio?.touched">
+            <p *ngIf="Estudio?.hasError('required')" class="text-danger"> 
+              Debe ingresar estudio
+            </p>
+        </div>
         </div>
     </div>  
     <div class="row ">        
         <div class="col-12 col-md-6 ">
             <label  class="form-label">Desde</label>
             <div class="row">
+              <div class="mb-3 col-12 col-md-6">                  
+                <input formControlName="anioInicio" type="number" class="form-control" id="anioInicio" placeholder="año" >
+                <div *ngIf="AnioInicio?.errors && AnioInicio?.touched">
+                  <p *ngIf="AnioInicio?.hasError('min')" class="text-danger"> 
+                    El año debe ser mayor a 1900
+                  </p>
+                  <p *ngIf="AnioInicio?.hasError('required')" class="text-danger"> 
+                    El año de incio es requerido
+                  </p>    
+                  <p *ngIf="AnioInicio?.hasError('max')" class="text-danger"> 
+                    El año de incio debe ser menor a {{fechaActual.getAnio()}}
+                  </p>                         
+              </div>
+              </div>
                 <div class="mb-3 col-12 col-md-6">
                   <input   formControlName="mesInicio" [attr.disabled]="mesInicioActivado? null:true" class="form-control" type="text" placeholder="mes"  >                 
                   <div class="form-check mt-1">
@@ -26,15 +52,35 @@
                       Tiene mes inicio
                     </label>
                   </div>
+                  <div *ngIf="MesInicio?.errors && MesInicio?.touched">
+                    <p *ngIf="MesInicio?.hasError('min')" class="text-danger"> 
+                      El mes debe ser mayor a 1
+                    </p>
+                    <p *ngIf="MesInicio?.hasError('max')" class="text-danger">
+                      El mes debe ser menor a 12
+                    </p>
                 </div>
-                <div class="mb-3 col-12 col-md-6">                  
-                  <input formControlName="anioInicio" type="number" class="form-control" id="anioInicio" placeholder="año" >
                 </div>
+                
             </div>            
         </div>
         <div class="col-12 col-md-6">
             <label  class="form-label">Hasta</label> 
-            <div class="row">            
+            <div class="row">  
+                <div class="mb-3 col-12 col-md-6">                    
+                  <input  formControlName="anioFin"  [attr.disabled]="!anioFinActivado? true:null" class="form-control" type="text" placeholder="año"   #anioFin >   
+                  <div class="form-check mt-1">
+                      <input class="form-check-input" type="checkbox" value="" id="tieneMesInicio" #anioFin   (click)="activaHastaActualidad()">
+                      <label class="form-check-label" for="tieneMesInicio">
+                        Hasta la actualidad
+                      </label>
+                    </div>
+                    <div *ngIf="!anioFinValido() && AnioFin?.touched">
+                      <p  class="text-danger"> 
+                        El año debe ser mayor a {{AnioInicio?.value}}
+                      </p>                        
+                  </div>
+                </div>          
                 <div class="mb-3 col-12 col-md-6">                   
                     <input formControlName="mesFin" class="form-control" type="text" placeholder="mes"  [attr.disabled]="mesFinActivado? null:true" >  
                     <div class="form-check mt-1">
@@ -42,17 +88,16 @@
                         <label class="form-check-label" for="tieneMesFin">
                           Tiene mes fin
                         </label>
-                      </div>
-                  </div>
-                  <div class="mb-3 col-12 col-md-6">                    
-                    <input  formControlName="anioFin"  [attr.disabled]="!anioFinActivado? true:null" class="form-control" type="text" placeholder="año"   #anioFin >   
-                    <div class="form-check mt-1">
-                        <input class="form-check-input" type="checkbox" value="" id="tieneMesInicio" #anioFin   (click)="activaHastaActualidad()">
-                        <label class="form-check-label" for="tieneMesInicio">
-                          Hasta la actualidad
-                        </label>
-                      </div>
-                  </div>
+                    </div>
+                    <div *ngIf="MesFin?.errors && MesFin?.touched">
+                        <p *ngIf="MesFin?.hasError('min')" class="text-danger"> 
+                          El mes debe ser mayor a 1
+                        </p>
+                        <p *ngIf="MesFin?.hasError('max')" class="text-danger">
+                          El mes debe ser menor a 12
+                        </p>
+                    </div>
+                  </div>                  
             </div>
         </div>
     </div> 
@@ -61,6 +106,14 @@
         <label for="logoUrl" class="form-label">Link del Logo</label>
         <input formControlName="logoUrl" type="text" class="form-control" id="logoUrl">
         <div class="form-text">Tiene que ser la url de una imagen, no de otra cosa</div>      
+        <div *ngIf="LogoUrl?.errors && LogoUrl?.touched">
+          <p *ngIf="LogoUrl?.hasError('required')" class="text-danger"> 
+            Debe ingresar logo
+          </p>
+          <p *ngIf="LogoUrl?.hasError('pattern')" class="text-danger">
+            Debe ingresar una url de imagen
+          </p>
+      </div>
       </div> 
   </div> 
     

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { About } from 'src/app/interfaces/about.model';
+import { About } from 'src/app/interfacesYModelos/about.model';
 import { AboutService } from 'src/app/servicios/about/about.service';
 
 @Component({

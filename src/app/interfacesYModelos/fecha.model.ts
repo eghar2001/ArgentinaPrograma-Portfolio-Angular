@@ -5,6 +5,7 @@ export class Fecha{
         this.mes = mes;
         this.anio = anio;
     }
+    static FechaActual:Fecha = new Fecha((new Date).getMonth()+1,(new Date).getFullYear())
     public getMes(){
         return this.mes;
     }
@@ -72,4 +73,5 @@ export class Fecha{
      public getFullDateString():string{       
         return this.anio===0?"actualidad":this.mes===0?`${this.anio}`:`${this.getMesString()} del ${this.anio}`;
     }
+    
 }
