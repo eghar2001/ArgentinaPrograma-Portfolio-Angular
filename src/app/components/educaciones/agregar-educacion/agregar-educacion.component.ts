@@ -96,13 +96,30 @@ export class AgregarEducacionComponent implements OnInit {
   }
   //Chequea que un mes ingresado como mesInicio sea menor o igual al mes actual
   //En caso que el año ingresado como anioInicio sea igual al actual
-  mesInicioValido(){
+  mesInicioValido():boolean{
     if (this.anioInicioActual()){
       return (this.sacaNull(this.MesInicio?.value)<= this.fechaActual.getMes() )
     }
     else{
-      return false;
+      return true;
     }
+  }
+
+  //Chequea que el mes ingresado en mesFin sea mayor o igual al mes actual 
+  //en caso que el año fin ingresado sea igual al añoinicio
+
+  mesFinValido():boolean{
+    if(this.AnioInicio?.value == this.AnioFin?.value){
+      return (this.sacaNull(this.MesFin?.value)>= this.sacaNull(this.MesInicio?.value))
+    }
+    else{
+      return true;
+    }
+  }
+
+  //funcion que recoge todas las validaciones
+  misValidacionesCorrectas():boolean{
+    return this.mesFinValido() && this.mesInicioValido() && this.anioFinValido();
   }
   
   
@@ -146,7 +163,7 @@ export class AgregarEducacionComponent implements OnInit {
 
   onEnviar(event: Event){
     // Detenemos la propagación o ejecución del compotamiento submit de un form
-    if (this.formulario.valid && this.anioFinValido()){     
+    if (this.formulario.valid && this.misValidacionesCorrectas()){     
     const nuevaEdu:Educacion = {
       id:this.idDisp,
       estudio:this.Estudio?.value,

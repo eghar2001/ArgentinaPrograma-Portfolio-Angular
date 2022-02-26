@@ -52,13 +52,17 @@
                       Tiene mes inicio
                     </label>
                   </div>
-                  <div *ngIf="MesInicio?.errors && MesInicio?.touched">
+                  <div *ngIf="MesInicio?.touched  &&( !mesInicioValido()|| MesInicio?.errors)">
                     <p *ngIf="MesInicio?.hasError('min')" class="text-danger"> 
                       El mes debe ser mayor a 1
                     </p>
                     <p *ngIf="MesInicio?.hasError('max')" class="text-danger">
                       El mes debe ser menor a 12
                     </p>
+                    <p *ngIf="!mesInicioValido()" class="text-danger">
+                      El mes debe ser menor a {{fechaActual.getMes()}}
+                    </p>
+
                 </div>
                 </div>
                 
@@ -89,12 +93,15 @@
                           Tiene mes fin
                         </label>
                     </div>
-                    <div *ngIf="MesFin?.errors && MesFin?.touched">
+                    <div *ngIf=" MesFin?.touched  && (MesFin?.errors || !mesFinValido())">
                         <p *ngIf="MesFin?.hasError('min')" class="text-danger"> 
                           El mes debe ser mayor a 1
                         </p>
                         <p *ngIf="MesFin?.hasError('max')" class="text-danger">
                           El mes debe ser menor a 12
+                        </p>
+                        <p *ngIf="!mesFinValido()" class="text-danger">
+                          El mes debe ser mayor a {{MesInicio?.value}}
                         </p>
                     </div>
                   </div>                  
