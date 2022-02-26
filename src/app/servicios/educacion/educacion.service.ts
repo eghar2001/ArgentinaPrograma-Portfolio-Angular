@@ -17,4 +17,8 @@ export class EducacionService {
   public agregaEducacion(edu:Educacion):Observable<Educacion>{
     return this.http.post<Educacion>(this.apiUrl,edu,httpOptions);
   }
+  public borrarEducacion(id:number):Observable<Educacion>{
+    const url =`${this.apiUrl}/${id}`;    
+     return  this.http.delete<Educacion>(url);
+  }
 }

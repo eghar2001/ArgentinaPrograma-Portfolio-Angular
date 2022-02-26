@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+
 import { Educacion } from 'src/app/interfacesYModelos/educacion.model';
 import { Fecha } from 'src/app/interfacesYModelos/fecha.model';
 
@@ -9,6 +10,7 @@ import { Fecha } from 'src/app/interfacesYModelos/fecha.model';
 })
 export class EducacionComponent implements OnInit {
   @Input() miEducacion:Educacion;
+  @Output() borrarEdu = new EventEmitter<number>();
   fechaInicio:Fecha;
   fechaFin:Fecha;
   constructor() { }
@@ -16,6 +18,9 @@ export class EducacionComponent implements OnInit {
   ngOnInit(): void {
     this.fechaInicio = new Fecha(this.miEducacion.desde.mes,this.miEducacion.desde.anio);
     this.fechaFin = new Fecha(this.miEducacion.hasta.mes,this.miEducacion.hasta.anio)
+  }
+  borraEducacion():void{
+    this.borrarEdu.emit(this.miEducacion.id);
   }
 
 }

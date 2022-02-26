@@ -38,6 +38,12 @@ export class EducacionesComponent implements OnInit {
       this.lastAlvId++;
       this.formActivado = false;
   }
+  borrarEducacion(id:number){
+    
+    this.educacionServ.borrarEducacion(id).subscribe((eduBorrada)=>{
+      this.misEducaciones = this.misEducaciones.filter((educacion) => educacion.id !== id)}
+    );
+  }
   abrirFormulario(){
   this.formActivado= true;
     

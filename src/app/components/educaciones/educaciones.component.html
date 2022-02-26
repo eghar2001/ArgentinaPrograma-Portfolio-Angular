@@ -7,5 +7,5 @@
       </div>
     </div>
     <app-agregar-educacion *ngIf="formActivado" class="m-0 p-0 me-0" [idDisp]="lastAlvId" (enviaEdu)="agregarEducacion($event)" ></app-agregar-educacion>
-    <app-educacion *ngFor="let educacion of misEducaciones" [miEducacion]="educacion" ></app-educacion>
+    <app-educacion *ngFor="let educacion of misEducaciones" (borrarEdu)="borrarEducacion($event)" [miEducacion]="educacion" ></app-educacion>
 </div>
