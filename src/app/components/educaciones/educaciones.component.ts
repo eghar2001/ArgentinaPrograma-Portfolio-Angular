@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Educacion } from 'src/app/interfacesYModelos/educacion.model';
 import { EducacionService } from 'src/app/servicios/educacion/educacion.service';
 
@@ -8,14 +8,15 @@ import { EducacionService } from 'src/app/servicios/educacion/educacion.service'
   styleUrls: ['./educaciones.component.css']
 })
 export class EducacionesComponent implements OnInit {
-
+  @Input() tipo:string;
   constructor(private educacionServ:EducacionService) { }
   misEducaciones:Educacion[];
   animacionBotonAdd:boolean;
   formActivado:boolean;
   lastAlvId:number ;
+  titulo:string;
   ngOnInit(): void {
-    this.educacionServ.getEducaciones().subscribe((educ)=>
+    this.educacionServ.getEducaciones(this.tipo).subscribe((educ)=>
       {this.misEducaciones = educ;
       this.lastAlvId = educ[educ.length-1].id +1;
       }     
@@ -24,14 +25,14 @@ export class EducacionesComponent implements OnInit {
     
     this.animacionBotonAdd = false;
     this.formActivado = false;
-    this.lastAlvId ;
+    this.titulo = this.tipo[0].toUpperCase() + this.tipo.slice(1);
   }
   activoAnimacion(){
     this.animacionBotonAdd=true;
     setTimeout(()=>{this.animacionBotonAdd=false},500)
   }
   agregarEducacion(edu:Educacion){
-    this.educacionServ.agregaEducacion(edu).subscribe(
+    this.educacionServ.agregaEducacion(edu,this.tipo).subscribe(
       (educacion)=>{
         this.misEducaciones.push(educacion);        
       });
@@ -40,7 +41,7 @@ export class EducacionesComponent implements OnInit {
   }
   borrarEducacion(id:number){
     
-    this.educacionServ.borrarEducacion(id).subscribe((eduBorrada)=>{
+    this.educacionServ.borrarEducacion(id,this.tipo).subscribe((eduBorrada)=>{
       this.misEducaciones = this.misEducaciones.filter((educacion) => educacion.id !== id)}
     );
   }

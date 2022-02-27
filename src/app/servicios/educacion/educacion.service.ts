@@ -9,16 +9,19 @@ const httpOptions={headers: new HttpHeaders({
   providedIn: 'root'
 })
 export class EducacionService {
-  private apiUrl:string = 'http://localhost:3000/educaciones';
+  private apiUrl:string = 'http://localhost:3000';
   constructor(private http:HttpClient) { }
-  public getEducaciones():Observable<Educacion[]>{
-    return this.http.get<Educacion[]>(this.apiUrl);  
+  public getEducaciones(tipo:string):Observable<Educacion[]>{
+    const url = `${this.apiUrl}/${tipo}`;
+    console.log(url);
+    return this.http.get<Educacion[]>(url);  
   }
-  public agregaEducacion(edu:Educacion):Observable<Educacion>{
-    return this.http.post<Educacion>(this.apiUrl,edu,httpOptions);
+  public agregaEducacion(edu:Educacion,tipo:string):Observable<Educacion>{
+    const url = `${this.apiUrl}/${tipo}`;
+    return this.http.post<Educacion>(url,edu,httpOptions);
   }
-  public borrarEducacion(id:number):Observable<Educacion>{
-    const url =`${this.apiUrl}/${id}`;    
+  public borrarEducacion(id:number,tipo:string):Observable<Educacion>{
+    const url =`${this.apiUrl}/${tipo}/${id}`;    
      return  this.http.delete<Educacion>(url);
   }
 }

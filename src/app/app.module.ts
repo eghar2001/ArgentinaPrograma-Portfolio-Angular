@@ -17,6 +17,7 @@ import { EducacionComponent } from './components/educaciones/educacion/educacion
 import { AgregarEducacionComponent } from './components/educaciones/agregar-educacion/agregar-educacion.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
+import { EstudiosCertificacionesComponent } from './estudios-certificaciones/estudios-certificaciones.component';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { FormsModule } from '@angular/forms';
     LoginFormComponent,
     EducacionComponent,
     AgregarEducacionComponent,
+    EstudiosCertificacionesComponent,
 
   ],
   imports: [

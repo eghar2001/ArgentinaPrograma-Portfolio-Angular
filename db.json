@@ -9,7 +9,7 @@
   "about": {
     "content": "Estudiante de 2do de Ingeniera en Sistemas de la Informacion. Cursando el Argentina Programa"
   },
-  "educaciones": [
+  "estudios": [
     {
       "id": 1,
       "institucion": "UTN-Frro",
@@ -40,6 +40,22 @@
     },
     {
       "id": 3,
+      "institucion": "Colegio Los Arrayanes",
+      "estudio": "Secundario con bachiller en Economia y Administracion",
+      "desde": {
+        "mes": 0,
+        "anio": 2015
+      },
+      "hasta": {
+        "mes": 0,
+        "anio": 2019
+      },
+      "logoUrl": "../../../../assets/educaciones/arrayanes.jpg"
+    }
+  ],
+  "certificaciones": [
+    {
+      "id": 1,
       "estudio": "JavaScript Algorithms and Data Structures Certification",
       "institucion": "FreeCodeCamp",
       "desde": {
@@ -53,7 +69,7 @@
       "logoUrl": "../../../../assets/educaciones/fcc.png"
     },
     {
-      "id": 4,
+      "id": 2,
       "institucion": "FreeCodeCamp",
       "estudio": "Responsive Web Design Certification",
       "desde": {
@@ -65,20 +81,6 @@
         "anio": 2021
       },
       "logoUrl": "../../../../assets/educaciones/fcc.png"
-    },
-    {
-      "id": 5,
-      "institucion": "Colegio Los Arrayanes",
-      "estudio": "Secundario con bachiller en Economia y Administracion",
-      "desde": {
-        "mes": 0,
-        "anio": 2015
-      },
-      "hasta": {
-        "mes": 0,
-        "anio": 2019
-      },
-      "logoUrl": "../../../../assets/educaciones/arrayanes.jpg"
     }
   ],
   "experiencias": [

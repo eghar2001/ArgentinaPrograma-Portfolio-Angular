@@ -3,6 +3,7 @@ import { Educacion } from 'src/app/interfacesYModelos/educacion.model';
 import { FormBuilder,FormGroup,Validators } from '@angular/forms';
 import { Fecha } from 'src/app/interfacesYModelos/fecha.model';
 
+
 @Component({
   selector: 'app-agregar-educacion',
   templateUrl: './agregar-educacion.component.html',
@@ -11,6 +12,7 @@ import { Fecha } from 'src/app/interfacesYModelos/fecha.model';
 export class AgregarEducacionComponent implements OnInit {
   @Output() enviaEdu = new EventEmitter<Educacion>();
   @Input() idDisp:number;
+  @Input() tipoEducacion:string;
   formulario:FormGroup;
   mesInicioActivado:boolean|null;
   mesFinActivado:boolean;
@@ -31,8 +33,20 @@ export class AgregarEducacionComponent implements OnInit {
       mesFin:[null,[Validators.min(1),Validators.max(12)]],
       anioFin:[null,[]],
       logoUrl:[null,[Validators.required,Validators.pattern('.+(.jpg|.png|.jpeg)$')]]
-    })
+    })   
     
+  }
+
+  /*
+    funcion que retorna el tipo en singular
+  */
+
+  muestraSingular(){
+    const regexp:RegExp = /[A-Z][a-z]*[^e](?=es|s)/
+    const matches=this.tipoEducacion.match(regexp);
+    //Es un quilombo poder conseguir un elemento de un conjunto de matches en TS
+    const singular = matches?.pop();
+    return singular;
     
   }
   //getters de los campos del formulario
@@ -179,16 +193,16 @@ export class AgregarEducacionComponent implements OnInit {
       logoUrl:this.LogoUrl?.value  
     }; 
   
-    this.enviaEdu.emit(nuevaEdu);   
+    //this.enviaEdu.emit(nuevaEdu);   
     }
     else{
       this.formulario.markAllAsTouched();
     }
     console.log(this.anioFinValido())
-   
+    this.muestraSingular();
   }
 
   ngOnInit(): void {
   }
-
+  
 }
