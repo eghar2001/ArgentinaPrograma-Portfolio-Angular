@@ -72,10 +72,10 @@
             <label  class="form-label">Hasta</label> 
             <div class="row">  
                 <div class="mb-3 col-12 col-md-6">                    
-                  <input  formControlName="anioFin"  [attr.disabled]="!anioFinActivado? true:null" class="form-control" type="text" placeholder="año"   #anioFin >   
+                  <input  formControlName="anioFin"  [attr.disabled]="!anioFinActivado? true:null" class="form-control" type="text" placeholder="año"    >   
                   <div class="form-check mt-1">
-                      <input class="form-check-input" type="checkbox" value="" id="tieneMesInicio" #anioFin   (click)="activaHastaActualidad()">
-                      <label class="form-check-label" for="tieneMesInicio">
+                      <input class="form-check-input" type="checkbox" value="" id="tieneAnioFin"   [checked]="!anioFinActivado" (click)="activaHastaActualidad()">
+                      <label class="form-check-label" for="tieneAnioFin">
                         Hasta la actualidad
                       </label>
                     </div>
@@ -88,7 +88,7 @@
                 <div class="mb-3 col-12 col-md-6">                   
                     <input formControlName="mesFin" class="form-control" type="text" placeholder="mes"  [attr.disabled]="mesFinActivado? null:true" >  
                     <div class="form-check mt-1">
-                        <input class="form-check-input" type="checkbox" value="" id="tieneMesFin"   [checked]="mesFinActivado"  (click)="cambiaMesFinActivado()">
+                        <input class="form-check-input" type="checkbox" value="" id="tieneMesFin"   [checked]="mesFinActivado" [attr.disabled]="anioFinActivado?null:true" (click)="cambiaMesFinActivado()">
                         <label class="form-check-label" for="tieneMesFin">
                           Tiene mes fin
                         </label>
@@ -125,7 +125,5 @@
   </div> 
     
     
-    <button type="submit" class="btn btn-primary" (click)="onEnviar($event)">Submit</button>
+    <button type="submit" class="btn btn-primary" (click)="this.editar?editarEdu($event):agregarEdu($event)">{{this.editar?"Editar":"Subir"}}</button>
   </form>
-
-  

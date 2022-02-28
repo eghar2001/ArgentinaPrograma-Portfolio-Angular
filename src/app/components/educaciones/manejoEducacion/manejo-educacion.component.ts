@@ -5,35 +5,41 @@ import { Fecha } from 'src/app/interfacesYModelos/fecha.model';
 
 
 @Component({
-  selector: 'app-agregar-educacion',
-  templateUrl: './agregar-educacion.component.html',
-  styleUrls: ['./agregar-educacion.component.css']
+  selector: 'app-manejo-educacion',
+  templateUrl: './manejo-educacion.component.html',
+  styleUrls: ['./manejo-educacion.component.css']
 })
-export class AgregarEducacionComponent implements OnInit {
+export class ManejoEducacionComponent implements OnInit {
   @Output() enviaEdu = new EventEmitter<Educacion>();
   @Input() idDisp:number;
   @Input() tipoEducacion:string;
+  @Input() editar:boolean;
+  @Input() educacionAEditar:Educacion;
   formulario:FormGroup;
   mesInicioActivado:boolean|null;
   mesFinActivado:boolean;
   anioFinActivado:boolean;
   fechaActual:Fecha
   
-  constructor(private formBuilder:FormBuilder) { 
+  constructor(private formBuilder:FormBuilder) {     
+    this.fechaActual = Fecha.FechaActual;
     
-    this.mesInicioActivado = true;
-    this.mesFinActivado = true;
-    this.anioFinActivado = true;
-    this.fechaActual = Fecha.FechaActual
+
+    
+  }
+  ngOnInit(): void {
     this.formulario = this.formBuilder.group({
-      institucion:['',[Validators.required]],
-      estudio:['',[Validators.required]],
-      mesInicio:[null,[Validators.min(1),Validators.max(12)]],
-      anioInicio:[null,[Validators.required,Validators.min(1900),Validators.max(this.fechaActual.getAnio())]],
-      mesFin:[null,[Validators.min(1),Validators.max(12)]],
-      anioFin:[null,[]],
-      logoUrl:[null,[Validators.required,Validators.pattern('.+(.jpg|.png|.jpeg)$')]]
-    })   
+      institucion:[this.editar?this.educacionAEditar.institucion:'',[Validators.required]],
+      estudio:[this.editar?this.educacionAEditar.estudio:'',[Validators.required]],
+      mesInicio:[this.editar && !(this.educacionAEditar.desde.mes==0)?this.educacionAEditar.desde.mes:null,[Validators.min(1),Validators.max(12)]],
+      anioInicio:[this.editar?this.educacionAEditar.desde.anio:null,[Validators.required,Validators.min(1900),Validators.max(this.fechaActual.getAnio())]],
+      mesFin:[this.editar  && !(this.educacionAEditar.hasta.mes === 0 || this.educacionAEditar.hasta.anio === 0 )?this.educacionAEditar.hasta.mes:null,[Validators.min(1),Validators.max(12)]],
+      anioFin:[this.editar && !(this.educacionAEditar.hasta.anio === 0)?this.educacionAEditar.hasta.anio:null ,[]],
+      logoUrl:[this.editar?this.educacionAEditar.logoUrl:null,[Validators.required,Validators.pattern('.+(.jpg|.png|.jpeg)$')]]
+    }) ;
+    this.mesInicioActivado = this.editar &&  this.educacionAEditar.desde.mes === 0? false:true;
+    this.mesFinActivado = this.editar && (this.educacionAEditar.hasta.mes === 0 || this.educacionAEditar.hasta.anio === 0)? false:true;
+    this.anioFinActivado = this.editar && this.educacionAEditar.hasta.anio === 0? false:true;
     
   }
 
@@ -82,13 +88,13 @@ export class AgregarEducacionComponent implements OnInit {
 
   //Funciones que sirven para resetear los valores
   resetMesInicio():void{
-    this.formulario.reset({mesInicio:""})
+    this.formulario.controls['mesInicio'].setValue(null)
   }
   resetMesFin():void{
-    this.formulario.reset({mesFin:""})
+    this.formulario.controls['mesFin'].setValue(null)
   }
   resetAnioFin(){
-    this.formulario.reset({anioFin:""})
+    this.formulario.controls['anioFin'].setValue(null)
   }
 
 
@@ -108,6 +114,7 @@ export class AgregarEducacionComponent implements OnInit {
   anioInicioActual(){
     return parseInt(this.AnioInicio?.value)===this.fechaActual.getAnio();
   }
+
   //Chequea que un mes ingresado como mesInicio sea menor o igual al mes actual
   //En caso que el año ingresado como anioInicio sea igual al actual
   mesInicioValido():boolean{
@@ -175,7 +182,7 @@ export class AgregarEducacionComponent implements OnInit {
  
  
 
-  onEnviar(event: Event){
+  agregarEdu(event: Event){
     // Detenemos la propagación o ejecución del compotamiento submit de un form
     if (this.formulario.valid && this.misValidacionesCorrectas()){     
     const nuevaEdu:Educacion = {
@@ -193,16 +200,37 @@ export class AgregarEducacionComponent implements OnInit {
       logoUrl:this.LogoUrl?.value  
     }; 
   
-    //this.enviaEdu.emit(nuevaEdu);   
+    this.enviaEdu.emit(nuevaEdu);   
     }
     else{
       this.formulario.markAllAsTouched();
     }
-    console.log(this.anioFinValido())
-    this.muestraSingular();
-  }
+   }
+   editarEdu(event: Event){
+    // Detenemos la propagación o ejecución del compotamiento submit de un form
+    if (this.formulario.valid && this.misValidacionesCorrectas()){     
+    const nuevaEdu:Educacion = {
+      id:this.educacionAEditar.id,
+      estudio:this.Estudio?.value,
+      institucion:this.Institucion?.value,
+      desde:{
+        mes:this.sacaNull(this.MesInicio?.value),
+        anio:parseInt(this.AnioInicio?.value)
+      },
+      hasta:{
+        mes:this.sacaNull(this.MesFin?.value),
+        anio:this.sacaNull(this.AnioFin?.value)
+      },  
+      logoUrl:this.LogoUrl?.value  
+    }; 
+  
+    this.enviaEdu.emit(nuevaEdu);   
+    }
+    else{
+      this.formulario.markAllAsTouched();
+    }
+   }
 
-  ngOnInit(): void {
-  }
+ 
   
 }

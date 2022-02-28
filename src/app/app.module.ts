@@ -14,7 +14,7 @@ import{HttpClientModule} from '@angular/common/http'
 import { ProfileService } from './servicios/profile/profile.service';
 import { EducacionesComponent } from './components/educaciones/educaciones.component';
 import { EducacionComponent } from './components/educaciones/educacion/educacion.component';
-import { AgregarEducacionComponent } from './components/educaciones/agregar-educacion/agregar-educacion.component';
+import { ManejoEducacionComponent } from './components/educaciones/manejoEducacion/manejo-educacion.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { EstudiosCertificacionesComponent } from './estudios-certificaciones/estudios-certificaciones.component';
@@ -31,7 +31,7 @@ import { EstudiosCertificacionesComponent } from './estudios-certificaciones/est
     ButtonsAndLoginComponent,
     LoginFormComponent,
     EducacionComponent,
-    AgregarEducacionComponent,
+    ManejoEducacionComponent,
     EstudiosCertificacionesComponent,
 
   ],

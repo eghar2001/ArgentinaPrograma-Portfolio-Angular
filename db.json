@@ -12,8 +12,8 @@
   "estudios": [
     {
       "id": 1,
-      "institucion": "UTN-Frro",
       "estudio": "Ingenieria en Sistemas de la Informacion",
+      "institucion": "UTN-FRRo",
       "desde": {
         "mes": 3,
         "anio": 2020
@@ -33,15 +33,15 @@
         "anio": 2021
       },
       "hasta": {
-        "mes": "",
+        "mes": 0,
         "anio": 0
       },
       "logoUrl": "https://upload.wikimedia.org/wikipedia/commons/8/87/Logo_institucional_2017.jpg"
     },
     {
       "id": 3,
+      "estudio": "Secundario con Bachiller en Economia y Administracion",
       "institucion": "Colegio Los Arrayanes",
-      "estudio": "Secundario con bachiller en Economia y Administracion",
       "desde": {
         "mes": 0,
         "anio": 2015

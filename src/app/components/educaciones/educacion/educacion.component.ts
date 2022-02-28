@@ -11,6 +11,7 @@ import { Fecha } from 'src/app/interfacesYModelos/fecha.model';
 export class EducacionComponent implements OnInit {
   @Input() miEducacion:Educacion;
   @Output() borrarEdu = new EventEmitter<number>();
+  @Output() editarEdu = new EventEmitter<Educacion>();
   fechaInicio:Fecha;
   fechaFin:Fecha;
   constructor() { }
@@ -21,6 +22,9 @@ export class EducacionComponent implements OnInit {
   }
   borraEducacion():void{
     this.borrarEdu.emit(this.miEducacion.id);
+  }
+  editarEducacion(){
+    this.editarEdu.emit(this.miEducacion);
   }
 
 }

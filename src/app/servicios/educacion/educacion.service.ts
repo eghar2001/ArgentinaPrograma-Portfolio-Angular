@@ -24,4 +24,8 @@ export class EducacionService {
     const url =`${this.apiUrl}/${tipo}/${id}`;    
      return  this.http.delete<Educacion>(url);
   }
+  public editarEducacion(edu:Educacion,tipo:string):Observable<Educacion>{
+    const url =`${this.apiUrl}/${tipo}/${edu.id}`;   
+    return this.http.put<Educacion>(url,edu,httpOptions);
+  }
 }
