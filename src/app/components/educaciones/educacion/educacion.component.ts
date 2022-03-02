@@ -17,8 +17,8 @@ export class EducacionComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.fechaInicio = new Fecha(this.miEducacion.desde.mes,this.miEducacion.desde.anio);
-    this.fechaFin = new Fecha(this.miEducacion.hasta.mes,this.miEducacion.hasta.anio)
+    this.fechaInicio = new Fecha(0,this.miEducacion.desde.mes,this.miEducacion.desde.anio);
+    this.fechaFin = new Fecha(0,this.miEducacion.hasta.mes,this.miEducacion.hasta.anio)
   }
   borraEducacion():void{
     this.borrarEdu.emit(this.miEducacion.id);

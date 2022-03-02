@@ -7,10 +7,9 @@
             <div class="row border-bottom border-1 pt-3 px-3 pb-2 mb-3">
                 <img [src]="miPerfil.profileUrl" class="d-hidden d-sm-block col-12 col-sm-auto col-md-1 m-auto m-sm-0 justify foto-perfil border p-0 border-4  rounded-circle ">             
                 <h1 class="col-12 col-sm-10 align-self-center align-self-sm-end text-center text-sm-start card-title">{{miPerfil.nombre}}</h1>
-            </div>    
-      
+            </div>         
                 <p class="card-text text-center text-sm-start">{{miPerfil.current}}</p>
-                <p class="card-text text-center text-sm-start">{{miPerfil.location}}</p>
+                <p class="card-text text-center text-sm-start">{{fechaNac.calculaEdad()}} años. {{miPerfil.location}}</p>
             
             <div class="row justify-content-start gx-2 gy-2">
                 <div class="col-12 col-sm-auto">

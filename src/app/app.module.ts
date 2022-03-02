@@ -21,6 +21,8 @@ import { EstudiosCertificacionesComponent } from './components/estudios-certific
 import { EducacionService } from './servicios/educacion/educacion.service';
 import { AboutService } from './servicios/about/about.service';
 import { ProfileService } from './servicios/profile/profile.service';
+import { EditarProfileComponent } from './components/profile/editar-profile/editar-profile.component';
+
 
 @NgModule({
   declarations: [
@@ -36,7 +38,7 @@ import { ProfileService } from './servicios/profile/profile.service';
     ManejoEducacionComponent,
     EstudiosCertificacionesComponent,
     EditarAboutComponent,
-
+    EditarProfileComponent
   ],
   imports: [
     BrowserModule,
