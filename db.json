@@ -7,7 +7,7 @@
     "profileUrl": "../../../assets/profile/fotoPerfil.jpg"
   },
   "about": {
-    "content": "Estudiante de 2do de Ingeniera en Sistemas de la Informacion. Cursando el Argentina Programa"
+    "content": "Estudiante de 3er año de Ingeniera en Sistemas de la Información. Cursando el Argentina Programa"
   },
   "estudios": [
     {
@@ -81,10 +81,25 @@
         "anio": 2021
       },
       "logoUrl": "../../../../assets/educaciones/fcc.png"
+    },
+    {
+      "id": 3,
+      "estudio": "First Certificate (B2)",
+      "institucion": "Cambridge English Assessment",
+      "desde": {
+        "mes": 1,
+        "anio": 2021
+      },
+      "hasta": {
+        "mes": 0,
+        "anio": 0
+      },
+      "logoUrl": "https://kaironenglish.com/wp-content/uploads/2021/06/cambridge-logo.jpg"
     }
   ],
   "experiencias": [
     {
+      "id": 0,
       "lugar": "",
       "cargo": "",
       "desde": null,
