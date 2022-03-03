@@ -1,0 +1,17 @@
+.banner{
+    display: block;
+    width: auto;
+    height: auto;
+    max-height:400px;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+
+}
+.banner-foto{
+    width:100%;
+    height:auto;
+    
+
+}

@@ -1,0 +1,30 @@
+
+    <div class="card w-100" >
+        <div class="banner card-img-top">
+            <img [src]="perfil.bannerUrl"   class="banner-foto" alt="...">
+        </div>
+        <div class="card-body container-fluid ">
+            <div class="row border-bottom justify-content-center justify-content-sm-start border-1 pt-3 px-3 pb-2 mb-3">
+                <img [src]="perfil.profileUrl" class="d-hidden d-sm-block col-12 col-sm-auto col-md-1 m-auto m-sm-0 justify foto-perfil border p-0 border-4  rounded-circle "> 
+                <div class="col-12 col-sm-10  d-flex justify-content-center justify-content-sm-start align-items-end">                       
+                    <h1 class="d-inline-block text-center ">{{perfil.nombre}} {{perfil.apellido}}</h1>
+                    <i class='bx bx-edit-alt ms-2 bx-sm bx-tada-hover  text-primary align-self-start align-self-sm-center' (click)="activaEditar()" ></i>                   
+                 </div>    
+            </div>         
+                <p class="card-text text-center text-sm-start">{{perfil.profesion}}</p>
+                <p class="card-text text-center text-sm-start"> {{edad}} años. {{perfil.location}}</p>
+            
+            <div class="row justify-content-start gx-2 gy-2">
+                <div class="col-12 col-sm-auto">
+                    <button class="btn w-100 btn-primary">Tengo interés</button>
+                </div>
+                <div class="col-12 col-sm-auto">
+                    <button class="btn w-100 btn-secondary ">Añadir Seccion</button>
+                 </div>
+                 <div class="col-12 col-sm-auto">
+                    <button class="btn w-100   btn-secondary">Mas</button>   
+                </div>
+            </div>
+        </div>
+      </div>
+

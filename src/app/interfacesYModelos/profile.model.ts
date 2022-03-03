@@ -2,12 +2,13 @@
 
 export interface Profile{
     nombre:string,
+    apellido:string,
     fechaNac:{
         dia:number,
         mes:number,
         anio:number
     },
-    current:string,
+    profesion:string,
     location:string,
     bannerUrl:string,
     profileUrl:string

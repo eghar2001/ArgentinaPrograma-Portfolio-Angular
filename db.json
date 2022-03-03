@@ -1,12 +1,13 @@
 {
   "profile": {
-    "nombre": "Nahuel Coronel",
-    "fechaNac":{
-      "dia":9,
-      "mes":12,
-      "anio":2001
+    "nombre": "Nahuel",
+    "apellido": "Coronel",
+    "fechaNac": {
+      "dia": 9,
+      "mes": 12,
+      "anio": 2001
     },
-    "current": "Estudiante de Ingeniera en Sistemas. UTN FRRO",
+    "profesion": "Estudiante de Ingeniera en Sistemas. UTN FRRO",
     "location": "Rosario(Argentina)",
     "bannerUrl": "../../../assets/profile/fotoBanner.jpg",
     "profileUrl": "../../../assets/profile/fotoPerfil.jpg"

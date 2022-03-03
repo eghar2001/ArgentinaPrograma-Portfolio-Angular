@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
-import { ProfileComponent } from './components/profile/profile.component';
+
 import { AboutComponent } from './components/about/about.component';
 
 import { ProjectsComponent } from './components/projects/projects.component';
@@ -22,13 +22,15 @@ import { EducacionService } from './servicios/educacion/educacion.service';
 import { AboutService } from './servicios/about/about.service';
 import { ProfileService } from './servicios/profile/profile.service';
 import { EditarProfileComponent } from './components/profile/editar-profile/editar-profile.component';
+import { ProfileContentComponent } from './components/profile/contenido/profile-content.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    ProfileComponent,
+    ProfileContentComponent,
     AboutComponent,
     EducacionesComponent,
     ProjectsComponent,
@@ -38,7 +40,8 @@ import { EditarProfileComponent } from './components/profile/editar-profile/edit
     ManejoEducacionComponent,
     EstudiosCertificacionesComponent,
     EditarAboutComponent,
-    EditarProfileComponent
+    EditarProfileComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

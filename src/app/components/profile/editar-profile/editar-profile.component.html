@@ -1,0 +1,86 @@
+<div class="w-100 card p-3 " > 
+    <form class="container-fluid" [formGroup]="formulario">
+        <div class="d-flex justify-content-between">            
+            <legend>Editar perfil</legend>
+            <i class='bx bx-md bxs-chevron-up-square' (click)="cerrarFormulario()"></i>
+        </div>
+         <div class="row">
+            <div class=" col-12 col-sm-6 mb-3">
+              <label for="nombre" class="form-label">Nombre</label>
+              <input formControlName="nombre" type="texto" class="form-control" id="nombre" >
+              <div *ngIf="Nombre?.errors && Nombre?.touched">                  
+                    <p class="text-danger" *ngIf="Nombre?.hasError('required')">Nombre es requerido</p>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6  mb-3">
+                <label for="apellido" class="form-label">Apellido</label>
+                <input formControlName="apellido" type="texto" class="form-control" id="apellido" >
+                <div *ngIf="Apellido?.errors && Apellido?.touched">                  
+                    <p class="text-danger" *ngIf="Apellido?.hasError('required')">Apellido es requerido</p>
+                </div>
+            </div>
+        </div> 
+        <p class="form-label">Fecha de Nacimiento</p> 
+        <div class="row">
+            <div class="col-12 col-sm-4  mb-3">
+                <input formControlName="diaNac" type="number" class="form-control" id="diaNacimiento" placeholder="Dia">
+                <div *ngIf="diaNac?.errors && diaNac?.touched">                  
+                    <p class="text-danger" *ngIf="diaNac?.hasError('required')"> Dia es requerido</p>
+                    <p class="text-danger" *ngIf="diaNac?.hasError('min')"> Dia debe ser mayor a 1</p>
+                    <p class="text-danger" *ngIf="diaNac?.hasError('max')"> Dia debe ser menor a 31</p>
+                </div>
+            </div>
+            <div class="col-12 col-sm-4  mb-3">
+                <input formControlName="mesNac" type="number" class="form-control" id="mesNacimiento" placeholder="Mes">
+                <div *ngIf="mesNac?.errors && mesNac?.touched">                  
+                    <p class="text-danger" *ngIf="mesNac?.hasError('required')"> Mes es requerido</p>
+                    <p class="text-danger" *ngIf="mesNac?.hasError('min')"> Mes debe ser mayor a 1</p>
+                    <p class="text-danger" *ngIf="mesNac?.hasError('max')"> Mes debe ser menor a 12</p>
+                </div>
+            </div>
+            <div class="col-12 col-sm-4  mb-3">
+                <input formControlName="anioNac" type="number" class="form-control" id="anioNacimiento" placeholder="Año">
+                <div *ngIf="anioNac?.errors && anioNac?.touched">                  
+                    <p class="text-danger" *ngIf="anioNac?.hasError('required')"> Año es requerido</p>
+                    <p class="text-danger" *ngIf="anioNac?.hasError('min')"> Año debe ser mayor a 1900</p>
+                    <p class="text-danger" *ngIf="anioNac?.hasError('max')"> Año debe ser menor a {{fechaActual.getAnio()}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-sm-6  mb-3" >
+                <label for="profesion" class="form-label">Profesion</label>
+                <input formControlName="profesion" type="texto" class="form-control" id="profesion" >
+                <div *ngIf="Profesion?.errors && Profesion?.touched">                  
+                    <p class="text-danger" *ngIf="Profesion?.hasError('required')">Profesion es requerido</p>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6  mb-3">
+                <label for="localidad" class="form-label">Localidad</label>
+                <input formControlName="localidad" type="texto" class="form-control" id="localidad" >    
+                <div *ngIf="Localidad?.errors && Localidad?.touched">                  
+                    <p class="text-danger" *ngIf="Localidad?.hasError('required')">Localidad es requerido</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12  mb-3">
+                <label for="urlFotoPerfil" class="form-label">Url de foto de Perfil</label>
+                <input formControlName="fotoPerfil" type="texto" class="form-control" id="urlFotoPerfil" >
+                <div *ngIf="FotoPerfil?.errors && FotoPerfil?.touched">                  
+                    <p class="text-danger" *ngIf="FotoPerfil?.hasError('required')">Foto Perfil es requerido</p>
+                    <p class="text-danger" *ngIf="FotoPerfil?.hasError('pattern')">Foto Perfil debe ser una imagen</p>
+                </div>
+            </div>
+            <div class="col-12  mb-3">
+                <label for="urlFotoBanner" class="form-label">Url de la foto de banner</label>
+                <input formControlName="fotoBanner" type="texto" class="form-control" id="urlFotoBanner" > 
+                <div *ngIf="FotoBanner?.errors && FotoBanner?.touched">                  
+                    <p class="text-danger" *ngIf="FotoBanner?.hasError('required')">Foto Banner es requerido</p>
+                    <p class="text-danger" *ngIf="FotoBanner?.hasError('pattern')">Foto Banner debe ser una imagen</p>
+                </div>               
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary" (click)="editarProfile($event)" >Editar</button>
+      </form>
+    </div>   
