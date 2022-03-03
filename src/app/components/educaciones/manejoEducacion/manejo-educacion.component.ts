@@ -35,7 +35,7 @@ export class ManejoEducacionComponent implements OnInit {
       anioInicio:[this.editar?this.educacionAEditar.desde.anio:null,[Validators.required,Validators.min(1900),Validators.max(this.fechaActual.getAnio())]],
       mesFin:[this.editar  && !(this.educacionAEditar.hasta.mes === 0 || this.educacionAEditar.hasta.anio === 0 )?this.educacionAEditar.hasta.mes:null,[Validators.min(1),Validators.max(12)]],
       anioFin:[this.editar && !(this.educacionAEditar.hasta.anio === 0)?this.educacionAEditar.hasta.anio:null ,[]],
-      logoUrl:[this.editar?this.educacionAEditar.logoUrl:null,[Validators.required,Validators.pattern('.+(.jpg|.png|.jpeg)$')]]
+      logoUrl:[this.editar?this.educacionAEditar.logoUrl:null,[Validators.required,Validators.pattern('.+(.jpg|.png|.jpeg|.gif)$')]]
     }) ;
     this.mesInicioActivado = this.editar &&  this.educacionAEditar.desde.mes === 0? false:true;
     this.mesFinActivado = this.editar && (this.educacionAEditar.hasta.mes === 0 || this.educacionAEditar.hasta.anio === 0)? false:true;

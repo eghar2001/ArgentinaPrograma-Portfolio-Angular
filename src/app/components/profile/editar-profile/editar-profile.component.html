@@ -20,24 +20,8 @@
                 </div>
             </div>
         </div> 
-        <p class="form-label">Fecha de Nacimiento</p> 
+        <p class="form-label">Fecha de Nacimiento (aaaa/mm/dd)</p> 
         <div class="row">
-            <div class="col-12 col-sm-4  mb-3">
-                <input formControlName="diaNac" type="number" class="form-control" id="diaNacimiento" placeholder="Dia">
-                <div *ngIf="diaNac?.errors && diaNac?.touched">                  
-                    <p class="text-danger" *ngIf="diaNac?.hasError('required')"> Dia es requerido</p>
-                    <p class="text-danger" *ngIf="diaNac?.hasError('min')"> Dia debe ser mayor a 1</p>
-                    <p class="text-danger" *ngIf="diaNac?.hasError('max')"> Dia debe ser menor a 31</p>
-                </div>
-            </div>
-            <div class="col-12 col-sm-4  mb-3">
-                <input formControlName="mesNac" type="number" class="form-control" id="mesNacimiento" placeholder="Mes">
-                <div *ngIf="mesNac?.errors && mesNac?.touched">                  
-                    <p class="text-danger" *ngIf="mesNac?.hasError('required')"> Mes es requerido</p>
-                    <p class="text-danger" *ngIf="mesNac?.hasError('min')"> Mes debe ser mayor a 1</p>
-                    <p class="text-danger" *ngIf="mesNac?.hasError('max')"> Mes debe ser menor a 12</p>
-                </div>
-            </div>
             <div class="col-12 col-sm-4  mb-3">
                 <input formControlName="anioNac" type="number" class="form-control" id="anioNacimiento" placeholder="Año">
                 <div *ngIf="anioNac?.errors && anioNac?.touched">                  
@@ -46,6 +30,26 @@
                     <p class="text-danger" *ngIf="anioNac?.hasError('max')"> Año debe ser menor a {{fechaActual.getAnio()}}</p>
                 </div>
             </div>
+            <div class="col-12 col-sm-4  mb-3">
+                <input formControlName="mesNac" type="number" class="form-control" id="mesNacimiento" placeholder="Mes" (blur)="actualizaDiasMax()">
+                <div *ngIf=" mesNac?.touched &&(mesNac?.errors || !mesValido())">                  
+                    <p class="text-danger" *ngIf="mesNac?.hasError('required')"> Mes es requerido</p>
+                    <p class="text-danger" *ngIf="mesNac?.hasError('min')"> Mes debe ser mayor a 1</p>
+                    <p class="text-danger" *ngIf="mesNac?.hasError('max')"> Mes debe ser menor a 12</p>
+                    <p class="text-danger" *ngIf="!mesValido()"> Mes debe ser menor a {{fechaActual.getMes()}}</p>
+                </div>
+            </div>
+            <div class="col-12 col-sm-4  mb-3">
+                <input formControlName="diaNac" type="number" class="form-control" id="diaNacimiento" placeholder="Dia">
+                <div *ngIf="  diaNac?.touched && (diaNac?.errors || !diaConsistente())">                  
+                    <p class="text-danger" *ngIf="diaNac?.hasError('required')"> Dia es requerido</p>
+                    <p class="text-danger" *ngIf="diaNac?.hasError('min')"> Dia debe ser mayor a 1</p>
+                    <p class="text-danger" *ngIf="!respetaDiasMax()"> Dia debe ser menor a {{diasMax}}</p>
+                    <p class="text-danger" *ngIf="!diaValido()"> Dia debe ser menor a {{fechaActual.getDia()}}</p>
+                </div>
+            </div>
+            
+            
         </div>
         <div class="row">
             <div class="col-12 col-sm-6  mb-3" >

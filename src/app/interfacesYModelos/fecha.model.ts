@@ -120,5 +120,52 @@ export class Fecha{
             return -1;
         }
     }
-
+    static cantidadDias(mes:number):number{
+        const dias30:number[] = [4,6,9,11];
+        const dias31:number[] = [1,3,5,7,8,10,12]
+        if (dias30.includes(mes)){
+            return 30;
+        }
+        else if (mes ===2){
+            return 28;
+        }
+        else if(dias31.includes(mes)){
+            return 31;
+        }
+        else{
+            return 0;
+        }
+    }
+     //Retorna booleano diciendo si el mes ingresado es valido
+    static mesValido(mes:number,anio:number):boolean{
+       
+        if (anio<Fecha.FechaActual.getAnio()){
+            return true;
+        }
+        else if(anio>Fecha.FechaActual.getAnio()){
+            return false;
+        }
+        else{
+            return mes<= Fecha.FechaActual.getMes()
+        }
+    }
+    static diaValido(dia:number,mes:number,anio:number):boolean{
+        if (anio<Fecha.FechaActual.getAnio()){
+            return true;
+        }
+        else if(anio>Fecha.FechaActual.getAnio()){
+            return false;
+        }
+        else{
+            if(mes < Fecha.FechaActual.getMes()){
+                return true;
+            }
+            else if(mes > Fecha.FechaActual.getMes()){
+                return false;
+            }
+            else{
+                return dia <= Fecha.FechaActual.getMes()
+            }
+        }
+    }
 }
