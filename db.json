@@ -107,47 +107,32 @@
     {
       "id": 1,
       "institucion": "Apple",
-      "tipoJornada": "Jornada Completa",
-      "cargo": "Ingeniero en Sistemas de la informacion",
+      "tipoJornada": "Medio Tiempo",
+      "cargo": "Prueba",
       "desde": {
         "mes": 12,
         "anio": 2001
       },
       "hasta": {
-        "mes": 3,
-        "anio": 2022
+        "mes": 0,
+        "anio": 0
       },
       "fondoUrl": "https://i.blogs.es/66b2a4/photo-1511367461989-f85a21fda167/840_560.jpeg"
     },
     {
       "id": 2,
-      "institucion": "Impero Ruso",
+      "institucion": "Club Atletico Rosario Central",
       "tipoJornada": "Jornada Completa",
-      "cargo": "Hijo de mil putas",
+      "cargo": "Goleador Historico",
       "desde": {
-        "mes": 10,
-        "anio": 2008
+        "mes": 0,
+        "anio": 2004
       },
       "hasta": {
         "mes": 0,
         "anio": 0
       },
-      "fondoUrl": "https://static1.abc.es/media/internacional/2022/02/28/putin-hitler-kDpH--620x349@abc.jpg"
-    },
-    {
-      "id": 3,
-      "institucion": "Tercer Reich",
-      "tipoJornada": "Jornada Completa",
-      "cargo": "Asesino",
-      "desde": {
-        "mes": 5,
-        "anio": 1936
-      },
-      "hasta": {
-        "mes": 0,
-        "anio": 1944
-      },
-      "fondoUrl": "https://khronoshistoria.com/wp-content/uploads/2019/01/El-armario-de-Hitler-y-las-mentiras-e-infamias-del-Mein-Kampf-e1549669867412-scaled.jpg"
+      "fondoUrl": "https://rosariocentral.com/wp-content/uploads/2021/11/WhatsApp-Image-2021-11-29-at-14.57.17-1024x683.jpeg"
     }
   ],
   "proyectos": [
