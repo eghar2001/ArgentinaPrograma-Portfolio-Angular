@@ -1,0 +1,105 @@
+<form class="container-fluid card p-3 mb-3" [formGroup]="formulario">
+    <div class="row mb-3">
+        <div class="col-12">
+            <label for="cargo" class="form-label">Cargo ocupado</label>
+            <input type="text" formControlName="cargo" class="form-control" id="cargo" >
+            <div *ngIf="Cargo?.errors && Cargo?.touched">
+                <p class="text-danger">Este campo es requerido</p>
+            </div>
+        </div>
+      </div>
+    <div class="row mb-3">
+        <div class="col-12 col-sm-6">
+          <label for="institucion" class="form-label">Institucion</label>
+          <input type="text" formControlName="institucion" class="form-control" id="institucion" >
+          <div *ngIf="Institucion?.errors && Institucion?.touched">
+            <p class="text-danger">Este campo es requerido</p>
+        </div>
+        </div>
+        <div class="col-12 col-sm-6">
+            <label for="tipoJornada" class="form-label">Tipo de Jornada</label>
+            <select class="form-select" formControlName="tipoJornada" aria-label="Default select example" id="tipoJornada">
+                <option value="Jornada Completa">Jornada Completa</option>
+                <option value="Medio Tiempo">Medio Tiempo</option>
+            </select>
+            <div *ngIf="TipoJornada?.errors && TipoJornada?.touched">
+                <p class="text-danger">Este campo es requerido</p>
+            </div>
+        </div>
+    </div>    
+    <div class="row mb-3">
+        
+        <div class="col-12 col-sm-6">
+            <p class="form-label">Desde</p>
+            <div class="row">
+                <div class="col-12 col-sm-6 mb-3 ">
+                    <input type="text" formControlName="anioInicio" class="form-control" id="anioInicio" placeholder="año" >
+                    <div *ngIf="AnioInicio?.touched && (AnioInicio?.errors ) ">
+                        <p class="text-danger" *ngIf="AnioInicio?.hasError('required')">Este campo es requerido</p>
+                        <p class="text-danger" *ngIf="AnioInicio?.hasError('min')">El anio debe ser mayor a 1900</p>
+                        <p class="text-danger" *ngIf="AnioInicio?.hasError('max')">El anio debe ser menor a {{fechaActual.getAnio()}}</p>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 mb-3">
+                    <input type="text" [attr.disabled]="mesInicioActivado? null:true"  formControlName="mesInicio" class="form-control" id="mesInicio" placeholder="mes" >
+                    <div class="form-check mt-1">
+                        <input class="form-check-input" type="checkbox" value="" id="tieneMesInicio"   [attr.checked]="mesInicioActivado"  (click)="cambiaMesInicioActivado()">
+                        <label class="form-check-label" for="tieneMesInicio">
+                          Tiene mes inicio
+                        </label>
+                      </div>
+                    <div *ngIf=" MesInicio?.touched && (MesInicio?.errors || !mesInicioValido())">
+                        <p class="text-danger" *ngIf="MesInicio?.hasError('min')">El mes debe ser mayor a 1</p>
+                        <p class="text-danger" *ngIf="MesInicio?.hasError('max')">El mes debe ser menor a 12</p>
+                        <p class="text-danger" *ngIf="!mesInicioValido()">El mes debe ser menor a {{fechaActual.getMes()}}</p>
+                    </div>
+                </div>      
+                
+                
+            </div>  
+        </div>
+        <div class="col-12 col-sm-6">
+            <p class="form-label">Hasta</p>
+            <div class="row">        
+                <div class="col-12 col-sm-6 mb-3">
+                    <input type="text" [attr.disabled]="anioFinActivado? null:true"  formControlName="anioFin" class="form-control" id="anioFin" placeholder="año" >
+                    <div class="form-check mt-1">
+                        <input class="form-check-input" type="checkbox" value="" id="hastaActualidad"   [checked]="!anioFinActivado" (click)="activaHastaActualidad()">
+                        <label class="form-check-label" for="hastaActualidad">
+                          Hasta la actualidad
+                        </label>
+                      </div>
+                    <div *ngIf="AnioFin?.touched && (AnioFin?.errors || !anioFinValido())">
+                        <p class="text-danger" *ngIf="!anioFinValido()">El anio debe ser mayor a {{AnioInicio?.value}}</p>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 mb-3">
+                    <input type="text" [attr.disabled]="mesFinActivado? null:true"  formControlName="mesFin" class="form-control" id="mesFin" placeholder="mes" >
+                    <div class="form-check mt-1">
+                        <input class="form-check-input" type="checkbox" value="" id="tieneMesFin"   [attr.checked]="mesFinActivado"  (click)="cambiaMesFinActivado()">
+                        <label class="form-check-label" for="tieneMesFin">
+                          Tiene mes inicio
+                        </label>
+                      </div>
+                    <div *ngIf="MesFin?.touched && (MesFin?.errors || !mesFinValido())">
+                        <p class="text-danger" *ngIf="MesFin?.hasError('min')">El mes debe ser mayor a 1</p>
+                        <p class="text-danger" *ngIf="MesFin?.hasError('max')">El mes debe ser menor a 12</p>
+                        <p class="text-danger" *ngIf="!mesFinValido()">El mes debe ser mayor a {{MesInicio?.value}}</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-12">
+            <label for="fondoUrl" class="form-label">Url del fondo</label>
+            <input type="text" formControlName="fondoUrl" class="form-control" id="fondoUrl" >
+            <div *ngIf="FondoUrl?.errors && FondoUrl?.touched">
+                <p class="text-danger" *ngIf="FondoUrl?.hasError('required')">Este campo es requerido</p>
+                <p class="text-danger" *ngIf="FondoUrl?.hasError('pattern')">Este campo debe ser una imagen</p>
+            </div>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="this.editar?clickEditar($event):clickAgregar($event)">{{this.editar?"Editar":"Subir"}}</button>
+  </form>

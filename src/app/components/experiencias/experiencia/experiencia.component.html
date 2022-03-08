@@ -1,0 +1,25 @@
+<div class="w-100 fondo-img border border-dark border-3 rounded my-1 " [ngStyle]="{'background-image':fondoUrl}" >
+    <div class="p-3 w-100 border-2 fondo-color d-flex  justify-content-end">
+           
+            <div class="d-flex  w-100 flex-column-reverse flex-sm-column align-items-end">
+            
+                <div class="mt-5 d-flex flex-column flex-sm-row justify-content-between w-100" >
+                    <div>
+                        <h5 class="text-start  display-5 border-bottom border-dark text-danger text-sm-end">{{experiencia.cargo}}</h5>
+                        <p >{{periodoTrabajado}}</p>
+                    </div>
+                    <div>
+                        <p class=" text-dark m-0 text-end">{{experiencia.institucion}}</p>
+                        <p class="text-dark m-0 text-end">{{experiencia.tipoJornada}}</p>
+                        <p class=" text-dark m-0 text-end">{{fechaInicio.getFullDateString()}}- {{fechaFin.getFullDateString()}}</p>
+                    </div>    
+                </div>
+                
+                <div class=" d-flex  justify-content-center align-items-end">
+                    <i class='bx bx-edit-alt bx-md bx-tada-hover  text-primary ' (click)="clickEditar()" ></i>
+                    <i class='bx bx-trash-alt bx-md bx-tada-hover  text-danger ' (click)="clickBorrar()" ></i>
+                </div>
+          
+            </div>
+    </div>
+</div>

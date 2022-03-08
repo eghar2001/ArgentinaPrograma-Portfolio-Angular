@@ -1,0 +1,9 @@
+<div class="card mb-3 p-3">
+    <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center">
+        <h3>Experiencia</h3>
+        <i  class='bx bx-list-plus  bx-md' (click)="abrirAgregar()" *ngIf="!formActivado"></i>
+        <i  class='bx bx-list-minus  bx-md' (click)="cerrarFormulario()" *ngIf="formActivado"></i>
+    </div>
+    <app-manejo-experiencia *ngIf="formActivado" [idDisp]="lastAlvId" [experienciaOriginal]="expAEditar" (editarEvent)="editarExperiencia($event)" [editar]="editar" (agregarEvent)="agregarExperiencia($event)"></app-manejo-experiencia>
+    <app-experiencia *ngFor="let experiencia of misExperiencias" [experiencia]="experiencia" (editarEvent)="abrirEditar($event)" (borrarEvent)="borrarExperiencia($event)"></app-experiencia>
+</div>

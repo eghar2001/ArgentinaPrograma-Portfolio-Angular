@@ -105,13 +105,49 @@
   ],
   "experiencias": [
     {
-      "id": 0,
-      "lugar": "",
-      "cargo": "",
-      "desde": null,
-      "hasta": null,
-      "logoUrl": "",
-      "ubicacion": ""
+      "id": 1,
+      "institucion": "Apple",
+      "tipoJornada": "Jornada Completa",
+      "cargo": "Ingeniero en Sistemas de la informacion",
+      "desde": {
+        "mes": 12,
+        "anio": 2001
+      },
+      "hasta": {
+        "mes": 3,
+        "anio": 2022
+      },
+      "fondoUrl": "https://i.blogs.es/66b2a4/photo-1511367461989-f85a21fda167/840_560.jpeg"
+    },
+    {
+      "id": 2,
+      "institucion": "Impero Ruso",
+      "tipoJornada": "Jornada Completa",
+      "cargo": "Hijo de mil putas",
+      "desde": {
+        "mes": 10,
+        "anio": 2008
+      },
+      "hasta": {
+        "mes": 0,
+        "anio": 0
+      },
+      "fondoUrl": "https://static1.abc.es/media/internacional/2022/02/28/putin-hitler-kDpH--620x349@abc.jpg"
+    },
+    {
+      "id": 3,
+      "institucion": "Tercer Reich",
+      "tipoJornada": "Jornada Completa",
+      "cargo": "Asesino",
+      "desde": {
+        "mes": 5,
+        "anio": 1936
+      },
+      "hasta": {
+        "mes": 0,
+        "anio": 1944
+      },
+      "fondoUrl": "https://khronoshistoria.com/wp-content/uploads/2019/01/El-armario-de-Hitler-y-las-mentiras-e-infamias-del-Mein-Kampf-e1549669867412-scaled.jpg"
     }
   ],
   "proyectos": [

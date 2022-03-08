@@ -1,4 +1,6 @@
-import { ThisReceiver } from "@angular/compiler";
+import { getTranslationDeclStmts } from "@angular/compiler/src/render3/view/template";
+
+
 
 export class Fecha{
     private mes:number;
@@ -167,5 +169,61 @@ export class Fecha{
                 return dia <= Fecha.FechaActual.getMes()
             }
         }
+    }
+    static tiempoTrabajado(fechaInicio:Fecha,fechaFin:Fecha):string{
+         function calculaMeses(mesInicio:number,mesFin:number):number{
+            let resultado:number = 0;
+            let mesActual = mesInicio;
+            while(mesActual!==mesFin){
+                mesActual = mesActual===12 ? 1:mesActual+1;                
+                resultado++;
+                console.log(mesActual);
+            }
+            return resultado;
+        }        
+        let aniosTrabajados:number ;
+        let mesesTrabajados:number ;
+        if (fechaFin.getAnio()===0 && fechaFin.getMes()===0){
+            if (fechaInicio.getMes()===0){
+                aniosTrabajados = Fecha.FechaActual.getAnio()-fechaInicio.anio;
+                mesesTrabajados= 0;
+            }
+            else{
+                if(fechaInicio.getMes()<=this.FechaActual.getMes()){
+                    aniosTrabajados = Fecha.FechaActual.getAnio()-fechaInicio.anio;
+                }
+                else{
+                    aniosTrabajados = Fecha.FechaActual.getAnio()-fechaInicio.anio-1;
+                }
+                mesesTrabajados=calculaMeses(fechaInicio.mes,Fecha.FechaActual.getMes());
+               
+            }
+        }
+        else if(fechaFin.getMes()===0){
+            aniosTrabajados = fechaFin.getAnio()-fechaInicio.getAnio() ;
+            mesesTrabajados = 0;
+          
+        }
+        else if(fechaInicio.getMes()===0){
+            aniosTrabajados = fechaFin.getAnio()-fechaInicio.getAnio();
+            mesesTrabajados = 0;
+          
+        }
+        else{
+            if (fechaInicio.getMes()> fechaFin.getMes()){
+                aniosTrabajados = fechaFin.getAnio()-fechaInicio.getAnio()-1;
+            }
+            else{
+                aniosTrabajados = fechaFin.getAnio()-fechaInicio.getAnio();
+            }
+            mesesTrabajados = calculaMeses(fechaInicio.getMes(),fechaFin.getMes());
+                      
+        };
+        const anio:string = aniosTrabajados === 1? 'año':'años';
+        const mes:string = aniosTrabajados === 1? 'mes':'meses';
+        return aniosTrabajados ===0 && mesesTrabajados === 0 ? '':aniosTrabajados === 0 ? `${mesesTrabajados} ${mes}`:mesesTrabajados===0?`${aniosTrabajados} ${anio}`:`${aniosTrabajados} ${anio} ${mesesTrabajados} ${mes}`
+       
+
+      
     }
 }

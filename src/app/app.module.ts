@@ -24,6 +24,11 @@ import { ProfileService } from './servicios/profile/profile.service';
 import { EditarProfileComponent } from './components/profile/editar-profile/editar-profile.component';
 import { ProfileContentComponent } from './components/profile/contenido/profile-content.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { ExperienciasComponent } from './components/experiencias/experiencias.component';
+import { ExperienciaComponent } from './components/experiencias/experiencia/experiencia.component';
+import { ExperienciaService } from './servicios/experiencia/experiencia.service';
+import { ResponsiveService } from './servicios/responsive/responsive.service';
+import { ManejoExperienciaComponent } from './components/experiencias/manejo-experiencia/manejo-experiencia.component';
 
 
 @NgModule({
@@ -41,7 +46,10 @@ import { ProfileComponent } from './components/profile/profile.component';
     EstudiosCertificacionesComponent,
     EditarAboutComponent,
     EditarProfileComponent,
-    ProfileComponent
+    ProfileComponent,
+    ExperienciasComponent,
+    ExperienciaComponent,
+    ManejoExperienciaComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +58,7 @@ import { ProfileComponent } from './components/profile/profile.component';
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [EducacionService, AboutService,ProfileService],
+  providers: [EducacionService, AboutService,ProfileService,ExperienciaService,ResponsiveService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
