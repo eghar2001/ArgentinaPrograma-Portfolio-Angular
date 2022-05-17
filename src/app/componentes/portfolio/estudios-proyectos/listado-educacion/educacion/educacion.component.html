@@ -1,0 +1,18 @@
+<div class="container-fluid p-2 border rounded my-1 ">
+    <div class="row">
+        <img [src]="miEducacion.fotoInstitucionUrl" class="col-12 col-sm-3   m-auto imagen-educacion " alt="">
+        <div class="col-12 col-sm d-flex flex-column justify-content-center">
+            <div class="row">
+                <div class="col-12 col-sm-9">
+                    <h4 class="text-center fw-bold text-sm-start">{{miEducacion.descripcion}}</h4>
+                    <p class="text-center m-0 text-sm-start">{{miEducacion.nombreInstitucion}}</p>
+                    <p class="text-center m-0 text-sm-start">{{fechaDesde}}- {{fechaHasta}}</p>
+                </div>
+                <div class="col-12 col-sm-3 d-flex justify-content-center justify-content-md-end">
+                    <i (click)="onEditar()" class='bx bx-edit-alt bx-md bx-tada-hover  text-primary'  ></i>
+                    <i (click)="onEliminar()" class='bx bx-trash-alt bx-md bx-tada-hover  text-danger' ></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

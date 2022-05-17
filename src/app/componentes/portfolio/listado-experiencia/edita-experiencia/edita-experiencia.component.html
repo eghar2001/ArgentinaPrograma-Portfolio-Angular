@@ -1,0 +1,64 @@
+
+
+
+<form [formGroup]="form" class="container-fluid card p-3" (ngSubmit)="onEnviar($event)" enctype="multipart/form-data">
+    <div class="row">
+      <div class="col-12 col-md-4 mb-3">
+        <label for="nombreInstitucion" class="form-label">Institucion</label>
+        <input type="text" formControlName="nombreInstitucion" class="form-control" id="nombreInstitucion"  aria-describedby="nombreInstitucion" >  
+      </div>
+      <div class="col-12 col-md-4 mb-3">
+        <label for="tipoJornada" class="form-label">Tipo Jornada</label>
+        <select id="tipoJornada" class="form-select" formControlName="tipoJornada" aria-label="Default select example">
+            
+            <option *ngFor="let tipoJorn of tiposJornada" [value]="tipoJorn.id">{{tipoJorn.descripcion}} </option>
+            
+        </select>
+      </div>
+      <div class="col-12 col-md-4 mb-3">
+        <label for="cargo" class="form-label">Cargo</label>
+        <input type="text" formControlName="cargo" class="form-control" id="cargo"  aria-describedby="cargo" >  
+      </div>
+      </div>
+
+      
+       
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <label for="fechaDesde" class="form-label">Fecha Comienzo</label>
+            <input class="form-control" formControlName="fechaDesde" type="date" id="fechaDesde" min="1889-12-24" [max]="fechaActual">
+        </div>
+        <div class="col-12 col-md-6">
+            <label for="fechaHasta" class="form-label">Fecha Finalizacion</label>
+            <input class="form-control" formControlName="fechaHasta" type="date" id="fechaHasta" [min]="FechaDesde?.value" [attr.disabled]="(hastaActualidad||!FechaDesde?.value)?true:null"  >
+            <div class="form-check">
+                <input (click)="onHastaActualidad()" [checked]="hastaActualidad" type="checkbox"  class="form-check-input" id="hastaActualidad">
+                <label class="form-check-label" for="hastaActualidad">Hasta Actualidad</label>
+              </div>
+        </div>
+    </div>
+        
+    
+    <div class="row">
+        <div class="col-12  mb-3">
+            <label for="fondoUrl" class="form-label">Foto Fondo</label>
+            <input type="text" formControlName="fondoUrl" class="form-control" id="fondoUrl" aria-describedby="fondoUrl" placeholder="Ingrese url del fondo"> 
+           
+          </div>
+          
+    </div>
+    
+    
+    
+     
+  
+    <div class="row">
+      <div class="col-12 ">
+        <button type="submit" class="btn btn-outline-success boton me-3 ">Enviar</button>
+      </div>
+        
+        
+    </div>
+    </form>
+   
+  

@@ -1,0 +1,54 @@
+
+
+
+<form [formGroup]="form" class="container-fluid card p-3" (ngSubmit)="onEnviar($event)"  enctype="multipart/form-data">
+    <div class="row">
+      <div class="col-12 col-md-6 mb-3">
+        <label for="descripcion" class="form-label">Descripcion</label>
+        <input type="text" formControlName="descripcion" class="form-control" id="descripcion"  aria-describedby="descripcion" >  
+      </div>
+      <div class="col-12 col-md-6 mb-3">
+        <label for="institucion" class="form-label">Institucion</label>
+        <input type="text" formControlName="institucion" class="form-control" id="institucion" aria-describedby="institucion">  
+      </div>
+      
+       
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <label for="fechaDesde" class="form-label">Fecha Comienzo</label>
+            <input class="form-control" formControlName="fechaDesde" type="date" id="fechaDesde" min="1889-12-24"  [max]="fechaActual">
+          </div>
+          <div class="col-12 col-md-6">
+            <label for="fechaHasta" class="form-label">Fecha Finalizacion</label>
+            <input class="form-control" formControlName="fechaHasta" type="date" id="fechaHasta" [min]="FechaDesde?.value" [attr.disabled]="(hastaActualidad||!FechaDesde?.value)?true:null"  >
+            <div class="form-check">
+                <input (click)="onHastaActualidad()" [checked]="hastaActualidad" type="checkbox"  class="form-check-input" id="hastaActualidad">
+                <label class="form-check-label" for="hastaActualidad">Hasta Actualidad</label>
+              </div>
+          </div>
+        </div>
+        
+    </div>  
+    <div class="row">
+        <div class="col-12  mb-3">
+            <label for="logoUrl" class="form-label">Foto Logo</label>
+            <input type="text" formControlName="logoUrl" class="form-control" id="logoUrl" aria-describedby="logoUrl" placeholder="Ingrese url de la foto"> 
+            <div id="logoHelp" class="form-text">Esta foto sera ignorada si ya hay una cargada</div> 
+          </div>
+          
+    </div>
+    
+    
+    
+     
+  
+    <div class="row">
+      <div class="col-12 ">
+        <button type="submit" class="btn btn-outline-success boton me-3 ">Enviar</button>
+      </div>
+        
+        
+    </div>
+    </form>
+   
+  

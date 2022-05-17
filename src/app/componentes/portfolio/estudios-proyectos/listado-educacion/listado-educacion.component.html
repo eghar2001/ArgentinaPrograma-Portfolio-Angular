@@ -1,0 +1,19 @@
+    <div class="mt-2 d-flex justify-content-between">
+        <h2 class="mt-2">{{eduByTipo.tipoEdu.descripcion}}s</h2>
+        <div>
+            <button class="btn btn-success" (click)="onAgregar()" *ngIf="!(formAgregar||formEditar)">Agregar</button>
+            <button class="btn btn-danger" (click)="onCerrar()"  *ngIf="formAgregar||formEditar">Cerrar</button>
+        </div>
+    </div>
+    <app-agrega-educacion *ngIf="formAgregar" (eduGuardada)="agregarEdu($event)"    [idPerfil]="idPerfil" [idTipoEdu]="eduByTipo.tipoEdu.id"></app-agrega-educacion>
+    <app-edita-educacion *ngIf="formEditar"  (eduEditada)="editarEdu($event)" [idPerfil]="idPerfil" [idTipoEdu]="eduByTipo.tipoEdu.id" [eduOrig]="eduAEditar"></app-edita-educacion>
+    <ul *ngIf="!(formAgregar||formEditar)" cdkDropList (cdkDropListDropped)="onDropped($event)">
+        <li cdkDrag *ngFor="let edu of eduByTipo.educaciones">
+            <app-educacion (eliminarEdu)="onEliminar($event)" 
+            (editarEdu)="onEditar($event)" 
+            [miEducacion]="edu"
+             >
+            </app-educacion>
+        </li>    
+    </ul>
+

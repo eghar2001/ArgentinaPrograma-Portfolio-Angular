@@ -1,0 +1,67 @@
+
+
+<form [formGroup]="form" class="container-fluid card p-3" (ngSubmit)="onEditar($event)" enctype="multipart/form-data">
+  <div class="row">
+    <div class="col-6 col-md-4 mb-3">
+      <label for="nombre" class="form-label">Nombre</label>
+      <input type="text" formControlName="nombre" class="form-control" id="nombre" aria-describedby="nombre">  
+    </div>
+    <div class="col-6 col-md-4 mb-3">
+      <label for="apellido" class="form-label">Apellido</label>
+      <input type="text" formControlName="apellido" class="form-control" id="apellido" aria-describedby="apellido">  
+    </div>  
+    <div class="col-12 col-md-4 mb-3">
+      <label for="fechaNac" class="form-label">Fecha de Nacimiento</label>
+      <input class="form-control" formControlName="fechaNac" type="date" id="fechaNac" min="1900-01-01" [max]="fechaActual">
+    </div>
+  </div> 
+  <div class="row">
+    
+    <div class="col-12 col-md-4 mb-3">
+      <label for="profesion" class="form-label">Profesion</label>
+      <input type="text" formControlName="profesion" class="form-control" id="profesion" aria-describedby="profesion">  
+    </div>
+    <div class="col-6 col-md-4 mb-3">
+      <label for="provincia" class="form-label">Provincia</label>
+      <input type="text" class="form-control" id="provincia" formControlName="provincia">
+    </div>
+    <div class="col-6 col-md-4 mb-3">
+        <label for="localidad" class="form-label">Localidad</label>
+        <input type="text" class="form-control" id="localidad" formControlName="localidad">
+    </div>
+  </div>  
+  <div class=" row">
+    <div class="col-12 mb-3">
+      <label for="perfilUrl" class="form-label">Foto de perfil</label>
+      <input type="text" formControlName="perfilUrl" class="form-control" id="perfilUrl" aria-describedby="perfilUrl" placeholder="Ingrese url de la foto">  
+    </div>
+  </div> 
+  <div class=" row">
+    <div class="col-12 mb-3">
+      <label for="bannerUrl" class="form-label">Foto de Banner</label>
+      <input type="text" formControlName="bannerUrl" class="form-control" id="bannerUrl" aria-describedby="bannerUrl" placeholder="Ingrese url de la foto" >  
+    </div>
+  </div>   
+  
+  
+   
+
+  <div class="row">
+    <div class="col-12 ">
+      <button type="submit" class="btn btn-primary boton me-3 ">Editar
+        <mat-progress-spinner *ngIf="spinner"
+          class="example-margin mb-1"
+          [color]="color"
+          [mode]="mode"
+          [diameter]="diameter"
+          >
+        </mat-progress-spinner>  
+
+      </button>
+      <button class="btn btn-danger boton" (click)="onCerrar()">Cerrar</button>
+    </div>
+      
+      
+  </div>
+  </form>
+ 

@@ -1,0 +1,7 @@
+
+<main class="p-3">
+    <app-perfil [perfil]="portfolio.perfil"></app-perfil>
+    <app-estudios-proyectos [idPerfil]="portfolio.perfil.id"[educacionesByTipo]="portfolio.educacionesByTipo" ></app-estudios-proyectos>
+    <app-listado-experiencia [idPerfil]="portfolio.perfil.id" [experiencias]="portfolio.experiencias"></app-listado-experiencia>
+</main>
+
