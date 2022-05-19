@@ -1,0 +1,16 @@
+.contenedor-valor{
+    width:91%;
+    
+    
+}
+.espacio{
+    display:inline-block;
+}
+
+@media (min-width:768px) {
+    .contenedor-valor{
+        width:97%;
+        
+        
+    }
+}

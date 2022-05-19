@@ -11,8 +11,8 @@ import { Educacion } from 'src/models/educacion.model';
   styleUrls: ['./edita-educacion.component.css']
 })
 export class EditaEducacionComponent implements OnInit {
-  @Input() idTipoEdu:number;
-  @Input() idPerfil:number;
+  
+  
   /*
   Importamos la educacion original
   */
@@ -98,13 +98,11 @@ export class EditaEducacionComponent implements OnInit {
     if(this.form.valid ){
       
       const edu:Educacion ={
-        id:this.eduOrig.id,
-        idPerfil:this.idPerfil,
+        id:this.eduOrig.id,       
         descripcion: this.Descripcion?.value,
         fechaDesde:this.FechaDesde?.value,
         fechaHasta: this.hastaActualidad?null:this.FechaHasta?.value,
-        nombreInstitucion: this.Institucion?.value,
-        idTipoEdu:this.idTipoEdu,    
+        nombreInstitucion: this.Institucion?.value,          
         fotoInstitucionUrl:this.LogoUrl?.value  
       }
       this.eduServ.editEducacion(edu).subscribe((educacion)=>{

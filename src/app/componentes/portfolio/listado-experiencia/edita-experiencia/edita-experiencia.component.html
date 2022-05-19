@@ -1,7 +1,7 @@
 
 
 
-<form [formGroup]="form" class="container-fluid card p-3" (ngSubmit)="onEnviar($event)" enctype="multipart/form-data">
+<form [formGroup]="form" class="container-fluid card p-3" (ngSubmit)="onEnviar($event)" >
     <div class="row">
       <div class="col-12 col-md-4 mb-3">
         <label for="nombreInstitucion" class="form-label">Institucion</label>
@@ -24,11 +24,11 @@
       
        
     <div class="row">
-        <div class="col-12 col-md-6">
+        <div class="col-12 col-md-6 mb-3">
             <label for="fechaDesde" class="form-label">Fecha Comienzo</label>
             <input class="form-control" formControlName="fechaDesde" type="date" id="fechaDesde" min="1889-12-24" [max]="fechaActual">
         </div>
-        <div class="col-12 col-md-6">
+        <div class="col-12 col-md-6 mb-3">
             <label for="fechaHasta" class="form-label">Fecha Finalizacion</label>
             <input class="form-control" formControlName="fechaHasta" type="date" id="fechaHasta" [min]="FechaDesde?.value" [attr.disabled]="(hastaActualidad||!FechaDesde?.value)?true:null"  >
             <div class="form-check">

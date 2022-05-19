@@ -26,7 +26,12 @@ import { EditaEducacionComponent } from './componentes/portfolio/estudios-proyec
 import { AgregaExperienciaComponent } from './componentes/portfolio/listado-experiencia/agrega-experiencia/agrega-experiencia.component';
 import { EditaExperienciaComponent } from './componentes/portfolio/listado-experiencia/edita-experiencia/edita-experiencia.component';
 import {DragDropModule} from '@angular/cdk/drag-drop';
-
+import { SkillsPorTipoComponent } from './componentes/portfolio/skills-por-tipo/skills-por-tipo.component';
+import { ListadoSkillsComponent } from './componentes/portfolio/skills-por-tipo/listado-skills/listado-skills.component';
+import { NgCircleProgressModule } from 'ng-circle-progress';
+import { SkillComponent } from './componentes/portfolio/skills-por-tipo/listado-skills/skill/skill.component';
+import { AgregaSkillComponent } from './componentes/portfolio/skills-por-tipo/listado-skills/agrega-skill/agrega-skill.component';
+import { EditaSkillComponent } from './componentes/portfolio/skills-por-tipo/listado-skills/edita-skill/edita-skill.component';
 
 
 
@@ -53,7 +58,12 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
    AgregaEducacionComponent,
    EditaEducacionComponent,
    AgregaExperienciaComponent,
-   EditaExperienciaComponent
+   EditaExperienciaComponent,
+   SkillsPorTipoComponent,
+   ListadoSkillsComponent,
+   SkillComponent,
+   AgregaSkillComponent,
+   EditaSkillComponent
  
 
     
@@ -67,8 +77,28 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatProgressSpinnerModule,
-    DragDropModule
-    
+    DragDropModule,
+    NgCircleProgressModule.forRoot({
+      "backgroundStrokeWidth": 0,
+      "backgroundPadding": -50,
+      "radius": 97,
+      "space": -1,
+      "outerStrokeGradient": true,
+      "outerStrokeWidth": 10,
+      "outerStrokeColor": "#4882c2",
+      "outerStrokeGradientStopColor": "#53a9ff",
+      "innerStrokeColor": "#e7e8ea",
+      "innerStrokeWidth": 4,
+      
+      "titleFontSize": "10",
+      "subtitleFontSize": "20",
+      "animateTitle": false,
+      "animationDuration": 500,
+      "showTitle": false,
+      "showUnits": false,      
+      "clockwise": false,
+      "lazy": true})
+  
     
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

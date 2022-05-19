@@ -5,7 +5,7 @@ import { PortfolioService } from 'src/app/servicios/portfolio.service';
 
 
 
-import { Portfolio } from 'src/models/portfolio.mode';
+import { Portfolio } from 'src/models/portfolio.model';
 
 
 @Component({

@@ -1,3 +1,4 @@
 <div class="card mt-3 p-2">
-    <app-listado-educacion *ngFor="let eduByTipo of educacionesByTipo" [idPerfil]="idPerfil" [eduByTipo]="eduByTipo"></app-listado-educacion>
+    <h2 class="fs-4">Educacion</h2>
+    <app-listado-educacion *ngFor="let edusByTipo of educacionesByTipos" [idPerfil]="idPerfil" [edusByTipo]="edusByTipo"></app-listado-educacion>
 </div>

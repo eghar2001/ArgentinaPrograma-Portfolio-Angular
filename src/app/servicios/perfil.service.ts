@@ -14,6 +14,7 @@ const httpOptions = {
 })
 export class PerfilService {
   private perfilUrl:string = 'http://localhost:8080/perfil'; 
+
   constructor(private http:HttpClient) { }
   public getPerfil():Observable<Perfil>{    
     return this.http.get<Perfil>(this.perfilUrl+'/traer/1');

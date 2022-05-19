@@ -1,0 +1,16 @@
+<div class="border contenedor border-3 w-auto p-3 d-flex flex-column align-items-center justify-content-start">
+    <circle-progress          
+      [percent]="skill.porcentaje"
+      [radius]="50"  
+      [subtitle]="parseString(skill.porcentaje)"
+      [animation]="true"
+      [animationDuration]="300"  
+    ></circle-progress>
+    <p>
+        {{skill.descripcion}}
+    </p>
+    <div class="d-flex justify-content-center ">
+        <i (click)="onEditar()" class='bx bx-edit-alt bx-md bx-tada-hover  text-primary'  ></i>
+        <i (click)="onEliminar()" class='bx bx-trash-alt bx-md bx-tada-hover  text-danger' ></i>
+    </div>
+</div>

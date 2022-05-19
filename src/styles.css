@@ -27,4 +27,12 @@ p::selection,h1::selection,h2::selection,h3::selection,h4::selection,h5::selecti
     background-color:rgb(218, 152, 32);
     color:rgb(255, 255, 255);
 }
+body{
+    zoom:125%;
+}
 
+@media (min-width:768px){
+    body{
+        zoom:150%;
+    }
+}

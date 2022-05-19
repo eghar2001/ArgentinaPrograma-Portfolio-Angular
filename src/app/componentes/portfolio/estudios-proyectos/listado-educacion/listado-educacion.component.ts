@@ -14,7 +14,7 @@ import { EducacionByTipo } from 'src/models/educacionByTipo.model';
   styleUrls: ['./listado-educacion.component.css']
 })
 export class ListadoEducacionComponent implements OnInit {
-  @Input() eduByTipo:EducacionByTipo;
+  @Input() edusByTipo:EducacionByTipo;
   @Input() idPerfil:number;
 
   eduAEditar:Educacion;
@@ -42,7 +42,7 @@ export class ListadoEducacionComponent implements OnInit {
    onDropped(event:CdkDragDrop<Educacion[]>){
     const anterior = event.previousIndex;
     const actual = event.currentIndex;
-    moveItemInArray(this.eduByTipo.educaciones,anterior,actual);
+    moveItemInArray(this.edusByTipo.educaciones,anterior,actual);
 }
 
    /*  
@@ -59,7 +59,7 @@ export class ListadoEducacionComponent implements OnInit {
   onEliminar(edu:Educacion){
     this.eduServ.deleteEducacion(edu).subscribe((idEduEliminada)=>{
      
-      this.eduByTipo.educaciones = this.eduByTipo.educaciones.filter((educacion) =>educacion.id !== idEduEliminada
+      this.edusByTipo.educaciones = this.edusByTipo.educaciones.filter((educacion) =>educacion.id !== idEduEliminada
 
       )
     });
@@ -68,15 +68,15 @@ export class ListadoEducacionComponent implements OnInit {
   Funcion que se llama una vez que la edu ya se guardo, se agrega al array de educaciones de eduByTipo
   */
   agregarEdu(edu:Educacion){
-    this.eduByTipo.educaciones.push(edu);
+    this.edusByTipo.educaciones.push(edu);
     this.formAgregar = false;
   }
   editarEdu(edu:Educacion){
     let i:number = 0;
-    while(i<this.eduByTipo.educaciones.length && this.eduByTipo.educaciones[i].id!= edu.id){
+    while(i<this.edusByTipo.educaciones.length && this.edusByTipo.educaciones[i].id!= edu.id){
       i++;
     }
-    this.eduByTipo.educaciones.splice(i,1,edu);
+    this.edusByTipo.educaciones.splice(i,1,edu);
     this.formEditar = false;
   }
 

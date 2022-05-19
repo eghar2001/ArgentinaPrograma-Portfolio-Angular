@@ -1,0 +1,23 @@
+
+<div class="">
+    <div class="d-flex justify-content-between">
+        <h3>{{skillsByTipo.tipoSkill.descripcion}}</h3>
+        <div>
+            <button class="btn btn-success" (click)="onAgregar()" *ngIf="!(formAgregar||formEditar)">Agregar</button>
+            <button class="btn btn-danger" (click)="onCerrar()" *ngIf="formAgregar||formEditar">Cerrar</button>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <app-agrega-skill *ngIf="formAgregar" [idTipo]="skillsByTipo.tipoSkill.id" (skillAgregada)="agregarSkill($event)" ></app-agrega-skill>
+        <app-edita-skill *ngIf="formEditar" [skillOrig]="skillAEditar" (skillEditada)="editarSkill($event)"></app-edita-skill>
+        <div *ngIf="!(formAgregar||formEditar)" class="row d-flex flex-row justify-content-center">            
+            <app-skill class="mb-3  w-auto " 
+            *ngFor="let skill of skillsByTipo.skills" 
+            [skill]="skill"
+            (editarSkill)="onEditar($event)"
+            (eliminarSkill)="onEliminar($event)"
+            >
+            </app-skill>
+        </div>
+    </div>
+</div>

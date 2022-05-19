@@ -3,3 +3,9 @@
     height: 150px;
     object-fit: contain;
 }
+.carta:hover{
+    background-color:rgb(226, 226, 226);
+}
+.carta:active{
+    background-color:rgb(180, 179, 179);
+}

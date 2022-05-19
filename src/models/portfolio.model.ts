@@ -1,13 +1,16 @@
 import { Educacion } from "./educacion.model";
-import { EducacionByTipo } from "./educacionByTipo.model";
+
 import { Experiencia } from "./experiencia.model";
 import { Perfil } from "./perfil.model";
+import { Skill } from "./skill.model";
+
 
 
 export interface Portfolio{
    
     perfil:Perfil,
-    educacionesByTipo: EducacionByTipo[],
+    educaciones: Educacion[],
+    skills:Skill[],
     experiencias:Experiencia[];
    
 }
