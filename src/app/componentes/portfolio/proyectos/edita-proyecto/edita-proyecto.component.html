@@ -1,0 +1,27 @@
+<form [formGroup]="form" action="POST" class="card p-3 d-flex flex-column" (ngSubmit)="onEnviar($event)">
+    <h3>Editar Proyecto</h3>
+    
+    <div class="mb-3 ">
+      <label for="nombre" class="form-label">Nombre</label>
+      <input type="text" class="form-control" id="nombre" aria-describedby="nombre" formControlName="nombre">
+    </div>        
+    
+    
+    <div class=" mb-3">
+        <label for="descripcion">Descripcion</label>
+        <textarea class="form-control textarea "  formControlName="descripcion" id="descripcion"></textarea>        
+    </div>
+    <div class="mb-3">    
+        <label for="url" class="form-label">Url de Proyecto</label>
+        <input type="text" class="form-control" id="url" aria-describedby="url" formControlName="url">
+    </div >
+    <div class="mb-3">    
+        <label for="urlFondo" class="form-label">Url de Foto</label>
+        <input type="text" class="form-control" id="urlFoto" aria-describedby="urlFondo" formControlName="fondoUrl">
+        <div id="fondoHelp" class="form-text">Es recomendable que el alto de la imagen sea de aproximadamente 500px</div>
+    </div >
+    <div >
+        <button type="submit" class="btn btn-outline-success boton">Submit</button>
+    </div>
+   
+  </form>

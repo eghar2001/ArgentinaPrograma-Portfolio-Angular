@@ -12,7 +12,7 @@ import { TipoEducacion } from 'src/models/tipoEducacion.model';
 })
 export class EstudiosProyectosComponent implements OnInit {
   @Input() educaciones:Educacion[];
-  @Input() idPerfil:number;
+
   
 
   tiposEducacion:TipoEducacion[];

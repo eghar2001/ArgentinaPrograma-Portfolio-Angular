@@ -1,0 +1,15 @@
+.boton{
+    width: 100%;
+    
+}
+.textarea{
+    height:120px;
+}
+@media (min-width:768px) {
+    .boton{
+        width:auto;
+    }
+    .textarea{
+        height:100px;
+    }
+}

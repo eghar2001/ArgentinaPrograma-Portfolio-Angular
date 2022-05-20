@@ -15,7 +15,6 @@ import { EducacionByTipo } from 'src/models/educacionByTipo.model';
 })
 export class ListadoEducacionComponent implements OnInit {
   @Input() edusByTipo:EducacionByTipo;
-  @Input() idPerfil:number;
 
   eduAEditar:Educacion;
 

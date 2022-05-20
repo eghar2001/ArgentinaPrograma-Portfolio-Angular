@@ -1,0 +1,39 @@
+<div class="card p-3 mb-3">
+  <div class="d-flex flex-row justify-content-between">
+    <h2 class="fs-4">Proyectos</h2>
+    <i *ngIf="!(formAgregar||formEditar)" class='bx bx-plus bx-md text-success' (click)="onAgregar()"></i>
+    <i *ngIf="formAgregar||formEditar" class='bx bx-minus  bx-md text-danger' (click)="onCerrar()" ></i>
+  </div>
+  <app-agrega-proyecto *ngIf="formAgregar" (proyGuardado)="agregarProy($event)"></app-agrega-proyecto>
+  <app-edita-proyecto *ngIf="formEditar" [proyOrig]="proyAEditar" (proyEditado)="editarProy($event)" ></app-edita-proyecto>
+  <div *ngIf="!(formAgregar||formEditar)" id="carouselExampleDark" class="carousel   carousel-dark slide border rounded " data-bs-ride="carousel">
+
+    <div class="carousel-inner">
+      <div  *ngFor="let proy of proyectos;let i = index" class="carousel-item  contenedor "  [ngClass]="{'active':i==0}" data-bs-interval="10000">
+        <img   [src]="proy.fondoUrl" class="d-block w-100 "  [alt]="proy.descripcion">
+          
+          <div class="carousel-caption w-50 p-1 m-auto border border-2 border-dark d-none d-md-block fondo-color">
+            <a [href]="proy.url" target="_blank">
+              <h3 class="fs-5 atext-center">{{proy.nombre}}</h3>
+              <p >{{proy.descripcion}}</p>
+            </a>
+            <div class=" d-flex  justify-content-center align-items-end">
+              <i class='bx bx-edit-alt bx-md bx-tada-hover  text-primary ' (click)="onEditar(proy)"></i>
+              <i class='bx bx-trash-alt bx-md bx-tada-hover  text-danger ' (click)="onDelete(proy)" ></i>
+          </div>
+          
+          </div>
+      
+      </div>
+
+    <button class="carousel-control-prev boton " type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next boton" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+</div>

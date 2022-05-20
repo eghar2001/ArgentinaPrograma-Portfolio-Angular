@@ -21,10 +21,10 @@
                 <p class="card-text text-center text-md-start"> {{perfil.edad}} años. {{perfil.localidad}}, {{perfil.provincia}}</p>
             </div>
         
-            <div class="row justify-content-start gx-2 gy-2">
-                <div class="col-12 col-sm-auto" *ngFor="let redS of perfil.redesSociales" >
+            <div class="row justify-content-start mt-2">
+                <div class="col-auto" *ngFor="let redS of perfil.redesSociales" >
                     
-                   <a [href]="redS.url"><i class='bx-md  bx-tada-hover ' [ngClass]="redS.claseBoxIcon" [ngStyle]="{'color':redS.color}" ></i></a>
+                   <a [href]="redS.url" target="_blank"><i class='bx-md  bx-tada-hover ' [ngClass]="redS.claseBoxIcon" [ngStyle]="{'color':redS.color}" ></i></a>
                 </div>
                 
             </div>

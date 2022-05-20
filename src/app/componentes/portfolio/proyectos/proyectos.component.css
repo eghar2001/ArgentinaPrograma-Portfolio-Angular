@@ -1,0 +1,18 @@
+.contenedor{
+    width:100%;
+    max-height:500px;    
+  }
+
+
+.boton{
+    background-color: white;
+}
+.link{
+    text-decoration:none;
+}
+.link:hover{
+    background-color:rgba(0,0,0,1)
+}
+.fondo-color{
+    background:rgba(255, 255, 255, 0.596);
+}

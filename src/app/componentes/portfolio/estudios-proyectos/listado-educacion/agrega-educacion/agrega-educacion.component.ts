@@ -13,7 +13,7 @@ import { Educacion } from 'src/models/educacion.model';
 })
 export class AgregaEducacionComponent implements OnInit {
   @Input() idTipoEdu:number;
-  @Input() idPerfil:number;
+
   @Output() eduGuardada:EventEmitter<Educacion> = new EventEmitter<Educacion>();
 
   form:FormGroup;
@@ -93,7 +93,7 @@ export class AgregaEducacionComponent implements OnInit {
     if(this.form.valid ){
       
       const edu:Educacion ={
-        idPerfil:this.idPerfil,
+        idPerfil:1,
         descripcion: this.Descripcion?.value,
         fechaDesde:this.FechaDesde?.value,
         fechaHasta: this.hastaActualidad?null:this.FechaHasta?.value,

@@ -11,7 +11,7 @@ import { Experiencia } from 'src/models/experiencia.model';
   styleUrls: ['./listado-experiencia.component.css']
 })
 export class ListadoExperienciaComponent implements OnInit {
-  @Input() idPerfil:number;
+
   @Input() experiencias:Experiencia[];
   constructor(
     private expServ:ExperienciaService

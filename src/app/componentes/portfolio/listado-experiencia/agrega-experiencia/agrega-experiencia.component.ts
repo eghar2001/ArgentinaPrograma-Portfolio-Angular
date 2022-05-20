@@ -11,7 +11,7 @@ import { TipoJornada } from 'src/models/tipoJornada.model';
   styleUrls: ['./agrega-experiencia.component.css']
 })
 export class AgregaExperienciaComponent implements OnInit {
-  @Input() idPerfil:number;
+
   @Output() expAgregada:EventEmitter<Experiencia> = new EventEmitter<Experiencia>();
   
 
@@ -115,7 +115,7 @@ export class AgregaExperienciaComponent implements OnInit {
     if(this.form.valid ){
       
       const exp:Experiencia ={
-        idPerfil:this.idPerfil,
+        idPerfil:1,
         nombreInstitucion: this.NombreInstitucion?.value,
         tipoJornada: {id: parseInt(( this.TipoJornada?.value))},
         fechaDesde:this.FechaDesde?.value,

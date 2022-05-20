@@ -117,7 +117,7 @@ export class EditaExperienciaComponent implements OnInit {
       
       const exp:Experiencia ={
         id:this.expOrig.id,
-        idPerfil:this.expOrig.idPerfil,
+        idPerfil:1,
         nombreInstitucion: this.NombreInstitucion?.value,
         tipoJornada: {id: parseInt( this.TipoJornada?.value)},
         fechaDesde:this.FechaDesde?.value,

@@ -32,6 +32,9 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
 import { SkillComponent } from './componentes/portfolio/skills-por-tipo/listado-skills/skill/skill.component';
 import { AgregaSkillComponent } from './componentes/portfolio/skills-por-tipo/listado-skills/agrega-skill/agrega-skill.component';
 import { EditaSkillComponent } from './componentes/portfolio/skills-por-tipo/listado-skills/edita-skill/edita-skill.component';
+import { ProyectosComponent } from './componentes/portfolio/proyectos/proyectos.component';
+import { AgregaProyectoComponent } from './componentes/portfolio/proyectos/agrega-proyecto/agrega-proyecto.component';
+import { EditaProyectoComponent } from './componentes/portfolio/proyectos/edita-proyecto/edita-proyecto.component';
 
 
 
@@ -63,7 +66,11 @@ import { EditaSkillComponent } from './componentes/portfolio/skills-por-tipo/lis
    ListadoSkillsComponent,
    SkillComponent,
    AgregaSkillComponent,
-   EditaSkillComponent
+   EditaSkillComponent,
+   ProyectosComponent,
+
+   AgregaProyectoComponent,
+    EditaProyectoComponent
  
 
     

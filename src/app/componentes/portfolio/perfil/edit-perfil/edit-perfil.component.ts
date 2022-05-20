@@ -21,8 +21,22 @@ export class EditPerfilComponent implements OnInit {
   @Output() cerrarForm:EventEmitter<null> = new EventEmitter<null>();
   form:FormGroup;
  
-  paises:Pais[];
 
+
+  ngOnInit(): void {
+    this.fechaServ.getFechaActual().subscribe((fechaAct)=> this.fechaActual =fechaAct)
+    
+    this.form = this.formBuilder.group({
+      nombre:[this.perfilOrig.nombre,[]],
+      apellido:[this.perfilOrig.apellido,[]],
+      fechaNac:[this.perfilOrig.fechaNac,[]],
+      profesion:[this.perfilOrig.profesion,[]],
+      perfilUrl:[this.perfilOrig.perfilUrl,[]],
+      bannerUrl:[this.perfilOrig.bannerUrl,[]],          
+      localidad:[this.perfilOrig.localidad,[]],
+      provincia:[this.perfilOrig.provincia]
+    }) 
+  }
   //VARIABLES BOOLEANAS
 
   /*
@@ -32,10 +46,7 @@ export class EditPerfilComponent implements OnInit {
   spinner:boolean;
   
  
-  /*
-  Se utiliza para comunicar el cod postal al componente para crear localidades
-  */
-  codPostal:number;
+
 
   /*
   Propiedades del spinner
@@ -61,20 +72,7 @@ export class EditPerfilComponent implements OnInit {
   }
   fechaActual:string;
   
-  ngOnInit(): void {
-    this.fechaServ.getFechaActual().subscribe((fechaAct)=> this.fechaActual =fechaAct)
-    
-    this.form = this.formBuilder.group({
-      nombre:[this.perfilOrig.nombre,[]],
-      apellido:[this.perfilOrig.apellido,[]],
-      fechaNac:[this.perfilOrig.fechaNac,[]],
-      profesion:[this.perfilOrig.profesion,[]],
-      perfilUrl:[this.perfilOrig.perfilUrl,[]],
-      bannerUrl:[this.perfilOrig.bannerUrl,[]],          
-      localidad:[this.perfilOrig.localidad,[]],
-      provincia:[this.perfilOrig.provincia]
-    }) 
-  }
+  
   get Nombre(){
     return this.form.get('nombre');
   }
