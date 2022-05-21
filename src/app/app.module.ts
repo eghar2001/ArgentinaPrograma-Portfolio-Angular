@@ -35,7 +35,11 @@ import { EditaSkillComponent } from './componentes/portfolio/skills-por-tipo/lis
 import { ProyectosComponent } from './componentes/portfolio/proyectos/proyectos.component';
 import { AgregaProyectoComponent } from './componentes/portfolio/proyectos/agrega-proyecto/agrega-proyecto.component';
 import { EditaProyectoComponent } from './componentes/portfolio/proyectos/edita-proyecto/edita-proyecto.component';
+import { AgregaRedPerfilComponent } from './componentes/portfolio/perfil/agrega-red-perfil/agrega-red-perfil.component';
+import { BorraRedPerfilComponent } from './componentes/portfolio/perfil/borra-red-perfil/borra-red-perfil.component';
+import { AboutComponent } from './componentes/portfolio/about/about.component';
 
+import { EditaRedPerfilComponent } from './componentes/portfolio/perfil/edita-red-perfil/edita-red-perfil.component';
 
 
 
@@ -70,7 +74,12 @@ import { EditaProyectoComponent } from './componentes/portfolio/proyectos/edita-
    ProyectosComponent,
 
    AgregaProyectoComponent,
-    EditaProyectoComponent
+    EditaProyectoComponent,
+    AgregaRedPerfilComponent,
+    BorraRedPerfilComponent,
+    AboutComponent,
+    EditaRedPerfilComponent,
+
  
 
     

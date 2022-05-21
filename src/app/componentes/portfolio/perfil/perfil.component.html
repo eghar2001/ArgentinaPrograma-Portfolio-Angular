@@ -1,5 +1,14 @@
-<div class="mb-3">
-    <app-perfil-content *ngIf="!editar" (editarEvent)="onEditar()" [perfil]="perfil"></app-perfil-content>
-    <app-edit-perfil *ngIf="editar" [perfilOrig]="perfil" (cerrarForm)="cerrarFormulario()" (formTerminado)="actualizaPerfil($event)"></app-edit-perfil>
-
-</div>    
+<section id="perfil" class="mb-3">
+    <app-perfil-content *ngIf="!(editarPerfilForm||editarRedesForm)"
+     (editarPerfil)="onEditarPerfil()" 
+     (editarRedes)="onEditarRedes()"
+     [perfil]="perfil">
+    </app-perfil-content>
+    <app-edit-perfil 
+    *ngIf="editarPerfilForm" 
+    [perfilOrig]="perfil" 
+    (cerrarForm)="onCerrar()"
+     (formTerminado)="actualizaPerfil($event)">
+    </app-edit-perfil>
+    
+</section>    

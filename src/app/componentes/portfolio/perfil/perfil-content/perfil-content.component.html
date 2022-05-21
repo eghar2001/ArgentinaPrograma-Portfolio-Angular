@@ -1,6 +1,6 @@
 
     <div class="card w-100" >
-  
+        
         <div class="banner card-img-top">
             <img [src]="perfil.bannerUrl"    class="banner-foto" alt="...">
         </div>
@@ -13,7 +13,7 @@
                 </div>
                 <div class=" d-flex justify-content-center justify-content-md-start align-items-end">                       
                     <h1 class="d-inline-block fs-2 text-center text-sm-start ">{{perfil.nombre}} {{perfil.apellido}}</h1>
-                    <i (click)="onEditar()"class='bx bx-edit-alt ms-2 bx-sm bx-tada-hover  text-primary align-self-start align-self-sm-center'  ></i>                   
+                    <i (click)="onEditarPerfil()"class='bx bx-edit-alt ms-2 bx-sm bx-tada-hover  text-primary align-self-start align-self-sm-center'  ></i>                   
                  </div>    
             </div>     
             <div class="row justify-content-center justify-content-md-start">         
@@ -21,13 +21,39 @@
                 <p class="card-text text-center text-md-start"> {{perfil.edad}} años. {{perfil.localidad}}, {{perfil.provincia}}</p>
             </div>
         
-            <div class="row justify-content-start mt-2">
+            <div *ngIf="!(formAgregarRed||formBorrarRed||formEditarRed)" class="row justify-content-center justify-content-md-start mt-2">
                 <div class="col-auto" *ngFor="let redS of perfil.redesSociales" >
                     
-                   <a [href]="redS.url" target="_blank"><i class='bx-md  bx-tada-hover ' [ngClass]="redS.claseBoxIcon" [ngStyle]="{'color':redS.color}" ></i></a>
+                   <a [href]="redS.url" target="_blank"><i class='bx-md  bx-tada-hover ' [ngClass]="redS.redSocial.claseBoxIcon?redS.redSocial.claseBoxIcon:''" [ngStyle]="{'color':redS.redSocial.color}" ></i></a>
                 </div>
-                
+                <div class="col-auto mt-3 d-flex align-items-center">
+                    <i class ="border w-auto bx bx-edit-alt ms-2 bx-sm bx-tada-hover  text-primary" (click)="onEditarRed()"></i>
+                    <i class ="border w-auto bx bx-plus ms-2 bx-sm bx-tada-hover  text-success" (click)="onAgregarRed()"></i>
+                    <i class ="border w-auto bx bx-trash-alt ms-2 bx-sm bx-tada-hover  text-danger" (click)="onBorrarRed()"></i>
+                </div>                
             </div>
+            <app-agrega-red-perfil *ngIf="formAgregarRed"
+            (redAgregada)="agregarRed($event)"
+            (cerrarForm)="onCerrar()"
+            [redesExitentes]="perfil.redesSociales"
+            
+            ></app-agrega-red-perfil>
+            <app-borra-red-perfil
+            *ngIf="formBorrarRed"
+            (redBorrada)="borrarRed($event)"
+            (cerrarForm)="onCerrar()"
+            [redes]="perfil.redesSociales"
+            >
+            </app-borra-red-perfil>
+            <app-edita-red-perfil
+            *ngIf="formEditarRed"
+            [redes]="perfil.redesSociales"
+            (cerrarForm)="onCerrar()"
+            (redEditada)="editarRed($event)"
+            >
+
+            </app-edita-red-perfil>
+
     
        
 </div>

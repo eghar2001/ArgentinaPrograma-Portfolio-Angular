@@ -1,6 +1,6 @@
 export interface RedSocial{
-    nombreRedSocial: string,
-    url: string,
-    claseBoxIcon: string,
-    color:string
+    id:number,    
+    nombre?: string,    
+    claseBoxIcon?: string,
+    color?:string
 }

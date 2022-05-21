@@ -3,7 +3,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { FechaService } from 'src/app/servicios/fecha.service';
 
-import { Pais } from 'src/models/pais.model';
+
 import { Perfil } from 'src/models/perfil.model';
 
 
@@ -20,7 +20,19 @@ export class EditPerfilComponent implements OnInit {
   @Output() formTerminado:EventEmitter<Perfil> = new EventEmitter<Perfil>();
   @Output() cerrarForm:EventEmitter<null> = new EventEmitter<null>();
   form:FormGroup;
- 
+  
+  constructor(
+    private perfServ:PerfilService,
+    private fechaServ:FechaService,
+    private formBuilder:FormBuilder,
+   
+
+    ) {
+
+    this.spinner = false;
+
+   
+  }
 
 
   ngOnInit(): void {
@@ -59,17 +71,7 @@ export class EditPerfilComponent implements OnInit {
   
   
 
-  constructor(
-    private perfServ:PerfilService,
-    private fechaServ:FechaService,
-    private formBuilder:FormBuilder,
-
-    ) {
-
-    this.spinner = false;
-
-   
-  }
+  
   fechaActual:string;
   
   

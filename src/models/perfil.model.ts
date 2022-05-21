@@ -1,6 +1,7 @@
 
 
 
+import { RedPerfil,  } from "./redPerfil.model";
 import { RedSocial } from "./redSocial.model";
 
 export interface Perfil{
@@ -14,5 +15,5 @@ export interface Perfil{
     bannerUrl:string,
     localidad: string,
     provincia:string,
-    redesSociales: RedSocial[]
+    redesSociales: RedPerfil[]
 }

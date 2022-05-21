@@ -1,0 +1,27 @@
+
+  <form  [formGroup]="form"  action="POST" class="card p-3 " (ngSubmit)="onEnviar($event)">
+      <h3>Agregar Red Social</h3>
+      <div class="row">
+        <div class="col-12 col-md-6 mb-3">
+          <label for="redSocial"class="form-label">Red Social</label>
+          <select class="form-select" id="redSocial" formControlName="redSocial" >
+              <option *ngFor="let red of redes" [value]="red.id">{{red.nombre}}</option>
+            </select>
+        </div>
+        <div class="col-12 col-md-6 mb-3">
+          <label for="url" class="form-label">Url</label>
+          <input type="text" formControlName="url" class="form-control" id="url" aria-describedby="url">  
+        </div>  
+
+      </div> 
+      <div class="row">
+          <div class="col-12 mb-2">
+            <button type="submit" class="btn btn-success boton me-3  mb-md-0">Agregar  
+            
+            </button>
+            <button class="btn btn-danger boton" (click)="onCerrar()">Cerrar</button>
+          </div>
+
+
+        </div>
+  </form>

@@ -1,6 +1,7 @@
 
 
-<form [formGroup]="form" class="container-fluid card p-3" (ngSubmit)="onEditar($event)" enctype="multipart/form-data">
+<form [formGroup]="form" class="container-fluid card p-3" (ngSubmit)="onEditar($event)" >
+  <h3>Editar Perfil</h3>
   <div class="row">
     <div class="col-6 col-md-4 mb-3">
       <label for="nombre" class="form-label">Nombre</label>
@@ -42,6 +43,7 @@
       <input type="text" formControlName="bannerUrl" class="form-control" id="bannerUrl" aria-describedby="bannerUrl" placeholder="Ingrese url de la foto" >  
     </div>
   </div>   
+  
   
   
    
