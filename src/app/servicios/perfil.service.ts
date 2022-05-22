@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { About } from 'src/models/about.model';
 
 import { Perfil } from 'src/models/perfil.model';
 import { RedPerfil } from 'src/models/redPerfil.model';
@@ -25,6 +26,11 @@ export class PerfilService {
 
     public editProfile(perfilEditado:Perfil):Observable<Perfil>{
       return this.http.put<Perfil>(`${this.perfilUrl}/editar/1`,perfilEditado,httpOptions);
+    }
+    
+    public editaAbout(ab:About){
+      const editAboutUrl:string = `${this.perfilUrl}/1/editaAbout`
+      return this.http.put<About>(editAboutUrl,ab);
     }
 
     public editaRed(red:RedPerfil){

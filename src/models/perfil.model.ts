@@ -10,6 +10,7 @@ export interface Perfil{
     apellido:string,
     fechaNac: string,
     profesion:string,
+    about?:string,
     edad?:number,    
     perfilUrl: string,
     bannerUrl:string,

@@ -40,6 +40,7 @@ import { BorraRedPerfilComponent } from './componentes/portfolio/perfil/borra-re
 import { AboutComponent } from './componentes/portfolio/about/about.component';
 
 import { EditaRedPerfilComponent } from './componentes/portfolio/perfil/edita-red-perfil/edita-red-perfil.component';
+import { EditarAboutComponent } from './componentes/portfolio/about/editar-about/editar-about.component';
 
 
 
@@ -79,6 +80,7 @@ import { EditaRedPerfilComponent } from './componentes/portfolio/perfil/edita-re
     BorraRedPerfilComponent,
     AboutComponent,
     EditaRedPerfilComponent,
+    EditarAboutComponent,
 
  
 

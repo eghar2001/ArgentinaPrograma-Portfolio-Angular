@@ -1,3 +1,11 @@
-<section>
+<section id="about" class="card p-3 mb-3"> 
+    <div class="d-flex justify-content between">
+        <h2>About</h2>
+        <i class="bx bx-edit-alt bx-tada-hover text-primary" *ngIf="!formEditar" (click)="onEditar()"></i>
+    </div>
+    <div *ngIf="!formEditar">
+        <p *ngFor="let match of matches">{{match}}</p>
+    </div>
+    <app-editar-about (aboutEditado)="editarAbout($event)" *ngIf="formEditar" [valorInicial]="about"></app-editar-about>
     
 </section>

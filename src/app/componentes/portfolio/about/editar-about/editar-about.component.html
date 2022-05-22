@@ -1,0 +1,8 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit($event)">
+    <div class="form-floating mb-3">
+        <textarea class="form-control alto"  formControlName="about" placeholder="Ingrese lo que quiera poner en about" id="editAbout" ></textarea>
+        <label for="editAbout">Editar</label>
+        <div id="aboutHelp" class="form-text">Ingresar '\n' al finalizar cada linea</div>
+      </div>
+    <button type="submit" class="btn btn-primary">Editar</button>
+  </form>
