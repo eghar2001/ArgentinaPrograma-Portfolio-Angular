@@ -3,12 +3,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './componentes/login/login.component';
 import { Pagina404Component } from './componentes/pagina404/pagina404.component';
 import { PortfolioComponent } from './componentes/portfolio/portfolio.component';
-import { ProyectosComponent } from './componentes/portfolio/proyectos/proyectos.component';
+import { RegisterComponent } from './componentes/register/register.component';
+import { GuardGuard } from './servicios/guard.guard';
 
 const routes: Routes = [
   {path:'login',component:LoginComponent},
-  {path:'portfolio',component:PortfolioComponent},
-  {path:'',redirectTo:'/portfolio',pathMatch:'full'},
+  {path:'register',component:RegisterComponent},
+  {path:'portfolio',component:PortfolioComponent,canActivate:[GuardGuard]},
+  {path:'',redirectTo:'/login',pathMatch:'full'},
   {path:'**',component:Pagina404Component}
 ];
 

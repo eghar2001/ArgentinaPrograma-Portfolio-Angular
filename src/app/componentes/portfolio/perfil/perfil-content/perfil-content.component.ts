@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { AutenticacionService } from 'src/app/servicios/autenticacion.service';
 import { Perfil } from 'src/models/perfil.model';
 import { RedPerfil } from 'src/models/redPerfil.model';
 import { RedSocial } from 'src/models/redSocial.model';
@@ -11,15 +12,28 @@ import { RedSocial } from 'src/models/redSocial.model';
 export class PerfilContentComponent implements OnInit {
   @Input() perfil:Perfil;
   @Output() editarPerfil:EventEmitter<null> = new EventEmitter<null>();
- 
-  constructor() { }
+  
+  /*
+  Para el manejo de forms de redes
+  */  
   formAgregarRed:boolean;
   formBorrarRed:boolean;
   formEditarRed:boolean;
+
+  /*
+  Para saber si es admin
+  */
+  isAdmin:boolean;
+  constructor(
+    private auth:AutenticacionService
+  ) { }
+  
   ngOnInit(): void {
     this.formAgregarRed = false;
     this.formBorrarRed = false;
     this.formEditarRed = false;
+
+    this.isAdmin = this.auth.IsAdmin;
   }
 
   /*

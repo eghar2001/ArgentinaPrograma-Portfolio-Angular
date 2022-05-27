@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { AutenticacionService } from 'src/app/servicios/autenticacion.service';
 import { Educacion } from 'src/models/educacion.model';
 import { Fecha } from 'src/models/fecha.model';
 
@@ -16,11 +17,15 @@ export class EducacionComponent implements OnInit {
 
   fechaDesde:string;
   fechaHasta:string;
-  constructor() { }
+  isAdmin:boolean;
+  constructor(
+    private auth:AutenticacionService
+  ) { }
 
   ngOnInit(): void {
     this.fechaDesde = Fecha.getPartDateString(this.miEducacion.fechaDesde);
     this.fechaHasta = Fecha.getPartDateString(this.miEducacion.fechaHasta);
+    this.isAdmin = this.auth.IsAdmin;
   }
 
   /*

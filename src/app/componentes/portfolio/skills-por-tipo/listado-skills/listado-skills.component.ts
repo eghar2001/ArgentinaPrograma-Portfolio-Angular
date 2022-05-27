@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { AutenticacionService } from 'src/app/servicios/autenticacion.service';
 import { SkillService } from 'src/app/servicios/skill.service';
 import { Skill } from 'src/models/skill.model';
 import { SkillsByTipo } from 'src/models/skillsByTipo.model';
@@ -11,15 +12,20 @@ import { SkillsByTipo } from 'src/models/skillsByTipo.model';
 export class ListadoSkillsComponent implements OnInit {
   @Input() skillsByTipo:SkillsByTipo
   constructor(
-    private skillServ:SkillService
+    private skillServ:SkillService,
+    private auth:AutenticacionService
   ) { }
   formAgregar:boolean;
   formEditar:boolean;
   skillAEditar:Skill;
   
+
+  isAdmin:boolean;
   ngOnInit(): void {
     this.formAgregar = false;
     this.formEditar=false;
+
+    this.isAdmin = this.auth.IsAdmin;
   }
 
   /*

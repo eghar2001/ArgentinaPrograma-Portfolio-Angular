@@ -1,19 +1,22 @@
 <form class=" " [formGroup]="form" (ngSubmit)="onSubmit($event)">
     <div class="mt-5 m-auto d-flex flex-column justify-content-center align-items-center w-50 border border-3 rounded p-3">
         <div class="w-auto align-self-end">
-          <a class="w-auto h4 d-inline-block register" routerLink="/register">Register</a>
-          <h1 class="w-auto fs-2 d-inline-block ms-2 underlined"><u>Login</u></h1>
+          <a class="w-auto h4 d-inline-block login" routerLink="/login">Login</a>
+          <h1 class="w-auto fs-2 d-inline-block ms-2 underlined"><u>Register</u></h1>
         </div>
         <div class="mb-3 w-100">
           <label for="username" class="form-label ">Username</label>
           <input type="text" class="form-control" id="username" formControlName="username" >
         </div>
         <div class="mb-3 w-100">
+            <label for="email" class="form-label ">Email</label>
+            <input type="email" class="form-control" id="email" formControlName="email" >
+        </div>
+        <div class="mb-3 w-100">
           <label for="password" class="form-label">Contraseña</label>
           <input type="password" class="form-control" id="password" formControlName="password">
         </div>
     
-    <button type="submit" class="btn btn-primary w-auto align-self-start">Login</button>
-    <a class="guest" (click)="onGuest()">Entrar como invitado</a>
+    <button type="submit" class="btn btn-primary w-auto align-self-start">Register</button>
     </div>
 </form>

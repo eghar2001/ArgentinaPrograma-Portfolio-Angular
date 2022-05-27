@@ -10,8 +10,8 @@ import { Pagina404Component } from './componentes/pagina404/pagina404.component'
 import { PerfilComponent } from './componentes/portfolio/perfil/perfil.component';
 import { PortfolioService } from './servicios/portfolio.service';
 import { PerfilService } from './servicios/perfil.service';
-import { HttpClientModule } from '@angular/common/http';
-import { EstudiosProyectosComponent } from './componentes/portfolio/estudios-proyectos/estudios-proyectos.component';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { EducacionesPorTipoComponent } from './componentes/portfolio/estudios-proyectos/educaciones-por-tipo';
 import { ListadoEducacionComponent } from './componentes/portfolio/estudios-proyectos/listado-educacion/listado-educacion.component';
 import { EducacionComponent } from './componentes/portfolio/estudios-proyectos/listado-educacion/educacion/educacion.component';
 import { ListadoExperienciaComponent } from './componentes/portfolio/listado-experiencia/listado-experiencia.component';
@@ -41,6 +41,9 @@ import { AboutComponent } from './componentes/portfolio/about/about.component';
 
 import { EditaRedPerfilComponent } from './componentes/portfolio/perfil/edita-red-perfil/edita-red-perfil.component';
 import { EditarAboutComponent } from './componentes/portfolio/about/editar-about/editar-about.component';
+import { RegisterComponent } from './componentes/register/register.component';
+import { InterceptorService } from './servicios/interceptor.service';
+
 
 
 
@@ -56,7 +59,7 @@ import { EditarAboutComponent } from './componentes/portfolio/about/editar-about
     HeaderComponent,
     Pagina404Component,
     PerfilComponent,
-    EstudiosProyectosComponent,
+    EducacionesPorTipoComponent,
    ListadoEducacionComponent,
    EducacionComponent,
    ListadoExperienciaComponent,
@@ -81,7 +84,7 @@ import { EditarAboutComponent } from './componentes/portfolio/about/editar-about
     AboutComponent,
     EditaRedPerfilComponent,
     EditarAboutComponent,
-
+    RegisterComponent,
  
 
     
@@ -120,7 +123,8 @@ import { EditarAboutComponent } from './componentes/portfolio/about/editar-about
     
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  providers: [PortfolioService,PerfilService ],
+  providers: [PortfolioService,PerfilService,
+  {provide: HTTP_INTERCEPTORS, useClass:InterceptorService, multi:true} ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -3,11 +3,11 @@
     
     <app-perfil [perfil]="portfolio.perfil" ></app-perfil>
     <app-about [about]="portfolio.perfil.about"></app-about>
-   <app-proyectos *ngIf="portfolio.proyectos.length>0" class="mb-3" [proyectos]="portfolio.proyectos"></app-proyectos>
+   <app-proyectos  class="mb-3" [proyectos]="portfolio.proyectos"></app-proyectos>
     
-   <app-estudios-proyectos *ngIf="portfolio.educaciones.length>0" [idPerfil]="portfolio.perfil.id" [educaciones]="portfolio.educaciones" ></app-estudios-proyectos>
-   <app-listado-experiencia *ngIf="portfolio.experiencias.length>0" [idPerfil]="portfolio.perfil.id" [experiencias]="portfolio.experiencias"></app-listado-experiencia>
-   <app-skills-por-tipo *ngIf="portfolio.skills.length>0" [skills]="portfolio.skills"></app-skills-por-tipo>
+   <app-educaciones-por-tipo [idPerfil]="portfolio.perfil.id" [educaciones]="portfolio.educaciones" ></app-educaciones-por-tipo>
+   <app-listado-experiencia  [idPerfil]="portfolio.perfil.id" [experiencias]="portfolio.experiencias"></app-listado-experiencia>
+   <app-skills-por-tipo  [skills]="portfolio.skills"></app-skills-por-tipo>
 
 </main>
 

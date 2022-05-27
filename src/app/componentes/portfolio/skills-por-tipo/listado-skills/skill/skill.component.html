@@ -9,7 +9,7 @@
     <p>
         {{skill.descripcion}}
     </p>
-    <div class="d-flex justify-content-center ">
+    <div *ngIf="isAdmin" class="d-flex justify-content-center ">
         <i (click)="onEditar()" class='bx bx-edit-alt bx-md bx-tada-hover  text-primary'  ></i>
         <i (click)="onEliminar()" class='bx bx-trash-alt bx-md bx-tada-hover  text-danger' ></i>
     </div>

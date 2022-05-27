@@ -1,6 +1,6 @@
     <div class="mt-2 d-flex justify-content-between">
         <h3 class="mt-2">{{edusByTipo.tipoEdu.descripcion}}s</h3>
-        <div>
+        <div *ngIf="isAdmin">
             <i class="bx bx-plus bx-md text-success" (click)="onAgregar()" *ngIf="!(formAgregar||formEditar)"></i>
             <i class="bx bx-minus  bx-md text-danger" (click)="onCerrar()"  *ngIf="formAgregar||formEditar"></i>
         </div>

@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { AutenticacionService } from 'src/app/servicios/autenticacion.service';
 import { Skill } from 'src/models/skill.model';
 
 @Component({
@@ -11,12 +12,18 @@ export class SkillComponent implements OnInit {
 
   @Output() editarSkill:EventEmitter<Skill>= new EventEmitter<Skill>();
   @Output() eliminarSkill:EventEmitter<Skill> = new EventEmitter<Skill>();
-  constructor() { }
+
+  isAdmin:boolean;
+  constructor(
+    private auth:AutenticacionService
+  ) { }
+  ngOnInit(): void {
+    this.isAdmin=this.auth.IsAdmin;
+  }
   parseString(num:number):string{
     return `${num}%`;
   }
-  ngOnInit(): void {
-  }
+  
 
   onEditar(){
     this.editarSkill.emit(this.skill);

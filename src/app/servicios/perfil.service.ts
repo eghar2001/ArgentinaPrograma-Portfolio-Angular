@@ -19,31 +19,32 @@ export class PerfilService {
   private perfilUrl:string = 'http://localhost:8080/perfil'; 
 
   constructor(private http:HttpClient) { }
+  public idPerfActual:number = 2;
   public getPerfil():Observable<Perfil>{    
     return this.http.get<Perfil>(this.perfilUrl+'/traer/1');
   }
 
 
     public editProfile(perfilEditado:Perfil):Observable<Perfil>{
-      return this.http.put<Perfil>(`${this.perfilUrl}/editar/1`,perfilEditado,httpOptions);
+      return this.http.put<Perfil>(`${this.perfilUrl}/editar/${this.idPerfActual}`,perfilEditado,httpOptions);
     }
     
     public editaAbout(ab:About){
-      const editAboutUrl:string = `${this.perfilUrl}/1/editaAbout`
+      const editAboutUrl:string = `${this.perfilUrl}/${this.idPerfActual}/editaAbout`
       return this.http.put<About>(editAboutUrl,ab);
     }
 
     public editaRed(red:RedPerfil){
-      const editRedUrl:string =`${this.perfilUrl}/1/editaRedPerfil`;
+      const editRedUrl:string =`${this.perfilUrl}/${this.idPerfActual}/editaRedPerfil`;
       return this.http.put<RedPerfil>(editRedUrl,red,httpOptions);
     }
     public agregaRed(red:RedPerfil):Observable<RedPerfil>{
-      const addRedUrl:string = `${this.perfilUrl}/1/agregaRedPerfil`;
+      const addRedUrl:string = `${this.perfilUrl}/${this.idPerfActual}/agregaRedPerfil`;
       return this.http.post<RedPerfil>(addRedUrl,red,httpOptions);
     }
 
     public borraRed(red:RedSocial){
-      const deleteRedUrl:string = `${this.perfilUrl}/1/borraRedPerfil/${red.id}`
+      const deleteRedUrl:string = `${this.perfilUrl}/${this.idPerfActual}/borraRedPerfil/${red.id}`
       return this.http.delete(deleteRedUrl);
     }
   

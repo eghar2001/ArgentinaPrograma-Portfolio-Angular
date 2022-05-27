@@ -6,11 +6,11 @@ import { TipoEducacion } from 'src/models/tipoEducacion.model';
 
 
 @Component({
-  selector: 'app-estudios-proyectos',
-  templateUrl: './estudios-proyectos.component.html',
-  styleUrls: ['./estudios-proyectos.component.css']
+  selector: 'app-educaciones-por-tipo',
+  templateUrl: './educaciones-por-tipo.html',
+  styleUrls: ['./educaciones-por-tipo.css']
 })
-export class EstudiosProyectosComponent implements OnInit {
+export class EducacionesPorTipoComponent implements OnInit {
   @Input() educaciones:Educacion[];
 
   

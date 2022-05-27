@@ -1,6 +1,7 @@
 import { moveItemInArray } from '@angular/cdk/drag-drop';
 import { CdkDragDrop } from '@angular/cdk/drag-drop/drag-events';
 import { Component, Input, OnInit } from '@angular/core';
+import { AutenticacionService } from 'src/app/servicios/autenticacion.service';
 import { ExperienciaService } from 'src/app/servicios/experiencia.service';
 import { Experiencia } from 'src/models/experiencia.model';
 
@@ -14,7 +15,8 @@ export class ListadoExperienciaComponent implements OnInit {
 
   @Input() experiencias:Experiencia[];
   constructor(
-    private expServ:ExperienciaService
+    private expServ:ExperienciaService,
+    private auth:AutenticacionService
   ) { }
   /*
   Booleanos para el manejo de los botones
@@ -22,6 +24,8 @@ export class ListadoExperienciaComponent implements OnInit {
   formAgregar:boolean;
   formEditar:boolean;
 
+
+  isAdmin:boolean;
   /*
   Para comunicarse con el componente editaExperiencia
   */
@@ -29,6 +33,7 @@ export class ListadoExperienciaComponent implements OnInit {
 
   ngOnInit(): void {
     this.formAgregar=false;
+    this.isAdmin = this.auth.IsAdmin;
   }
 
   /*

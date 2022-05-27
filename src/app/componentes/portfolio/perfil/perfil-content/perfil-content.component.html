@@ -13,7 +13,7 @@
                 </div>
                 <div class=" d-flex justify-content-center justify-content-md-start align-items-end">                       
                     <h1 class="d-inline-block fs-2 text-center text-sm-start ">{{perfil.nombre}} {{perfil.apellido}}</h1>
-                    <i (click)="onEditarPerfil()"class='bx bx-edit-alt ms-2 bx-sm bx-tada-hover  text-primary align-self-start align-self-sm-center'  ></i>                   
+                    <i *ngIf="isAdmin"(click)="onEditarPerfil()"class='bx bx-edit-alt ms-2 bx-sm bx-tada-hover  text-primary align-self-start align-self-sm-center'  ></i>                   
                  </div>    
             </div>     
             <div class="row justify-content-center justify-content-md-start">         
@@ -26,7 +26,7 @@
                     
                    <a [href]="redS.url" target="_blank"><i class='bx-md  bx-tada-hover ' [ngClass]="redS.redSocial.claseBoxIcon?redS.redSocial.claseBoxIcon:''" [ngStyle]="{'color':redS.redSocial.color}" ></i></a>
                 </div>
-                <div class="col-auto mt-3 d-flex align-items-center">
+                <div class="col-auto mt-3 d-flex align-items-center" *ngIf="isAdmin">
                     <i class ="border w-auto bx bx-edit-alt ms-2 bx-sm bx-tada-hover  text-primary" (click)="onEditarRed()"></i>
                     <i class ="border w-auto bx bx-plus ms-2 bx-sm bx-tada-hover  text-success" (click)="onAgregarRed()"></i>
                     <i class ="border w-auto bx bx-trash-alt ms-2 bx-sm bx-tada-hover  text-danger" (click)="onBorrarRed()"></i>

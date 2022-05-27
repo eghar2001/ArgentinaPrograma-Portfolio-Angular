@@ -8,7 +8,7 @@
                     <p class="text-center m-0 text-sm-start">{{miEducacion.nombreInstitucion}}</p>
                     <p class="text-center m-0 text-sm-start">{{fechaDesde}}- {{fechaHasta}}</p>
                 </div>
-                <div class="col-12 col-sm-3 d-flex justify-content-center justify-content-md-end">
+                <div *ngIf="isAdmin" class="col-12 col-sm-3 d-flex justify-content-center justify-content-md-end">
                     <i (click)="onEditar()" class='bx bx-edit-alt bx-md bx-tada-hover  text-primary'  ></i>
                     <i (click)="onEliminar()" class='bx bx-trash-alt bx-md bx-tada-hover  text-danger' ></i>
                 </div>

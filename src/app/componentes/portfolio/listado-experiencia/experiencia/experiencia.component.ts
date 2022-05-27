@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { AutenticacionService } from 'src/app/servicios/autenticacion.service';
 import { Experiencia } from 'src/models/experiencia.model';
 import { Fecha } from 'src/models/fecha.model';
 
@@ -17,12 +18,18 @@ export class ExperienciaComponent implements OnInit {
   fechaDesde:string;
   fechaHasta:string;
   fondoUrl:string;
-  constructor() { }
+
+  isAdmin:boolean;
+  constructor(
+    private auth:AutenticacionService
+  ) { }
 
   ngOnInit(): void {
     this.fechaDesde = Fecha.getPartDateString(this.miExperiencia.fechaDesde);
     this.fechaHasta = Fecha.getPartDateString(this.miExperiencia.fechaHasta);
     this.fondoUrl = `url(${this.miExperiencia.fondoUrl})`;
+
+    this.isAdmin= this.auth.IsAdmin;
   }
 
   /*

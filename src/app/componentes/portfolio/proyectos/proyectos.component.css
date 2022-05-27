@@ -9,9 +9,13 @@
 }
 .link{
     text-decoration:none;
+    color:#212529;
 }
 .link:hover{
-    background-color:rgba(0,0,0,1)
+    text-decoration:underline;
+}
+.link:active{
+    color:#6a7683;
 }
 .fondo-color{
     background-color:#f8f9fa;/*rgba(255, 255, 255, 0.596);*/

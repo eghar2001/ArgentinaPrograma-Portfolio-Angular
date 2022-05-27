@@ -98,7 +98,7 @@ export class EditaEducacionComponent implements OnInit {
     if(this.form.valid ){
       
       const edu:Educacion ={
-        id:this.eduOrig.id,       
+        id:this.eduOrig.id, 
         descripcion: this.Descripcion?.value,
         fechaDesde:this.FechaDesde?.value,
         fechaHasta: this.hastaActualidad?null:this.FechaHasta?.value,

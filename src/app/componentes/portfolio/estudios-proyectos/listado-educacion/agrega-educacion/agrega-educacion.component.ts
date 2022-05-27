@@ -3,6 +3,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { EducacionService } from 'src/app/servicios/educacion.service';
 import { FechaService } from 'src/app/servicios/fecha.service';
+import { PerfilService } from 'src/app/servicios/perfil.service';
 import { Educacion } from 'src/models/educacion.model';
 
 
@@ -22,7 +23,8 @@ export class AgregaEducacionComponent implements OnInit {
 
   constructor(private fechaServ:FechaService,
     private formBuilder:FormBuilder,
-    private eduServ:EducacionService
+    private eduServ:EducacionService,
+    private perfServ:PerfilService
     ) { }
 
   ngOnInit(): void {
@@ -93,7 +95,7 @@ export class AgregaEducacionComponent implements OnInit {
     if(this.form.valid ){
       
       const edu:Educacion ={
-        idPerfil:1,
+        idPerfil:this.perfServ.idPerfActual,
         descripcion: this.Descripcion?.value,
         fechaDesde:this.FechaDesde?.value,
         fechaHasta: this.hastaActualidad?null:this.FechaHasta?.value,

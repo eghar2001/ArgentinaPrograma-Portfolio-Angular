@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { PerfilService } from 'src/app/servicios/perfil.service';
 import { ProyectoService } from 'src/app/servicios/proyecto.service';
 import {Proyecto} from '../../../../../models/proyecto.model';
 
@@ -15,7 +16,8 @@ export class AgregaProyectoComponent implements OnInit {
   form:FormGroup;
   constructor(
     private formBuilder:FormBuilder,
-    private proyServ:ProyectoService
+    private proyServ:ProyectoService,
+    private perfServ:PerfilService
   ) { }
 
   ngOnInit(): void {
@@ -49,7 +51,7 @@ export class AgregaProyectoComponent implements OnInit {
     if(this.form.valid ){
       
       const proy:Proyecto ={
-        idPerfil:1,
+        idPerfil:this.perfServ.idPerfActual,
         nombre: this.Nombre?.value,
         descripcion: this.Descripcion?.value,
         fondoUrl:this.FondoUrl?.value,

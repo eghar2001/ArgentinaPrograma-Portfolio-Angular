@@ -1,8 +1,8 @@
 
 <div class="">
     <div class="d-flex justify-content-between">
-        <h3>{{skillsByTipo.tipoSkill.descripcion}}</h3>
-        <div>
+        <h3 class="fs-6">{{skillsByTipo.tipoSkill.descripcion}}</h3>
+        <div *ngIf="isAdmin">
             <i class="bx bx-plus bx-md text-success" (click)="onAgregar()" *ngIf="!(formAgregar||formEditar)"></i>
             <i class="bx bx-minus  bx-md text-danger" (click)="onCerrar()" *ngIf="formAgregar||formEditar"></i>
         </div>

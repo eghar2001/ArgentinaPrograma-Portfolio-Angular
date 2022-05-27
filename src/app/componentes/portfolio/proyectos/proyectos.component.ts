@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AutenticacionService } from 'src/app/servicios/autenticacion.service';
 import { ProyectoService } from 'src/app/servicios/proyecto.service';
 import { Proyecto } from 'src/models/proyecto.model';
 
@@ -11,10 +13,20 @@ export class ProyectosComponent implements OnInit {
 
   @Input() proyectos:Proyecto[];
   constructor(
-    private proyServ:ProyectoService
+    private proyServ:ProyectoService,
+    private auth:AutenticacionService,
   ) { }
+
+  /*
+  Booleanos para el manejo de forms
+  */
   formAgregar:boolean;
   formEditar:boolean;
+
+  /*
+  Es admin
+  */
+  isAdmin:boolean;
 
   /*
   Se guarda solo para comunicarse con el componente editar proyecto
@@ -23,6 +35,8 @@ export class ProyectosComponent implements OnInit {
   ngOnInit(): void {
     this.formAgregar=false;
     this.formEditar = false;
+
+    this.isAdmin = this.auth.IsAdmin
   }
   pasaAUrl(str:string):string{
     return `url(${str})`
@@ -44,7 +58,10 @@ export class ProyectosComponent implements OnInit {
   }
   onDelete(proy:Proyecto){
     this.proyServ.deleteProyecto(proy).subscribe(()=>{    
-      this.proyectos = this.proyectos.filter((p) => p.id != proy.id);
+      
+      this.proyectos = this.proyectos.filter((p) =>{
+        p.id !== proy.id
+      });
     })
   }
 
@@ -53,6 +70,7 @@ export class ProyectosComponent implements OnInit {
   */
   agregarProy(proy:Proyecto){
     this.proyectos.push(proy);
+    this.formAgregar = false;
   }
   editarProy(proy:Proyecto){
     let i = 0;

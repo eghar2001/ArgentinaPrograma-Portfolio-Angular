@@ -1,7 +1,7 @@
 <section id="about" class="card p-3 mb-3"> 
     <div class="d-flex justify-content between">
-        <h2>About</h2>
-        <i class="bx bx-edit-alt bx-tada-hover text-primary" *ngIf="!formEditar" (click)="onEditar()"></i>
+        <h2 class="fs-4">About</h2>
+        <i class="bx bx-edit-alt bx-tada-hover text-primary" *ngIf="!formEditar && isAdmin" (click)="onEditar()"></i>
     </div>
     <div *ngIf="!formEditar">
         <p *ngFor="let match of matches">{{match}}</p>

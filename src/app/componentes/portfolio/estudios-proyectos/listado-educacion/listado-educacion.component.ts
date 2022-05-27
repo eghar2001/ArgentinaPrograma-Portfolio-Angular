@@ -1,6 +1,7 @@
 import { moveItemInArray } from '@angular/cdk/drag-drop';
 import { CdkDragDrop } from '@angular/cdk/drag-drop/drag-events';
 import { Component, Input, OnInit } from '@angular/core';
+import { AutenticacionService } from 'src/app/servicios/autenticacion.service';
 import { EducacionService } from 'src/app/servicios/educacion.service';
 import { Educacion } from 'src/models/educacion.model';
 import { EducacionByTipo } from 'src/models/educacionByTipo.model';
@@ -25,16 +26,23 @@ export class ListadoEducacionComponent implements OnInit {
   */
   formAgregar:boolean;
   formEditar:boolean;
-
+  /*
+  esAdmin
+  */
+  isAdmin:boolean;
 
 
   constructor(
-    private eduServ:EducacionService
+    private eduServ:EducacionService,
+    private auth:AutenticacionService
   ) {
     this.formAgregar = false;
     this.formEditar =false;
 
    }
+   ngOnInit(): void {
+   this.isAdmin = this.auth.IsAdmin;
+  }
    /*
    Funcion para el manejo del Drag and Drop
   */
@@ -87,8 +95,6 @@ export class ListadoEducacionComponent implements OnInit {
    this.formEditar=false;
    
  }
-  ngOnInit(): void {
-   
-  }
+  
 
 }

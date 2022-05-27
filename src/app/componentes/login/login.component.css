@@ -1,0 +1,27 @@
+.guest{
+    text-decoration:none;
+    color:#5a6269;
+}
+.guest:hover{
+    text-decoration:underline;    
+}
+.guest:active{
+    color:#212529;
+}
+.guest:visited{
+    text-decoration:none;
+}
+
+.d-inline-block{
+    display: inline-block;
+}
+.register{
+    text-decoration:none;
+    color:#646c74;
+}
+.register:hover{
+    text-decoration:underline;
+}
+.register:active{
+    color:#212529;
+}

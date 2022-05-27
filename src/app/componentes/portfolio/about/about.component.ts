@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { AutenticacionService } from 'src/app/servicios/autenticacion.service';
 
 @Component({
   selector: 'app-about',
@@ -9,11 +10,19 @@ export class AboutComponent implements OnInit {
   @Input() about?:string;
   formEditar:boolean;
   matches:RegExpMatchArray;
-  constructor() { }
+  
+  /*
+  determina si el usuario es un administrador o no
+  */
+  isAdmin:boolean;
+  constructor(
+    private auth:AutenticacionService
+  ) { }
 
   ngOnInit(): void {
     this.formEditar = false;
     this.matches = this.saltoDeLinea(this.about);
+    this.isAdmin = this.auth.IsAdmin;
   }
   /*
   Funcion que donde ve un \n inserta un salto de linea

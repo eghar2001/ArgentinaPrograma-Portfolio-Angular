@@ -1,6 +1,7 @@
 import { ThisReceiver } from '@angular/compiler';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { PerfilService } from 'src/app/servicios/perfil.service';
 import { SkillService } from 'src/app/servicios/skill.service';
 import { Skill } from 'src/models/skill.model';
 
@@ -16,7 +17,8 @@ export class AgregaSkillComponent implements OnInit {
   form:FormGroup;
   constructor(
     private formBuilder:FormBuilder,
-    private skillServ:SkillService
+    private skillServ:SkillService,
+    private perfServ:PerfilService
     ) { }
 
   ngOnInit(): void {
@@ -40,7 +42,7 @@ export class AgregaSkillComponent implements OnInit {
     if(this.form.valid ){
       
       const skill:Skill ={
-        idPerfil:1,
+        idPerfil: this.perfServ.idPerfActual,
         porcentaje: parseInt(this.Porcentaje?.value),
         descripcion: this.Descripcion?.value,
         idTipoSkill:this.idTipo
