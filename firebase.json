@@ -1,0 +1,16 @@
+{
+  "hosting": {
+    "public": "dist/mi-portfolio2",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}

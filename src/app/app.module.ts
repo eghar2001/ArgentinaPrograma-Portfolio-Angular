@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { PortfolioComponent } from './componentes/portfolio/portfolio.component';
 import { LoginComponent } from './componentes/login/login.component';
 import { HeaderComponent } from './componentes/header/header.component';
-import { Pagina404Component } from './componentes/pagina404/pagina404.component';
+import { Pagina404Component } from './componentes/errorMsjs/pagina404/pagina404.component';
 import { PerfilComponent } from './componentes/portfolio/perfil/perfil.component';
 import { PortfolioService } from './servicios/portfolio.service';
 import { PerfilService } from './servicios/perfil.service';
@@ -43,6 +43,7 @@ import { EditaRedPerfilComponent } from './componentes/portfolio/perfil/edita-re
 import { EditarAboutComponent } from './componentes/portfolio/about/editar-about/editar-about.component';
 import { RegisterComponent } from './componentes/register/register.component';
 import { InterceptorService } from './servicios/interceptor.service';
+import { RedesNoDisponiblesComponent } from './componentes/errorMsjs/redes-no-disponibles/redes-no-disponibles.component';
 
 
 
@@ -76,7 +77,6 @@ import { InterceptorService } from './servicios/interceptor.service';
    AgregaSkillComponent,
    EditaSkillComponent,
    ProyectosComponent,
-
    AgregaProyectoComponent,
     EditaProyectoComponent,
     AgregaRedPerfilComponent,
@@ -85,6 +85,7 @@ import { InterceptorService } from './servicios/interceptor.service';
     EditaRedPerfilComponent,
     EditarAboutComponent,
     RegisterComponent,
+    RedesNoDisponiblesComponent
  
 
     

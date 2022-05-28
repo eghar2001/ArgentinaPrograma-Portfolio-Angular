@@ -33,6 +33,9 @@ Depende directamente del componente perfilContentComponent
   ngOnInit(): void {
     this.redServ.getRedesFaltantes().subscribe((redesSociales)=>{
       this.redes =redesSociales;
+      if(redesSociales.length ===0){
+        setTimeout(()=>{this.cerrarForm.emit()},2000)
+      }
       
       }
     )

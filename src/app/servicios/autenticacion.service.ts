@@ -12,7 +12,7 @@ import { ValidacionesAuth } from 'src/models/validacionesAuth.model';
   providedIn: 'root'
 })
 export class AutenticacionService {
-  authUrl:string = 'http://localhost:8080/auth';
+  authUrl:string = 'https://miportfoliospringboot.herokuapp.com/auth';
   currentUserSubject:BehaviorSubject<any>;
   private isAdmin:boolean;
   private isUser:boolean;

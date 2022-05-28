@@ -1,5 +1,5 @@
 
-  <form  [formGroup]="form"  action="POST" class="card p-3 " (ngSubmit)="onEnviar($event)">
+  <form *ngIf="redes.length>0" [formGroup]="form"  action="POST" class="card p-3 " (ngSubmit)="onEnviar($event)">
     <h3>Borra Red Social</h3>
     <div class="row">
       <div class="col-12 mb-3">
@@ -19,3 +19,4 @@
 
       </div>
 </form>
+<app-redes-no-disponibles *ngIf="redes.length === 0" [mensaje]="'No hay redes disponibles, agregue redes primero'"></app-redes-no-disponibles>
