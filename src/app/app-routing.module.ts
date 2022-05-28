@@ -7,9 +7,9 @@ import { RegisterComponent } from './componentes/register/register.component';
 import { GuardGuard } from './servicios/guard.guard';
 
 const routes: Routes = [
-  {path:'login',component:LoginComponent},
-  {path:'register',component:RegisterComponent},
-  {path:'portfolio',component:PortfolioComponent,canActivate:[GuardGuard]},
+  {path:'login',component:LoginComponent,data:{animation:'Login'}},
+  {path:'register',component:RegisterComponent,data:{animation:'Register'}},
+  {path:'portfolio',component:PortfolioComponent,canActivate:[GuardGuard],data:{animation:'Portfolio'}},
   {path:'',redirectTo:'/login',pathMatch:'full'},
   {path:'**',component:Pagina404Component}
 ];

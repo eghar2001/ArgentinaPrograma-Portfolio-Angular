@@ -6,10 +6,16 @@
             <span class="navbar-toggler-icon  "></span>
           </button>
           <div class="collapse navbar-collapse w-auto" id="navbarNavAltMarkup">
-            <div class="navbar-nav w-auto ">
-                
+            <ul class="navbar-nav align-self-end ms-auto mb-2 mb-lg-0 text-light">
+              <li class="nav-item">
+                <a class="nav-link text-light item" aria-current="page" [routerLink]="'/login'">Login</a>
+              </li>
+              <li   class="nav-item">
+                <a class="nav-link text-light item" [routerLink]="'/register'">Register</a>
+              </li>
               
-            </div>
+
+            </ul>
           </div>
         </div>
       </nav>

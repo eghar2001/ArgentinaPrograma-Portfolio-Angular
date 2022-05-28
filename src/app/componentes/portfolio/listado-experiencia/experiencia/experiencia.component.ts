@@ -7,7 +7,8 @@ import { Fecha } from 'src/models/fecha.model';
 @Component({
   selector: 'app-experiencia',
   templateUrl: './experiencia.component.html',
-  styleUrls: ['./experiencia.component.css']
+  styleUrls: ['./experiencia.component.css'],
+  
 })
 export class ExperienciaComponent implements OnInit {
   @Input() miExperiencia:Experiencia;

@@ -21,7 +21,7 @@
                 <p class="card-text text-center text-md-start"> {{perfil.edad}} años. {{perfil.localidad}}, {{perfil.provincia}}</p>
             </div>
         
-            <div *ngIf="!(formAgregarRed||formBorrarRed||formEditarRed)" class="row justify-content-center justify-content-md-start mt-2">
+            <div @laDownToUp *ngIf="!(formAgregarRed||formBorrarRed||formEditarRed)" class="row justify-content-center justify-content-md-start mt-2">
                 <div class="col-auto" *ngFor="let redS of perfil.redesSociales" >
                     
                    <a [href]="redS.url" target="_blank"><i class='bx-md  bx-tada-hover ' [ngClass]="redS.redSocial.claseBoxIcon?redS.redSocial.claseBoxIcon:''" [ngStyle]="{'color':redS.redSocial.color}" ></i></a>

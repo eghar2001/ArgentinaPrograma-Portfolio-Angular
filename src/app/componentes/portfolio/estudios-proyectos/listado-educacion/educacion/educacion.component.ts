@@ -7,7 +7,8 @@ import { Fecha } from 'src/models/fecha.model';
 @Component({
   selector: 'app-educacion',
   templateUrl: './educacion.component.html',
-  styleUrls: ['./educacion.component.css']
+  styleUrls: ['./educacion.component.css'],
+ 
 })
 export class EducacionComponent implements OnInit {
   @Input() miEducacion:Educacion;

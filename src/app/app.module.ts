@@ -99,6 +99,8 @@ import { InterceptorService } from './servicios/interceptor.service';
     BrowserAnimationsModule,
     MatProgressSpinnerModule,
     DragDropModule,
+    
+    BrowserAnimationsModule,
     NgCircleProgressModule.forRoot({
       "backgroundStrokeWidth": 0,
       "backgroundPadding": -50,
@@ -118,7 +120,7 @@ import { InterceptorService } from './servicios/interceptor.service';
       "showTitle": false,
       "showUnits": false,      
       "clockwise": false,
-      "lazy": true})
+      "lazy": true}),
   
     
   ],

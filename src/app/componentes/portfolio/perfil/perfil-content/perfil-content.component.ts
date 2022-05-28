@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { laDownToUp } from 'src/app/animations';
 import { AutenticacionService } from 'src/app/servicios/autenticacion.service';
 import { Perfil } from 'src/models/perfil.model';
 import { RedPerfil } from 'src/models/redPerfil.model';
@@ -7,7 +8,10 @@ import { RedSocial } from 'src/models/redSocial.model';
 @Component({
   selector: 'app-perfil-content',
   templateUrl: './perfil-content.component.html',
-  styleUrls: ['./perfil-content.component.css']
+  styleUrls: ['./perfil-content.component.css'],
+  animations:[
+    laDownToUp
+  ]
 })
 export class PerfilContentComponent implements OnInit {
   @Input() perfil:Perfil;

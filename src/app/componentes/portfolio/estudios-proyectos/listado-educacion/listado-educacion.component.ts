@@ -1,6 +1,7 @@
 import { moveItemInArray } from '@angular/cdk/drag-drop';
 import { CdkDragDrop } from '@angular/cdk/drag-drop/drag-events';
 import { Component, Input, OnInit } from '@angular/core';
+import {   laFade } from 'src/app/animations';
 import { AutenticacionService } from 'src/app/servicios/autenticacion.service';
 import { EducacionService } from 'src/app/servicios/educacion.service';
 import { Educacion } from 'src/models/educacion.model';
@@ -12,7 +13,10 @@ import { EducacionByTipo } from 'src/models/educacionByTipo.model';
 @Component({
   selector: 'app-listado-educacion',
   templateUrl: './listado-educacion.component.html',
-  styleUrls: ['./listado-educacion.component.css']
+  styleUrls: ['./listado-educacion.component.css'],
+  animations:[
+    laFade
+  ]
 })
 export class ListadoEducacionComponent implements OnInit {
   @Input() edusByTipo:EducacionByTipo;

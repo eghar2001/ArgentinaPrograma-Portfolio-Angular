@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AutenticacionService } from 'src/app/servicios/autenticacion.service';
 import { NuevoUsuario } from 'src/models/nuevoUsuario.model';
+import { ValidacionesAuth } from 'src/models/validacionesAuth.model';
 
 @Component({
   selector: 'app-register',
@@ -11,6 +12,7 @@ import { NuevoUsuario } from 'src/models/nuevoUsuario.model';
 })
 export class RegisterComponent implements OnInit {
   form:FormGroup;
+  validaciones:ValidacionesAuth;
   constructor(
     private formBuilder:FormBuilder,
     private auth:AutenticacionService,
@@ -18,11 +20,24 @@ export class RegisterComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.form = this.formBuilder.group({
-      username:[,Validators.minLength(3)],
-      email:[],
-      password:[]
+    this.auth.getValidaciones().subscribe((valids:ValidacionesAuth)=>{
+      this.validaciones = valids;
+      this.form = this.formBuilder.group({
+        username:[null,[Validators.required,
+        Validators.pattern(valids.regexUser),
+        Validators.maxLength(valids.maxLengthUser)
+        ]],
+        email:[null,[Validators.required,
+          Validators.maxLength(valids.maxLengthEmail),
+          Validators.pattern(valids.regexEmail)
+        ]],
+        password:[null,[Validators.required,
+          Validators.maxLength(valids.maxLengthPass),
+          Validators.pattern(valids.regexPass)]
+        ]
+      })
     })
+    
   }
 
   get Username(){
@@ -46,12 +61,10 @@ export class RegisterComponent implements OnInit {
       this.auth.register(nuevoUser).subscribe((msj) => {
         alert(msj.mensaje);
         this.router.navigate(['/login']);
-      },err =>{
-        alert(err.mensaje)
       })
     }
     else{
-     
+     this.form.markAllAsTouched;
     }
   }
 

@@ -1,4 +1,4 @@
-<form class=" " [formGroup]="form" (ngSubmit)="onSubmit($event)">
+<form [formGroup]="form" (ngSubmit)="onSubmit($event)">
     <div class="mt-5 m-auto d-flex flex-column justify-content-center align-items-center w-50 border border-3 rounded p-3">
         <div class="w-auto align-self-end">
           <a class="w-auto h4 d-inline-block register" routerLink="/register">Register</a>
@@ -7,12 +7,22 @@
         <div class="mb-3 w-100">
           <label for="username" class="form-label ">Username</label>
           <input type="text" class="form-control" id="username" formControlName="username" >
+          <div class="text-danger" *ngIf="Username?.hasError && Username?.touched">
+            <p *ngIf="Username?.hasError('required')">El username es requerido</p>
+            <p *ngIf="Username?.hasError('pattern')">Debe empezar con letra minuscula y tener al menos 5 caracteres</p>
+            <p *ngIf="Username?.hasError('maxlength')">Debe tener un máximo de {{validaciones.maxLengthUser}} caracteres</p>
+          </div>
         </div>
         <div class="mb-3 w-100">
           <label for="password" class="form-label">Contraseña</label>
           <input type="password" class="form-control" id="password" formControlName="password">
+          <div class="text-danger" *ngIf="Password?.hasError && Password?.touched">
+            <p *ngIf="Password?.hasError('required')">La contraseña es requerida</p>
+            <p *ngIf="Password?.hasError('maxlength')">Debe tener un máximo de {{validaciones.maxLengthPass}} caracteres</p>
+            <p *ngIf="Password?.hasError('pattern')">Debe tener al menos 4 caracteres al comienzo y 1 digito despues</p>
+          </div>
         </div>
-    
+
     <button type="submit" class="btn btn-primary w-auto align-self-start">Login</button>
     <a class="guest" (click)="onGuest()">Entrar como invitado</a>
     </div>

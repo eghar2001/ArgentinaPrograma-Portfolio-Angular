@@ -1,6 +1,7 @@
 import { moveItemInArray } from '@angular/cdk/drag-drop';
 import { CdkDragDrop } from '@angular/cdk/drag-drop/drag-events';
 import { Component, Input, OnInit } from '@angular/core';
+import { laFade } from 'src/app/animations';
 import { AutenticacionService } from 'src/app/servicios/autenticacion.service';
 import { ExperienciaService } from 'src/app/servicios/experiencia.service';
 import { Experiencia } from 'src/models/experiencia.model';
@@ -9,7 +10,10 @@ import { Experiencia } from 'src/models/experiencia.model';
 @Component({
   selector: 'app-listado-experiencia',
   templateUrl: './listado-experiencia.component.html',
-  styleUrls: ['./listado-experiencia.component.css']
+  styleUrls: ['./listado-experiencia.component.css'],
+  animations:[
+     laFade
+  ]
 })
 export class ListadoExperienciaComponent implements OnInit {
 
@@ -23,7 +27,6 @@ export class ListadoExperienciaComponent implements OnInit {
   */
   formAgregar:boolean;
   formEditar:boolean;
-
 
   isAdmin:boolean;
   /*

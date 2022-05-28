@@ -7,8 +7,8 @@
     </div>
     <app-agrega-educacion *ngIf="formAgregar" (eduGuardada)="agregarEdu($event)"    [idTipoEdu]="edusByTipo.tipoEdu.id"></app-agrega-educacion>
     <app-edita-educacion *ngIf="formEditar"  (eduEditada)="editarEdu($event)" [eduOrig]="eduAEditar"></app-edita-educacion>
-    <ul *ngIf="!(formAgregar||formEditar)" cdkDropList (cdkDropListDropped)="onDropped($event)">
-        <li cdkDrag *ngFor="let edu of edusByTipo.educaciones">
+    <ul [@laFade]="edusByTipo.educaciones.length" *ngIf="!(formAgregar||formEditar)" cdkDropList (cdkDropListDropped)="onDropped($event)">
+        <li  cdkDrag *ngFor="let edu of edusByTipo.educaciones">
             <app-educacion (eliminarEdu)="onEliminar($event)" 
             (editarEdu)="onEditar($event)" 
             [miEducacion]="edu"

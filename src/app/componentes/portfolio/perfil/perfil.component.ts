@@ -7,7 +7,8 @@ import { RedSocial } from 'src/models/redSocial.model';
 @Component({
   selector: 'app-perfil',
   templateUrl: './perfil.component.html',
-  styleUrls: ['./perfil.component.css']
+  styleUrls: ['./perfil.component.css'],
+ 
 })
 export class PerfilComponent implements OnInit {
   @Input() perfil:Perfil;

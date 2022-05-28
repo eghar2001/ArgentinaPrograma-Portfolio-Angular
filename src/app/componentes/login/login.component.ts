@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AutenticacionService } from 'src/app/servicios/autenticacion.service';
 import { Login } from 'src/models/login.model';
+import { ValidacionesAuth } from 'src/models/validacionesAuth.model';
 
 @Component({
   selector: 'app-login',
@@ -10,18 +11,31 @@ import { Login } from 'src/models/login.model';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  form:FormGroup
+  form:FormGroup;
+
+  validaciones:ValidacionesAuth
   constructor(
     private formBuilder:FormBuilder,
     private auth:AutenticacionService,
     private router:Router
   ) { }
-
+  
   ngOnInit(): void {
-    this.form = this.formBuilder.group({
-      username:[,[]],
-      password:[,[]]
+    this.auth.getValidaciones().subscribe((valids:ValidacionesAuth)=>{
+      this.validaciones = valids;
+      this.form = this.formBuilder.group({
+        username:[null,[Validators.required,
+          Validators.pattern(valids.regexUser),
+          Validators.maxLength(valids.maxLengthUser),
+          
+        ]],
+        password:[null,[Validators.required,
+          Validators.maxLength(valids.maxLengthPass),
+          Validators.pattern(valids.regexPass)
+        ]]
+      });
     })
+    
   }
 
   get Username(){
@@ -42,6 +56,8 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/portfolio']);
       });
 
+    }else{
+      this.form.markAllAsTouched;
     }
   }
   onGuest(){

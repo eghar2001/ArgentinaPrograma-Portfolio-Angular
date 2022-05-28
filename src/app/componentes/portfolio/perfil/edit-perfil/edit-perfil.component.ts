@@ -12,7 +12,8 @@ import { SpinnerConfig } from 'src/app/spinner.config';
 @Component({
   selector: 'app-edit-perfil',
   templateUrl: './edit-perfil.component.html',
-  styleUrls: ['./edit-perfil.component.css']
+  styleUrls: ['./edit-perfil.component.css'],
+ 
 })
 export class EditPerfilComponent implements OnInit {
   

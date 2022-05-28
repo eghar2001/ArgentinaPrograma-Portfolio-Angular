@@ -1,11 +1,10 @@
 
-<main class="p-3">
-    
-    <app-perfil [perfil]="portfolio.perfil" ></app-perfil>
-    <app-about [about]="portfolio.perfil.about"></app-about>
+<main class="p-3 ">
+   <app-perfil [perfil]="portfolio.perfil" ></app-perfil>
+   <app-about [about]="portfolio.perfil.about"></app-about>
    <app-proyectos  class="mb-3" [proyectos]="portfolio.proyectos"></app-proyectos>
-    
-   <app-educaciones-por-tipo [idPerfil]="portfolio.perfil.id" [educaciones]="portfolio.educaciones" ></app-educaciones-por-tipo>
+   <app-educaciones-por-tipo  [idPerfil]="portfolio.perfil.id" [educaciones]="portfolio.educaciones" ></app-educaciones-por-tipo>
+ 
    <app-listado-experiencia  [idPerfil]="portfolio.perfil.id" [experiencias]="portfolio.experiencias"></app-listado-experiencia>
    <app-skills-por-tipo  [skills]="portfolio.skills"></app-skills-por-tipo>
 

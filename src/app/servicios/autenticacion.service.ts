@@ -6,6 +6,7 @@ import { Login } from 'src/models/login.model';
 import { Mensaje } from 'src/models/mensaje.model';
 import { NuevoUsuario } from 'src/models/nuevoUsuario.model';
 import { Token } from 'src/models/token.model';
+import { ValidacionesAuth } from 'src/models/validacionesAuth.model';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +15,7 @@ export class AutenticacionService {
   authUrl:string = 'http://localhost:8080/auth';
   currentUserSubject:BehaviorSubject<any>;
   private isAdmin:boolean;
+  private isUser:boolean;
   constructor(
     private http:HttpClient
   ) {
@@ -21,18 +23,17 @@ export class AutenticacionService {
     if(this.currentUserSubject.value.authorities){
       this.isAdmin = this.determinaAdmin(this.currentUserSubject.value.authorities);
     }
-    console.log(this.isAdmin);
-  
+   
   }
+
+  
   
   login(credenciales:Login):Observable<any>{
     const loginUrl:string = `${this.authUrl}/login`
     return this.http.post<any>(loginUrl,credenciales).pipe(map((data:any) => {
       sessionStorage.setItem('currentUser',JSON.stringify(data));
       this.currentUserSubject.next(data);
-      
       this.isAdmin = this.determinaAdmin(data.authorities);
-      console.log(this.isAdmin);
       return data;
     }))
   }
@@ -46,6 +47,15 @@ export class AutenticacionService {
   get IsAdmin():boolean{
     return this.isAdmin;
   }
+  get IsUser():boolean{
+    return this.isUser;
+  }
+  public getValidaciones():Observable<ValidacionesAuth>{
+    return this.http.get<ValidacionesAuth>(`${this.authUrl}/validaciones`)
+  }
+
+  
+
   private determinaAdmin(authorities:Authority[]):boolean{
     let esAdmin:boolean = false;
     for(let i = authorities.length -1; i>=0;i--){
@@ -58,4 +68,6 @@ export class AutenticacionService {
   }
 
 
+  
+ 
 }
