@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, map, Observable } from 'rxjs';
 import { Authority } from 'src/models/authority.model';
 import { Login } from 'src/models/login.model';
-import { Mensaje } from 'src/models/mensaje.model';
 import { NuevoUsuario } from 'src/models/nuevoUsuario.model';
 import { Token } from 'src/models/token.model';
 import { ValidacionesAuth } from 'src/models/validacionesAuth.model';
@@ -38,9 +37,9 @@ export class AutenticacionService {
       return data;
     }))
   }
-  register(credenciales:NuevoUsuario):Observable<Mensaje>{
+  register(credenciales:NuevoUsuario):Observable<string>{
     const registerUrl:string = `${this.authUrl}/nuevo`;
-    return this.http.post<Mensaje>(registerUrl,credenciales);
+    return this.http.post<string>(registerUrl,credenciales);
   }
   get UsuarioAutenticado():Token{
     return this.currentUserSubject.value;

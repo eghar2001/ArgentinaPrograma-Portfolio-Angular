@@ -12,8 +12,7 @@ import { ValidacionesAuth } from 'src/models/validacionesAuth.model';
 })
 export class LoginComponent implements OnInit {
   form:FormGroup;
-
-  validaciones:ValidacionesAuth
+  validaciones:ValidacionesAuth;
   constructor(
     private formBuilder:FormBuilder,
     private auth:AutenticacionService,
@@ -21,6 +20,7 @@ export class LoginComponent implements OnInit {
   ) { }
   
   ngOnInit(): void {
+    
     this.auth.getValidaciones().subscribe((valids:ValidacionesAuth)=>{
       this.validaciones = valids;
       this.form = this.formBuilder.group({
@@ -52,9 +52,15 @@ export class LoginComponent implements OnInit {
         nombreUsuario:this.Username?.value,
         password:this.Password?.value
       }
-      this.auth.login(credenciales).subscribe(data =>{
-        this.router.navigate(['/portfolio']);
-      });
+      this.auth.login(credenciales).subscribe({
+        next:(data)=>{
+          alert('logueado correctamente');
+          this.router.navigate(['/portfolio']);
+        },
+        error:(data)=>{
+          alert('credenciales mal puestas');
+        }
+      })
 
     }else{
       this.form.markAllAsTouched;
@@ -66,8 +72,8 @@ export class LoginComponent implements OnInit {
       password:'guest'
     }
     this.auth.login(credenciales).subscribe(data => {
-      this.router.navigate(['/portfolio'])
     })
   }
+  
 
 }

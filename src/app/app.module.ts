@@ -51,7 +51,6 @@ import { RedesNoDisponiblesComponent } from './componentes/errorMsjs/redes-no-di
 
 
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -86,7 +85,6 @@ import { RedesNoDisponiblesComponent } from './componentes/errorMsjs/redes-no-di
     EditarAboutComponent,
     RegisterComponent,
     RedesNoDisponiblesComponent
- 
 
     
     

@@ -26,6 +26,13 @@ export let laDownToUp = trigger('laDownToUp', [
 ]) 
 
 export let routerAnim= trigger('routeAnimations',[
+  transition('* => Loading',[
+    style({opacity:0}),
+    animate('0.5s ease-out',style({opacity:1}))
+  ]),
+  transition('Loading => *',[
+  
+  ]), 
     transition('* <=> Portfolio',[
         style({transform:'translateX(100%)',opacity:0}),
         animate('0.5s ease-out',keyframes([
@@ -34,6 +41,7 @@ export let routerAnim= trigger('routeAnimations',[
 
         ]))
     ]),
+    
     transition('* <=>*',[
         style({transform:'translateY(100%)',opacity:0}),
         animate('0.5s ease-out',keyframes([

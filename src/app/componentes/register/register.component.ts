@@ -58,9 +58,13 @@ export class RegisterComponent implements OnInit {
         email:this.Email?.value,
         password:this.Password?.value
       }
-      this.auth.register(nuevoUser).subscribe((msj) => {
-        alert(msj.mensaje);
-        this.router.navigate(['/login']);
+      this.auth.register(nuevoUser).subscribe({
+        next:()=>{
+          alert("Usuario "+nuevoUser.nombreUsuario +" registrado!");
+        },
+        error:(mensaje:string)=>{
+          alert(mensaje);
+        }
       })
     }
     else{

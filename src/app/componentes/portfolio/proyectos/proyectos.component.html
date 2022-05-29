@@ -11,7 +11,7 @@
   <div *ngIf="!(formAgregar||formEditar)" id="carouselExampleDark" class="carousel   carousel-dark slide border rounded " data-bs-ride="carousel">
 
     <div class="carousel-inner">
-      <div  *ngFor="let proy of proyectos;let i = index" class="carousel-item  contenedor "  [ngClass]="{'active':i==0}" data-bs-interval="3000">
+      <div  *ngFor="let proy of proyectos;let i = index" class="carousel-item  contenedor "  [ngClass]="{'active':i==0}" data-bs-interval="4000">
         <img   [src]="proy.fondoUrl" class="d-block w-100 "  [alt]="proy.descripcion">
           
           <div class="carousel-caption w-50 p-1 m-auto border border-2 border-dark d-none d-md-block fondo-color">

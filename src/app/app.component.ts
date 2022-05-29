@@ -13,10 +13,14 @@ import { routerAnim } from './animations';
 export class AppComponent {
   title = 'miPortfolio2';
   constructor(
-    private contexts: ChildrenOutletContexts
+    private contexts: ChildrenOutletContexts,
   ){
 
   }
+  ngOninit(){
+    
+  }
+  
   getRouteAnimationData() {
     return this.contexts.getContext('primary')?.route?.snapshot?.data?.['animation'];
   }
