@@ -6,6 +6,7 @@ import { About } from 'src/models/about.model';
 import { Perfil } from 'src/models/perfil.model';
 import { RedPerfil } from 'src/models/redPerfil.model';
 import { RedSocial } from 'src/models/redSocial.model';
+import { urlBack } from './urlBack';
 const httpOptions = {
   headers: new HttpHeaders({
       'Accept': 'application/json',
@@ -16,7 +17,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class PerfilService {
-  private perfilUrl:string = 'http://localhost:8080/perfil'; 
+  private perfilUrl:string = `${urlBack}/perfil`; 
 
   constructor(private http:HttpClient) { }
   public idPerfActual:number = 2;

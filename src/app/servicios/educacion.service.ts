@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Educacion } from 'src/models/educacion.model';
 import { TipoEducacion } from 'src/models/tipoEducacion.model';
+import { urlBack } from './urlBack';
 const httpOptions = {
   headers: new HttpHeaders({
       'Accept': 'application/json',
@@ -13,7 +14,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class EducacionService {
-  private eduUrl:string = 'http://localhost:8080/educacion'; 
+  private eduUrl:string = `${urlBack}/educacion`; 
   constructor(private http:HttpClient) { }
   public getTipoEducaciones():Observable<TipoEducacion[]>{
     return this.http.get<TipoEducacion[]>(this.eduUrl +"/tipo/traer");

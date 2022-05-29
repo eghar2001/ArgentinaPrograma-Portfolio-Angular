@@ -1,7 +1,6 @@
 import { ThisReceiver } from '@angular/compiler';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { FechaService } from 'src/app/servicios/fecha.service';
 
 
 import { Perfil } from 'src/models/perfil.model';
@@ -24,7 +23,6 @@ export class EditPerfilComponent implements OnInit {
   
   constructor(
     private perfServ:PerfilService,
-    private fechaServ:FechaService,
     private formBuilder:FormBuilder,
    
 
@@ -37,7 +35,7 @@ export class EditPerfilComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.fechaServ.getFechaActual().subscribe((fechaAct)=> this.fechaActual =fechaAct)
+    this.fechaActual = (new Date).toDateString();
     
     this.form = this.formBuilder.group({
       nombre:[this.perfilOrig.nombre,[]],

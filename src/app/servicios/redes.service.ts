@@ -3,12 +3,13 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { RedSocial } from 'src/models/redSocial.model';
 import { PerfilService } from './perfil.service';
+import { urlBack } from './urlBack';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RedService {
-  private redesUrl = 'http://localhost:8080/redSocial';
+  private redesUrl = `${urlBack}/redSocial`;
   constructor(
     private http:HttpClient,
     private perfServ:PerfilService

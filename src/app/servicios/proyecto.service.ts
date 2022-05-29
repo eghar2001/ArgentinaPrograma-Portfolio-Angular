@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Proyecto } from 'src/models/proyecto.model';
+import { urlBack } from './urlBack';
 const httpOptions = {
   headers: new HttpHeaders({
       'Accept': 'application/json',
@@ -14,7 +15,8 @@ const httpOptions = {
 export class ProyectoService {
 
   constructor(private http:HttpClient) { }
-  private proyectoUrl:string = "http://localhost:8080/proyecto";  
+  private proyectoUrl:string = `${urlBack}/proyecto`;  
+  
 
   public createProyecto(proy:Proyecto):Observable<Proyecto>{
     const crearUrl:string = `${this.proyectoUrl}/crear`;

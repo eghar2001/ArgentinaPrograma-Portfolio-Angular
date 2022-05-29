@@ -1,0 +1,1 @@
+export const urlBack:string = "https://miportfoliospringboot.herokuapp.com";

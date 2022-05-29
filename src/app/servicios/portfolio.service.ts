@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Portfolio } from 'src/models/portfolio.model';
 import { AutenticacionService } from './autenticacion.service';
 import { PerfilService } from './perfil.service';
+import { urlBack } from './urlBack';
 
 
 
@@ -11,7 +12,7 @@ import { PerfilService } from './perfil.service';
   providedIn: 'root'
 })
 export class PortfolioService {
-  private portfolioUrl:string = `http://localhost:8080/portfolio/traer/${this.perfServ.idPerfActual}`;  
+  private portfolioUrl:string = `${urlBack}/portfolio/traer/${this.perfServ.idPerfActual}`;  
   
   constructor(
     private http:HttpClient,

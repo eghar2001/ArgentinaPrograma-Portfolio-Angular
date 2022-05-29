@@ -1,7 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ExperienciaService } from 'src/app/servicios/experiencia.service';
-import { FechaService } from 'src/app/servicios/fecha.service';
 import { PerfilService } from 'src/app/servicios/perfil.service';
 import { Experiencia } from 'src/models/experiencia.model';
 import { TipoJornada } from 'src/models/tipoJornada.model';
@@ -25,7 +24,6 @@ export class AgregaExperienciaComponent implements OnInit {
   */
 
   constructor(
-    private fechaServ:FechaService,
     private formBuilder:FormBuilder,
     private expServ:ExperienciaService,
     private perfServ:PerfilService
@@ -48,9 +46,7 @@ export class AgregaExperienciaComponent implements OnInit {
     /*
     Recibo fecha actual para poder realizar las validaciones
     */
-    this.fechaServ.getFechaActual().subscribe(fecha=>{
-      this.fechaActual = fecha;
-    })
+    this.fechaActual = (new Date).toDateString();
     /*
     Valores de inicio de las variables
     */

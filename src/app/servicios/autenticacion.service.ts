@@ -7,12 +7,13 @@ import { Mensaje } from 'src/models/mensaje.model';
 import { NuevoUsuario } from 'src/models/nuevoUsuario.model';
 import { Token } from 'src/models/token.model';
 import { ValidacionesAuth } from 'src/models/validacionesAuth.model';
+import { urlBack } from './urlBack';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AutenticacionService {
-  authUrl:string = 'https://miportfoliospringboot.herokuapp.com/auth';
+  authUrl:string = `${urlBack}/auth`;
   currentUserSubject:BehaviorSubject<any>;
   private isAdmin:boolean;
   private isUser:boolean;

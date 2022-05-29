@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Educacion } from 'src/models/educacion.model';
 import { Experiencia } from 'src/models/experiencia.model';
 import { TipoJornada } from 'src/models/tipoJornada.model';
+import { urlBack } from './urlBack';
 const httpOptions = {
   headers: new HttpHeaders({
       'Accept': 'application/json',
@@ -14,7 +15,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class ExperienciaService {
-  private expUrl = 'http://localhost:8080/experiencia';
+  private expUrl = `${urlBack}/experiencia`;
   constructor(
     private http:HttpClient
   ) { }

@@ -1,7 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { EducacionService } from 'src/app/servicios/educacion.service';
-import { FechaService } from 'src/app/servicios/fecha.service';
 import { Educacion } from 'src/models/educacion.model';
 
 
@@ -23,7 +22,7 @@ export class EditaEducacionComponent implements OnInit {
   fechaActual:string;
   hastaActualidad:boolean;
  
-  constructor(private fechaServ:FechaService,
+  constructor(
     private formBuilder:FormBuilder,
     private eduServ:EducacionService
     ) { }
@@ -44,9 +43,9 @@ export class EditaEducacionComponent implements OnInit {
     /*
     Recibo fecha actual para poder realizar las validaciones
     */
-    this.fechaServ.getFechaActual().subscribe(fecha=>{
-      this.fechaActual = fecha;
-    })
+
+      this.fechaActual = (new Date).toDateString();
+   
     /*
     Valores de inicio de las variables
     */
