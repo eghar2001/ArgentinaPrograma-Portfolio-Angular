@@ -1,3 +1,7 @@
+
+#Proyecto porfolio del Argentina Programa
+Frontend del portfolio del proyecto final del ARGENTINA PROGRAMA hecho en Angular.
+
 # MiPortfolio2
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.0.
